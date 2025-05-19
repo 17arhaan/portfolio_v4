@@ -1,0 +1,1 @@
+self.__NEXT_FONT_MANIFEST="{\"pages\":{},\"app\":{\"/Users/arhaan17/Documents/Coding/Portfolio_v4/app/layout\":[\"static/media/a34f9d1faa5f3315-s.p.woff2\",\"static/media/bb3ef058b751a6ad-s.p.woff2\"]},\"appUsingSizeAdjust\":true,\"pagesUsingSizeAdjust\":false}"
