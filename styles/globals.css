@@ -92,3 +92,12 @@ body {
     @apply bg-background text-foreground;
   }
 }
+
+@keyframes glow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(255,255,255,0.5), 0 0 8px 2px #fff; }
+  50% { box-shadow: 0 0 16px 6px #fff, 0 0 24px 8px #fff; }
+}
+
+.animate-glow {
+  animation: glow 2.5s infinite ease-in-out;
+}

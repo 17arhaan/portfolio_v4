@@ -33,6 +33,10 @@ import {
   Users,
   BarChart2,
   Check,
+  Trophy,
+  Star,
+  GitFork,
+  GitPullRequest,
 } from "lucide-react"
 import SkillCategoryDisplayComponent from "@/components/skill-category-display"
 import CustomCursor from "@/components/custom-cursor"
@@ -41,6 +45,7 @@ import ReactConfetti from 'react-confetti';
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover"
 import { format } from "date-fns"
 import { Calendar } from "@/components/ui/calendar"
+import ProgressSection from "@/components/progress-section"
 
 // Define types for skills
 type SkillCategory =
@@ -224,7 +229,7 @@ export default function Portfolio() {
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ["home", "about", "experience", "projects", "certifications", "skills", "contact"]
+      const sections = ["home", "about", "experience", "projects", "certifications", "skills", "achievements", "contact"]
       const scrollPosition = window.scrollY + 100
 
       for (const section of sections) {
@@ -432,7 +437,7 @@ export default function Portfolio() {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="hidden md:flex space-x-8"
           >
-            {["home", "about", "experience", "projects", "certifications", "skills", "contact"].map((item) => (
+            {["home", "about", "experience", "projects", "certifications", "skills", "achievements", "contact"].map((item) => (
               <li key={item}>
                 <button
                   onClick={() => scrollToSection(item)}
@@ -1115,14 +1120,17 @@ export default function Portfolio() {
           </div>
         </section>
 
-        <section id="skills" className="py-20 md:py-32 bg-black">
-          <div className="container mx-auto px-6">
-            <SectionHeader title="Skills" icon={<Cpu className="w-6 h-6" />} />
+        {/* Skills Section */}
+        <section id="skills" className="py-20 px-4 md:px-8">
+          <SkillCategoryDisplayComponent />
+        </section>
 
-            <div className="mt-16">
-              <SkillCategoryDisplayComponent />
-            </div>
-          </div>
+        {/* Progress Section */}
+        <section id="achievements">
+          <ProgressSection 
+            githubUsername="17arhaan" 
+            leetcodeUsername="arhaan17" 
+          />
         </section>
 
         <section id="contact" className="py-20 md:py-32 bg-zinc-950">
@@ -1987,7 +1995,11 @@ function MobileMenu({
 
   return (
     <div>
-      <button onClick={() => setIsOpen(!isOpen)} className="text-white p-2">
+      <button 
+        onClick={() => setIsOpen(!isOpen)} 
+        className="text-white p-2"
+        aria-label="Toggle menu"
+      >
         <div className="w-6 space-y-1.5">
           <motion.span
             animate={{ rotate: isOpen ? 45 : 0, y: isOpen ? 8 : 0 }}
@@ -2010,7 +2022,7 @@ function MobileMenu({
             className="absolute top-16 left-0 right-0 bg-black border-b border-white/10 overflow-hidden"
           >
             <ul className="py-4 px-6">
-              {["home", "about", "experience", "projects", "certifications", "skills", "contact"].map((item) => (
+              {["home", "about", "experience", "projects", "certifications", "skills", "achievements", "contact"].map((item) => (
                 <motion.li
                   key={item}
                   initial={{ x: -20, opacity: 0 }}
@@ -2753,6 +2765,28 @@ function EnhancedExperienceSection() {
           </motion.div>
         </motion.div>
       ))}
+
+      {/* References Button - After timeline */}
+      <motion.div
+        initial={{ opacity: 0, y: -20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5 }}
+        className="flex justify-center mt-16"
+      >
+        <motion.a
+          href="https://drive.google.com/drive/folders/1S55QbJu8Pv5a8wAxj5SMgOviAwjTbmKl?usp=sharing"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center gap-2 px-6 py-3 bg-black/40 backdrop-blur-md border border-white/10 rounded-lg hover:bg-black/60 transition-all duration-300 group"
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+        >
+          <FileText className="w-5 h-5 text-white/70 group-hover:text-white transition-colors" />
+          <span className="text-white/70 group-hover:text-white transition-colors">View References</span>
+          <ExternalLink className="w-4 h-4 text-white/70 group-hover:text-white transition-colors" />
+        </motion.a>
+      </motion.div>
 
       <AnimatePresence>
         {selectedExperience && (
