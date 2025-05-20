@@ -422,7 +422,7 @@ export default function Portfolio() {
               whileTap={{ scale: 0.95 }}
               className="focus:outline-none"
             >
-              <img src="/AG3.png" alt="Arhaan Girdhar" className="h-14 w-auto object-contain my-auto mt-[3px]" />
+              <img src="/sign.png" alt="Arhaan Girdhar" className="h-14 w-auto object-contain my-auto mt-[3px]" />
             </motion.button>
           </motion.div>
 
@@ -1945,99 +1945,34 @@ function CertificationsGrid() {
 }
 
 function LoadingScreen() {
-  const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
-  const [progress, setProgress] = useState(0);
-
-  useEffect(() => {
-    // Set dimensions only on client side
-    setDimensions({
-      width: window.innerWidth,
-      height: window.innerHeight
-    });
-
-    // Simulate 5 second loading
-    const interval = setInterval(() => {
-      setProgress(prev => {
-        if (prev >= 100) {
-          clearInterval(interval);
-          return 100;
-        }
-        return prev + 1;
-      });
-    }, 50); // 50ms * 100 = 5 seconds
-
-    return () => clearInterval(interval);
-  }, []);
-
   return (
     <div className="fixed inset-0 bg-black flex items-center justify-center z-50">
-      {/* Background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-black via-zinc-900 to-black opacity-50" />
-
-      <motion.div 
-        initial={{ opacity: 0 }} 
-        animate={{ opacity: 1 }} 
-        className="text-center relative"
-      >
-        {/* 3D Cube */}
-        <div className="relative w-32 h-32 mx-auto mb-12 perspective-1000">
-          <motion.div
-            className="relative w-full h-full preserve-3d"
-            animate={{
-              rotateX: [0, 360],
-              rotateY: [0, 360],
-            }}
-            transition={{
-              duration: 8,
-              repeat: Number.POSITIVE_INFINITY,
-              ease: "linear",
-            }}
-          >
-            {/* Cube faces */}
-            <div className="absolute inset-0 border-2 border-white/30 transform-gpu rotate-y-0 preserve-3d" />
-            <div className="absolute inset-0 border-2 border-white/30 transform-gpu rotate-y-90 preserve-3d" />
-            <div className="absolute inset-0 border-2 border-white/30 transform-gpu rotate-y-180 preserve-3d" />
-            <div className="absolute inset-0 border-2 border-white/30 transform-gpu rotate-y-270 preserve-3d" />
-            <div className="absolute inset-0 border-2 border-white/30 transform-gpu rotate-x-90 preserve-3d" />
-            <div className="absolute inset-0 border-2 border-white/30 transform-gpu -rotate-x-90 preserve-3d" />
-          </motion.div>
-        </div>
-
-        {/* Enhanced Progress Bar */}
-        <div className="relative w-64 h-2 bg-white/10 rounded-full mx-auto overflow-hidden">
-          <motion.div
-            className="absolute top-0 left-0 h-full bg-gradient-to-r from-white/50 via-white to-white/50"
-            style={{ width: `${progress}%` }}
-            transition={{ duration: 0.1 }}
-          />
-          {/* Glow effect */}
-          <motion.div
-            className="absolute top-0 left-0 h-full w-8 bg-white/30 blur-md"
-            animate={{
-              x: [0, 256],
-            }}
-            transition={{
-              duration: 1.5,
-              repeat: Number.POSITIVE_INFINITY,
-              ease: "linear",
-            }}
-          />
-        </div>
-
-        {/* Loading text */}
+      <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="text-center">
+        <motion.div
+          animate={{
+            scale: [1, 1.2, 1],
+            rotate: [0, 180, 360],
+          }}
+          transition={{
+            duration: 2,
+            repeat: Number.POSITIVE_INFINITY,
+            repeatType: "loop",
+          }}
+          className="w-16 h-16 border-t-2 border-white rounded-full mx-auto mb-6"
+        />
+        <motion.div
+          initial={{ width: 0 }}
+          animate={{ width: "100%" }}
+          transition={{ duration: 1.5 }}
+          className="h-0.5 bg-white/50 w-48 mx-auto"
+        />
         <motion.p
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.3 }}
-          className="mt-4 text-gray-400 font-mono"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.5 }}
+          className="mt-4 text-gray-400"
         >
-          Loading portfolio
-          <motion.span
-            animate={{ opacity: [0, 1, 0] }}
-            transition={{ duration: 1.5, repeat: Number.POSITIVE_INFINITY }}
-          >
-            ...
-          </motion.span>
+          Loading portfolio...
         </motion.p>
       </motion.div>
     </div>

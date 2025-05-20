@@ -55,7 +55,7 @@ export const metadata: Metadata = {
     siteName: "Arhaan Girdhar Portfolio",
     images: [
       {
-        url: "/AG3.png",
+        url: "/favicon.png",
         width: 1200,
         height: 630,
         alt: "Arhaan Girdhar - Software Developer & AI Enthusiast",
@@ -69,7 +69,7 @@ export const metadata: Metadata = {
     title: "Arhaan Girdhar | Software Developer & AI Enthusiast",
     description: "A passionate software developer and AI enthusiast with a knack for turning complex problems into elegant solutions. Currently pursuing my B.Tech in Computer Science at MIT Manipal, I specialize in full-stack development, machine learning, and computer vision. My goal is to create technology that makes a meaningful impact while continuously learning and growing in this ever-evolving field.",
     creator: "@17arhaan",
-    images: ["/AG3.png"],
+    images: ["/favicon.png"],
   },
   robots: {
     index: true,
@@ -89,22 +89,8 @@ export const metadata: Metadata = {
   },
   category: "technology",
   icons: {
-    icon: [
-      { url: "/AG3.png", sizes: "32x32", type: "image/png" },
-      { url: "/AG3.png", sizes: "16x16", type: "image/png" },
-      { url: "/AG3.png", sizes: "48x48", type: "image/png" },
-      { url: "/AG3.png", sizes: "64x64", type: "image/png" },
-      { url: "/AG3.png", sizes: "96x96", type: "image/png" },
-      { url: "/AG3.png", sizes: "128x128", type: "image/png" },
-      { url: "/AG3.png", sizes: "192x192", type: "image/png" },
-      { url: "/AG3.png", sizes: "256x256", type: "image/png" },
-      { url: "/AG3.png", sizes: "512x512", type: "image/png" }
-    ],
-    apple: [
-      { url: "/AG3.png", sizes: "180x180", type: "image/png" },
-      { url: "/AG3.png", sizes: "152x152", type: "image/png" },
-      { url: "/AG3.png", sizes: "120x120", type: "image/png" }
-    ],
+    icon: "/AG3.png",
+    apple: "/AG3.png",
     shortcut: "/AG3.png"
   },
 }
