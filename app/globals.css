@@ -13,6 +13,7 @@ body {
   background: linear-gradient(to bottom, transparent, rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb));
   scrollbar-width: thin;
   scrollbar-color: rgba(255, 255, 255, 0.1) transparent;
+  cursor: none !important;
 }
 
 body::-webkit-scrollbar {
@@ -43,26 +44,48 @@ body::-webkit-scrollbar-thumb {
   user-select: none;
 }
 
+/* Hide default cursor when custom cursor is active */
+body {
+  cursor: none !important;
+}
+
 /* Ensure consistent cursor behavior */
 a,
 button,
 [role="button"],
-input,
-select,
-textarea,
-label,
 .cursor-pointer,
 [tabindex]:not([tabindex="-1"]) {
   cursor: none !important;
 }
 
-/* Ensure cursor consistency for all elements */
-* {
+/* Ensure cursor consistency for form elements */
+input,
+select,
+textarea,
+label {
   cursor: none !important;
 }
 
 /* Fix for input fields to maintain functionality */
-input,
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="number"],
+input[type="password"],
+input[type="search"],
+input[type="url"],
 textarea {
-  cursor: text !important;
+  cursor: none !important;
+}
+
+input[type="button"],
+input[type="submit"],
+input[type="reset"],
+button {
+  cursor: none !important;
+}
+
+/* Remove cursor: none from all elements */
+* {
+  cursor: none !important;
 }
