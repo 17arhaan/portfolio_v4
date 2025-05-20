@@ -270,7 +270,7 @@ export default function ProgressSection({ githubUsername, leetcodeUsername }: Pr
               </motion.div>
               {/* Timeline dots */}
               {[
-                { title: 'Met Rank', description: 'Rank 171', year: 2020, delay: '0s' },
+                { title: 'Met Rank - 171', year: 2020, delay: '0s' },
                 { title: 'Hacksplostion', description: 'Hackathon', year: 2024, delay: '0.7s' },
                 { title: 'Think-a-thon', description: 'Competition', year: 2024, delay: '1.3s' },
                 { title: 'Creathon', description: 'Hackathon', year: 2024, delay: '0.4s' },
@@ -299,7 +299,7 @@ export default function ProgressSection({ githubUsername, leetcodeUsername }: Pr
             {/* Timeline content */}
             <div className="flex w-full justify-between mt-6 flex-wrap">
               {[
-                { title: 'Met Rank', description: 'Rank 171', year: 2020 },
+                { title: 'MET Rank - 171', year: 2020 },
                 { title: 'Hacksplostion', description: 'Hackathon', year: 2024 },
                 { title: 'Think-a-thon', description: 'Competition', year: 2024 },
                 { title: 'Creathon', description: 'Hackathon', year: 2024 },
