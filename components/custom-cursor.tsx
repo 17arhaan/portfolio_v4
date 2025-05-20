@@ -7,24 +7,39 @@ export default function CustomCursor() {
   const [isPointer, setIsPointer] = useState(false)
   const [isClicking, setIsClicking] = useState(false)
   const [isVisible, setIsVisible] = useState(false)
+  const [isMobile, setIsMobile] = useState(true) // Start with true to prevent flash
   const cursorRef = useRef<HTMLDivElement>(null)
   const trailContainerRef = useRef<HTMLDivElement>(null)
   const trailPointsRef = useRef<HTMLDivElement[]>([])
   const lastPositionRef = useRef({ x: -100, y: -100 })
   const frameRef = useRef<number>()
 
+  // Check if mobile and update on resize
+  useEffect(() => {
+    const checkMobile = () => {
+      const mobile = window.innerWidth < 1024 || 'ontouchstart' in window
+      setIsMobile(mobile)
+    }
+
+    // Initial check
+    checkMobile()
+
+    // Update on resize
+    window.addEventListener('resize', checkMobile)
+    return () => window.removeEventListener('resize', checkMobile)
+  }, [])
+
   // Initialize trail points
   useEffect(() => {
-    // Create trail points
+    if (isMobile) return // Don't initialize trail on mobile
+
     const maxTrailPoints = 5
     const trailContainer = trailContainerRef.current
 
     if (trailContainer) {
-      // Clear any existing trail points
       trailContainer.innerHTML = ""
       trailPointsRef.current = []
 
-      // Create new trail points
       for (let i = 0; i < maxTrailPoints; i++) {
         const point = document.createElement("div")
         point.className = "absolute rounded-full bg-white pointer-events-none"
@@ -42,16 +57,17 @@ export default function CustomCursor() {
         cancelAnimationFrame(frameRef.current)
       }
     }
-  }, [])
+  }, [isMobile])
 
+  // Handle cursor movement and visibility
   useEffect(() => {
-    // Show cursor after a short delay to prevent initial animation from wrong position
+    if (isMobile) return // Don't handle cursor on mobile
+
     const timer = setTimeout(() => {
       setIsVisible(true)
     }, 500)
 
     const updateMousePosition = (e: MouseEvent) => {
-      // Direct DOM manipulation for better performance
       if (cursorRef.current) {
         const size = isPointer ? 10 : 8
         cursorRef.current.style.transform = `translate(${e.clientX}px, ${e.clientY}px) scale(${isClicking ? 0.8 : 1})`
@@ -59,12 +75,9 @@ export default function CustomCursor() {
         cursorRef.current.style.height = `${size}px`
       }
 
-      // Update trail
       const distance = Math.hypot(e.clientX - lastPositionRef.current.x, e.clientY - lastPositionRef.current.y)
 
-      // Only add new trail point if moved enough
       if (distance > 8) {
-        // Shift all positions
         for (let i = trailPointsRef.current.length - 1; i > 0; i--) {
           const prevPoint = trailPointsRef.current[i - 1]
           const currentPoint = trailPointsRef.current[i]
@@ -76,7 +89,6 @@ export default function CustomCursor() {
           }
         }
 
-        // Add new position at the beginning
         if (trailPointsRef.current[0]) {
           trailPointsRef.current[0].style.left = `${e.clientX}px`
           trailPointsRef.current[0].style.top = `${e.clientY}px`
@@ -86,14 +98,12 @@ export default function CustomCursor() {
         lastPositionRef.current = { x: e.clientX, y: e.clientY }
       }
 
-      // Only update state when needed for other components
       setMousePosition({ x: e.clientX, y: e.clientY })
     }
 
     const updateCursorType = (e: MouseEvent) => {
       const target = document.elementFromPoint(e.clientX, e.clientY) as HTMLElement
       if (target) {
-        // Check if the element or its parents are interactive
         const isInteractive =
           target.matches(
             'a, button, [role="button"], input, select, textarea, [tabindex]:not([tabindex="-1"]), .cursor-pointer',
@@ -106,22 +116,18 @@ export default function CustomCursor() {
     const handleMouseDown = () => setIsClicking(true)
     const handleMouseUp = () => setIsClicking(false)
 
-    // Throttle mousemove for cursor type check (less frequent)
     let lastMoveTime = 0
     const handleMouseMove = (e: MouseEvent) => {
       updateMousePosition(e)
 
       const now = performance.now()
       if (now - lastMoveTime > 100) {
-        // Only check cursor type every 100ms
         updateCursorType(e)
         lastMoveTime = now
       }
     }
 
-    // Animation loop for smooth trail fading
     const animate = () => {
-      // Gradually fade out trail points
       trailPointsRef.current.forEach((point) => {
         if (point) {
           const currentOpacity = Number.parseFloat(point.style.opacity || "0")
@@ -147,35 +153,37 @@ export default function CustomCursor() {
       window.removeEventListener("mousedown", handleMouseDown)
       window.removeEventListener("mouseup", handleMouseUp)
     }
-  }, [isPointer, isClicking])
+  }, [isPointer, isClicking, isMobile])
 
-  // Hide the default cursor
+  // Handle cursor visibility
   useEffect(() => {
-    document.body.style.cursor = "none"
+    if (isMobile) {
+      // Reset cursor styles on mobile
+      document.body.style.cursor = ""
+      document.querySelectorAll("*").forEach((el) => {
+        (el as HTMLElement).style.cursor = ""
+      })
+      return
+    }
 
-    // Add cursor styles to all interactive elements
+    // Desktop cursor handling
+    document.body.style.cursor = "none"
     const addCursorStyles = () => {
       const interactiveElements = document.querySelectorAll(
         'a, button, [role="button"], input, select, textarea, [tabindex]:not([tabindex="-1"]), .cursor-pointer',
       )
       interactiveElements.forEach((el) => {
-        ;(el as HTMLElement).style.cursor = "none"
+        (el as HTMLElement).style.cursor = "none"
       })
-
-      // Add to all elements to ensure consistency
       document.querySelectorAll("*").forEach((el) => {
-        ;(el as HTMLElement).style.cursor = "none"
+        (el as HTMLElement).style.cursor = "none"
       })
-
-      // Special handling for input fields
       document.querySelectorAll("input, textarea").forEach((el) => {
-        ;(el as HTMLElement).style.cursor = "text"
+        (el as HTMLElement).style.cursor = "text"
       })
     }
 
-    // Run once and then observe DOM changes
     addCursorStyles()
-
     const observer = new MutationObserver(addCursorStyles)
     observer.observe(document.body, { childList: true, subtree: true })
 
@@ -183,7 +191,10 @@ export default function CustomCursor() {
       document.body.style.cursor = ""
       observer.disconnect()
     }
-  }, [])
+  }, [isMobile])
+
+  // Don't render anything on mobile
+  if (isMobile) return null
 
   return (
     <>

@@ -409,7 +409,7 @@ export default function Portfolio() {
       </div>
 
       <header className="fixed top-0 left-0 right-0 z-50 bg-black/40 backdrop-blur-sm border-b border-white/10">
-        <nav className="container mx-auto px-6 py-2 flex justify-between items-center">
+        <nav className="container mx-auto px-3 sm:px-6 py-2 flex justify-between items-center min-h-[56px]">
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -515,7 +515,7 @@ export default function Portfolio() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: 0.5 }}
-                  className="text-5xl md:text-7xl font-bold mb-8 tracking-tight"
+                  className="text-3xl xs:text-4xl sm:text-5xl md:text-7xl font-bold mb-6 sm:mb-8 tracking-tight leading-tight sm:leading-tight"
                 >
                   <span className="text-gray-400">Hello, I'm </span>
                   <span className="relative inline-block">
@@ -524,7 +524,7 @@ export default function Portfolio() {
                       initial={{ width: "0%" }}
                       animate={{ width: "100%" }}
                       transition={{ duration: 0.8, delay: 1.2 }}
-                      className="absolute bottom-0 left-0 h-4 bg-white/10 z-0"
+                      className="absolute bottom-0 left-0 h-3 sm:h-4 bg-white/10 z-0"
                     />
                   </span>
                 </motion.h1>
@@ -533,13 +533,13 @@ export default function Portfolio() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: 0.7 }}
-                  className="text-2xl md:text-4xl text-gray-300 mb-12 h-12 flex items-center justify-center"
+                  className="text-lg xs:text-xl sm:text-2xl md:text-4xl text-gray-300 mb-8 sm:mb-12 h-10 sm:h-12 flex items-center justify-center"
                 >
-                  <span className="mr-3">I'm a</span>
+                  <span className="mr-2 sm:mr-3">I'm a</span>
                   <span className="text-white font-medium relative">
                     {typedText}
                     <motion.span
-                      className="absolute right-[-8px] top-0 h-full w-[2px] bg-white"
+                      className="absolute right-[-6px] sm:right-[-8px] top-0 h-full w-[2px] bg-white"
                       animate={{ opacity: [0, 1, 0] }}
                       transition={{ duration: 0.8, repeat: Number.POSITIVE_INFINITY }}
                     />
@@ -550,7 +550,7 @@ export default function Portfolio() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: 0.9 }}
-                  className="text-gray-400 max-w-3xl mx-auto mb-16 leading-relaxed text-lg md:text-xl italic"
+                  className="text-gray-400 max-w-3xl mx-auto mb-10 sm:mb-16 leading-relaxed text-base sm:text-lg md:text-xl italic px-2 sm:px-0"
                 >
                   A Computer Science student passionate about AI/ML and software development. Turning visions into reality.
                 </motion.p>
@@ -559,7 +559,7 @@ export default function Portfolio() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: 1.1 }}
-                  className="flex justify-center space-x-6 mb-24"
+                  className="flex flex-wrap justify-center gap-4 sm:gap-6 mb-16 sm:mb-24"
                 >
                   <SocialLink icon={<Github className="w-6 h-6" />} href="https://github.com/17arhaan" />
                   <SocialLink icon={<Linkedin className="w-6 h-6" />} href="https://www.linkedin.com/in/arhaan17/" />
@@ -1765,7 +1765,7 @@ function CertificationsGrid() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4"
+            className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4 mt-[56px] md:mt-0"
           >
             <motion.div
               ref={modalRef}
@@ -1874,7 +1874,7 @@ function CertificationsGrid() {
                   </div>
                   <motion.button
                     onClick={() => setSelectedCert(null)}
-                    className="text-gray-400 hover:text-white p-1"
+                    className="text-gray-400 hover:text-white p-1 z-10"
                     whileHover={{ scale: 1.1, rotate: 90 }}
                     whileTap={{ scale: 0.9 }}
                   >
@@ -2340,7 +2340,7 @@ function ProjectCard({
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4"
+            className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4 mt-[56px] md:mt-0"
           >
             <motion.div
               ref={modalRef}
@@ -2358,14 +2358,14 @@ function ProjectCard({
               >
                 {/* Header Section */}
                 <motion.div
-                  className="flex items-start justify-between mb-6"
+                  className="flex flex-col md:flex-row items-start justify-between mb-6"
                   initial={{ y: -10, opacity: 0 }}
                   animate={{ y: 0, opacity: 1 }}
                   transition={{ duration: 0.4 }}
                 >
-                  <div className="flex items-center">
+                  <div className="flex flex-col md:flex-row items-center md:items-start w-full">
                     <motion.div
-                      className="w-96 h-48 rounded-lg overflow-hidden mr-4 bg-white/5 flex items-center justify-center border border-white/10"
+                      className="w-full md:w-96 h-48 rounded-lg overflow-hidden md:mr-4 bg-white/5 flex items-center justify-center border border-white/10 mb-4 md:mb-0"
                       initial={{ scale: 0.9, opacity: 0 }}
                       animate={{ scale: 1, opacity: 1 }}
                       transition={{ duration: 0.5, delay: 0.1 }}
@@ -2377,16 +2377,16 @@ function ProjectCard({
                         className="w-full h-full object-cover"
                       />
                     </motion.div>
-                    <div>
+                    <div className="flex-1 text-center md:text-left">
                       <motion.h3
-                        className={`text-3xl font-bold ${colors.text}`}
+                        className={`text-xl md:text-2xl font-bold ${colors.text}`}
                         initial={{ x: -10, opacity: 0 }}
                         animate={{ x: 0, opacity: 1 }}
                         transition={{ duration: 0.4, delay: 0.2 }}
                       >
                         {title}
                       </motion.h3>
-                      <div className="flex space-x-4 mt-4">
+                      <div className="flex flex-wrap justify-center md:justify-start gap-2 mt-4">
                         {links.map((link, index) => (
                           <motion.a
                             key={index}
@@ -2415,7 +2415,7 @@ function ProjectCard({
                   </div>
                   <motion.button
                     onClick={() => setIsModalOpen(false)}
-                    className="text-gray-400 hover:text-white p-1"
+                    className="text-gray-400 hover:text-white p-1 z-10"
                     whileHover={{ scale: 1.1, rotate: 90 }}
                     whileTap={{ scale: 0.9 }}
                   >
@@ -2431,7 +2431,7 @@ function ProjectCard({
                     transition={{ duration: 0.5, delay: 0.3 }}
                   >
                     <motion.div
-                      className={`h-px bg-gradient-to-r from-transparent via-${colors.border.split('/')[0]}/20 to-transparent w-full mb-6`}
+                      className="h-px bg-gradient-to-r from-transparent via-white/20 to-transparent w-full mb-6"
                       initial={{ width: 0 }}
                       animate={{ width: "100%" }}
                       transition={{ duration: 0.8, delay: 0.2 }}
@@ -2453,7 +2453,7 @@ function ProjectCard({
                             transition={{ duration: 0.3, delay: 0.4 + index * 0.1 }}
                             whileHover={{ scale: 1.5 }}
                           />
-                          <p className="text-gray-200">{point.replace('• ', '')}</p>
+                          <p className="text-gray-200 text-sm md:text-base">{point.replace('• ', '')}</p>
                         </motion.div>
                       ))}
                     </div>
@@ -2466,13 +2466,13 @@ function ProjectCard({
                     transition={{ duration: 0.5, delay: 0.6 }}
                   >
                     <motion.div
-                      className={`h-px bg-gradient-to-r from-transparent via-${colors.border.split('/')[0]}/20 to-transparent w-full mb-6`}
+                      className="h-px bg-gradient-to-r from-transparent via-white/20 to-transparent w-full mb-6"
                       initial={{ width: 0 }}
                       animate={{ width: "100%" }}
                       transition={{ duration: 0.8, delay: 0.5 }}
                     />
 
-                    <div className="flex flex-wrap gap-2">
+                    <div className="flex flex-wrap gap-2 justify-center md:justify-start">
                       {tags.map((tag, index) => (
                         <motion.span
                           key={tag}
@@ -2594,7 +2594,7 @@ function EnhancedExperienceSection() {
     <div className="relative mt-8 pb-4">
       {/* Animated timeline vertical line with gradient effect */}
       <motion.div
-        className="absolute left-1/2 transform -translate-x-1/2 top-0 bottom-0 w-[2px] bg-gradient-to-b from-white/5 via-white/20 to-white/5 overflow-hidden"
+        className="absolute left-1/2 md:left-1/2 transform -translate-x-1/2 top-0 bottom-0 w-[2px] bg-gradient-to-b from-white/5 via-white/20 to-white/5 overflow-hidden"
         initial={{ height: 0 }}
         whileInView={{ height: "100%" }}
         viewport={{ once: true }}
@@ -2623,9 +2623,9 @@ function EnhancedExperienceSection() {
       {["2024", "2025"].map((year, index) => (
         <motion.div
           key={year}
-          className="absolute left-1/2 transform -translate-x-1/2 z-10"
+          className="absolute left-1/2 md:left-1/2 transform -translate-x-1/2 z-10"
           style={{
-            top: index === 0 ? "0%" : "65%", // Changed from 50% to 65% to position between last two experiences
+            top: index === 0 ? "0%" : "65%",
           }}
           initial={{ opacity: 0, x: -30 }}
           animate={{ opacity: 1, x: 0 }}
@@ -2650,7 +2650,7 @@ function EnhancedExperienceSection() {
           onMouseLeave={() => setHoveredIndex(null)}
         >
           {/* Fixed position date marker at center of timeline */}
-          <div className="absolute left-1/2 transform -translate-x-1/2 top-1/2 -translate-y-1/2 z-10">
+          <div className="absolute left-1/2 md:left-1/2 transform -translate-x-1/2 top-1/2 -translate-y-1/2 z-10">
             <motion.div
               className="w-10 h-10 flex items-center justify-center cursor-pointer"
               whileHover={{ scale: 1.1 }}
@@ -2683,8 +2683,8 @@ function EnhancedExperienceSection() {
 
           {/* Content box */}
           <motion.div
-            className={`w-[calc(50%-4rem)] bg-black/40 backdrop-blur-sm border border-white/10 rounded-lg p-5 cursor-pointer hover:border-white/30 transition-all relative ${
-              index % 2 === 0 ? "mr-8" : "ml-8"
+            className={`w-full md:w-[calc(50%-4rem)] bg-black/40 backdrop-blur-sm border border-white/10 rounded-lg p-4 md:p-5 cursor-pointer hover:border-white/30 transition-all relative ${
+              index % 2 === 0 ? "md:mr-8" : "md:ml-8"
             }`}
             whileHover={{ scale: 1.03 }}
             animate={
@@ -2699,7 +2699,7 @@ function EnhancedExperienceSection() {
           >
             {/* Animated connector line to timeline - morphing effect */}
             <motion.div
-              className={`absolute top-1/2 transform -translate-y-1/2 h-[1px] ${
+              className={`absolute top-1/2 transform -translate-y-1/2 h-[1px] hidden md:block ${
                 index % 2 === 0
                   ? "right-0 translate-x-full bg-gradient-to-r from-white/50 to-transparent"
                   : "left-0 -translate-x-full bg-gradient-to-l from-white/50 to-transparent"
@@ -2716,7 +2716,7 @@ function EnhancedExperienceSection() {
             {/* Experience content */}
             <div className="flex items-start">
               <motion.div
-                className="w-20 h-20 rounded-md overflow-hidden mr-6 bg-white/5 flex items-center justify-center flex-shrink-0"
+                className="w-16 h-16 md:w-20 md:h-20 rounded-md overflow-hidden mr-4 md:mr-6 bg-white/5 flex items-center justify-center flex-shrink-0"
                 whileHover={{ scale: 1.05 }}
                 animate={
                   hoveredIndex === index
@@ -2741,39 +2741,13 @@ function EnhancedExperienceSection() {
                     }}
                   />
                 ) : (
-                  <Briefcase className="w-6 h-6 text-gray-400" />
+                  <Building2 className="w-8 h-8 text-white/40" />
                 )}
               </motion.div>
               <div className="flex-1">
-                <motion.h3
-                  className="text-xl font-bold"
-                  animate={hoveredIndex === index ? { color: "#ffffff" } : { color: "#f8f8f8" }}
-                >
-                  {experience.role}
-                </motion.h3>
-                <p className="text-gray-300">{experience.company}</p>
-                <div className="flex flex-wrap items-center text-sm text-gray-400 mt-1">
-                  <span>{experience.period}</span>
-                  <span className="mx-2">•</span>
-                  <span>{experience.location}</span>
-                </div>
-
-                {/* View details prompt */}
-                <motion.div
-                  className="mt-3 text-sm text-white/60 flex items-center"
-                  animate={
-                    hoveredIndex === index
-                      ? {
-                          x: [0, 3, 0],
-                          color: "rgba(255,255,255,0.9)",
-                        }
-                      : {}
-                  }
-                  transition={{ duration: 0.5 }}
-                >
-                  <span>View details</span>
-                  <ChevronRight className="w-4 h-4 ml-1" />
-                </motion.div>
+                <h3 className="text-lg md:text-xl font-bold">{experience.role}</h3>
+                <p className="text-gray-300 text-sm md:text-base">{experience.company}</p>
+                <p className="text-gray-400 text-xs md:text-sm mt-1">{experience.location}</p>
               </div>
             </div>
           </motion.div>
@@ -2786,7 +2760,7 @@ function EnhancedExperienceSection() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4"
+            className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4 mt-[56px] md:mt-0"
           >
             <motion.div
               ref={modalRef}
@@ -2862,7 +2836,7 @@ function EnhancedExperienceSection() {
                   </div>
                   <motion.button
                     onClick={() => setSelectedExperience(null)}
-                    className="text-gray-400 hover:text-white p-1"
+                    className="text-gray-400 hover:text-white p-1 z-10"
                     whileHover={{ scale: 1.1, rotate: 90 }}
                     whileTap={{ scale: 0.9 }}
                   >
@@ -2898,7 +2872,7 @@ function EnhancedExperienceSection() {
                             initial={{ scale: 0 }}
                             animate={{ scale: 1 }}
                             transition={{ duration: 0.3, delay: 0.4 + index * 0.1 }}
-                            whileHover={{ scale: 1.5, backgroundColor: "rgba(255,255,255,0.9)" }}
+                            whileHover={{ scale: 1.5 }}
                           />
                           <p className="text-gray-200">{item}</p>
                         </motion.li>
