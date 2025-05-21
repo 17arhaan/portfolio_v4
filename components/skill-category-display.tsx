@@ -200,6 +200,18 @@ export default function SkillCategoryDisplay() {
         description:
           "Beginning to use for high-performance Python APIs. Appreciate the automatic documentation, type checking, and async support.",
       },
+      {
+        name: "restAPI",
+        level: 75,
+        description:
+          "Experience designing and implementing RESTful APIs following best practices. Proficient with API documentation, versioning, and security measures.",
+      },
+      {
+        name: "Chart.js",
+        level: 70,
+        description:
+          "Used for creating interactive and responsive data visualizations. Familiar with various chart types, customization options, and animation features.",
+      },
     ],
     libraries: [
       {
@@ -273,6 +285,12 @@ export default function SkillCategoryDisplay() {
         level: 70,
         description:
           "Experience accelerating computations with GPU programming. Familiar with memory management and optimization techniques for CUDA kernels.",
+      },
+      {
+        name: "Selenium",
+        level: 65,
+        description:
+          "Experience with web automation and testing using Selenium. Familiar with element locators, wait strategies, and cross-browser testing.",
       },
     ],
     tools: [
@@ -498,6 +516,30 @@ export default function SkillCategoryDisplay() {
         level: 85,
         description:
           "Proficient with package managers like npm, pip, and apt for dependency management and system maintenance.",
+      },
+      {
+        name: "Git",
+        level: 90,
+        description:
+          "Proficient in version control with Git. Experienced with branching strategies, merge conflicts, and collaborative workflows.",
+      },
+      {
+        name: "Docker",
+        level: 85,
+        description:
+          "Skilled in containerization and orchestration. Experienced with Docker Compose, multi-stage builds, and container optimization.",
+      },
+      {
+        name: "Linux",
+        level: 80,
+        description:
+          "Comfortable with Linux system administration, shell scripting, and command-line tools. Experienced with package management and system configuration.",
+      },
+      {
+        name: "zsh",
+        level: 85,
+        description:
+          "Proficient in zsh shell scripting and configuration. Experienced with custom aliases, plugins, and advanced shell features for improved productivity.",
       },
     ],
   }
