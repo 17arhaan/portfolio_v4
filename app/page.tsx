@@ -46,7 +46,6 @@ import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover
 import { format } from "date-fns"
 import { Calendar } from "@/components/ui/calendar"
 import ProgressSection from "@/components/progress-section"
-import Contact3DAnimation from "@/components/contact-3d-animation"
 
 // Define types for skills
 type SkillCategory =
@@ -1232,11 +1231,6 @@ export default function Portfolio() {
                     </div>
                   </div>
                 </motion.div>
-
-                {/* 3D Animation Section */}
-                <div className="w-full flex justify-center items-center mt-8 mb-8 min-h-[220px]">
-                  <Contact3DAnimation />
-                </div>
               </motion.div>
 
               {/* Right Column */}
