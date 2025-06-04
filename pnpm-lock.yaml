@@ -126,7 +126,7 @@ importers:
         specifier: 4.1.0
         version: 4.1.0
       embla-carousel-react:
-        specifier: 8.5.1
+        specifier: ^8.5.1
         version: 8.5.1(react@19.1.0)
       framer-motion:
         specifier: latest
