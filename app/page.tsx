@@ -909,6 +909,36 @@ export default function Portfolio() {
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-16">
               {[
                 {
+                  id: 10,
+                  title: "DriveMind",
+                  description:
+                    "• Designed and implemented a real-time multimodal data pipeline integrating traffic camera feeds, audio streams, and text-based incident reports\n\n• Developed reinforcement learning algorithms (PPO) using Stable-Baselines3 in a custom Gymnasium environment for adaptive route decisions\n\n• Engineered custom reward functions optimizing for safety, travel time, and fuel efficiency; achieved a 15% reduction in average commute time\n\n• Developed FastAPI backend serving real-time data and RL inference endpoints; implemented WebSocket streams for continuous updates\n\n• Created a cross-platform React Native mobile app with dynamic map visualization (Mapbox SDK) and voice-guided navigation\n\n• Validated performance in CARLA and SUMO simulators before deploying to limited real-world data; monitored model drift and retrained periodically",
+                  image: "/drivemind.png",
+                  tags: [
+                    "Python",
+                    "Reinforcement Learning",
+                    "Stable-Baselines3",
+                    "PyTorch",
+                    "YOLOv8",
+                    "Whisper",
+                    "FastAPI",
+                    "React Native",
+                    "Mapbox SDK",
+                    "Docker",
+                    "Kubernetes",
+                    "AWS",
+                    "PostgreSQL",
+                    "Redis",
+                    "CARLA",
+                    "SUMO",
+                    "WebSockets",
+                    "Computer Vision",
+                  ],
+                  links: [
+                    { url: "https://github.com/17arhaan/DriveMind", icon: Github },
+                  ],
+                },
+                {
                   id: 1,
                   title: "Morpheus 3D",
                   description:
@@ -2118,6 +2148,17 @@ function ProjectCard({
   // Define accent colors and gradients for each project
   const getAccentColor = (title: string) => {
     switch (title) {
+      case "DriveMind":
+        return {
+          border: "border-pink-500/30 hover:border-pink-500/50 hover:shadow-[0_0_15px_rgba(236,72,153,0.3)]",
+          gradient: "from-pink-500/20 via-pink-500/10 to-transparent",
+          glow: "group-hover:shadow-[0_0_30px_rgba(236,72,153,0.2)]",
+          text: "group-hover:text-pink-400",
+          button: "hover:bg-pink-500/20 hover:text-pink-400",
+          tag: "hover:bg-pink-500/20 hover:text-pink-400",
+          modal: "border-pink-500/30",
+          dot: "border-pink-500/60"
+        }
       case "J.A.R.V.I.S":
         return {
           border: "border-pink-500/30 hover:border-pink-500/50 hover:shadow-[0_0_15px_rgba(236,72,153,0.3)]",
