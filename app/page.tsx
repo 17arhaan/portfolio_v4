@@ -46,6 +46,7 @@ import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover
 import { format } from "date-fns"
 import { Calendar } from "@/components/ui/calendar"
 import ProgressSection from "@/components/progress-section"
+import Image from "next/image";
 
 // Define types for skills
 type SkillCategory =
@@ -427,7 +428,7 @@ export default function Portfolio() {
               whileTap={{ scale: 0.95 }}
               className="focus:outline-none"
             >
-              <img src="/sign.png" alt="Arhaan Girdhar" className="h-14 w-auto object-contain my-auto mt-[3px]" />
+              <Image src="/sign.png" alt="Arhaan Girdhar" width={56} height={56} className="h-14 w-auto object-contain my-auto mt-[3px]" />
             </motion.button>
           </motion.div>
 
@@ -611,9 +612,11 @@ export default function Portfolio() {
                   whileHover={{ scale: 1.05 }}
                   transition={{ type: "spring", stiffness: 300, damping: 15 }}
                 >
-                  <img
+                  <Image
                     src="/pfp.png"
                     alt="Arhaan Girdhar"
+                    width={224}
+                    height={224}
                     className="w-full h-full object-cover transition-all duration-500"
                   />
                 </motion.div>
@@ -1538,9 +1541,11 @@ export default function Portfolio() {
                 }
               }}
             >
-              <img 
+              <Image 
                 src="/sign.png" 
                 alt="Arhaan Girdhar" 
+                width={56}
+                height={56}
                 className="h-24 w-auto object-contain hover:opacity-80 transition-opacity" 
               />
             </motion.div>
