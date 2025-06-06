@@ -912,6 +912,29 @@ export default function Portfolio() {
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-16">
               {[
                 {
+                  id: 11,
+                  title: "Driver Drowsiness Recognition System",
+                  description:
+                    "• Developed a real-time driver drowsiness detection system using Next.js and computer vision technologies\n\n• Implemented facial landmark detection and eye aspect ratio calculation for accurate drowsiness detection\n\n• Created a responsive dashboard with real-time monitoring and alert system\n\n• Integrated WebSocket for live video streaming and instant alerts\n\n• Built a modern UI with Tailwind CSS and Framer Motion for smooth animations\n\n• Implemented error handling and fallback mechanisms for robust performance\n\n• Added comprehensive documentation and setup instructions",
+                  image: "/drowsiness.png",
+                  tags: [
+                    "Next.js",
+                    "TypeScript",
+                    "Computer Vision",
+                    "WebSocket",
+                    "Tailwind CSS",
+                    "Framer Motion",
+                    "OpenCV",
+                    "dlib",
+                    "Real-time Processing",
+                    "Responsive Design"
+                  ],
+                  links: [
+                    { url: "https://driver-drowsiness-recognition.vercel.app/", icon: ExternalLink },
+                    { url: "https://github.com/17arhaan/driver_drowsiness_recognition", icon: Github },
+                  ],
+                },
+                {
                   id: 10,
                   title: "DriveMind",
                   description:
@@ -2153,6 +2176,17 @@ function ProjectCard({
   // Define accent colors and gradients for each project
   const getAccentColor = (title: string) => {
     switch (title) {
+      case "Driver Drowsiness Recognition System":
+        return {
+          border: "border-[#b7d455]/30 hover:border-[#b7d455]/50 hover:shadow-[0_0_15px_rgba(183,212,85,0.3)]",
+          gradient: "from-[#b7d455]/20 via-[#b7d455]/10 to-transparent",
+          glow: "group-hover:shadow-[0_0_30px_rgba(183,212,85,0.2)]",
+          text: "group-hover:text-[#b7d455]",
+          button: "hover:bg-[#b7d455]/20 hover:text-[#b7d455]",
+          tag: "hover:bg-[#b7d455]/20 hover:text-[#b7d455]",
+          modal: "border-[#b7d455]/30",
+          dot: "border-[#b7d455]/60"
+        }
       case "DriveMind":
         return {
           border: "border-pink-500/30 hover:border-pink-500/50 hover:shadow-[0_0_15px_rgba(236,72,153,0.3)]",
