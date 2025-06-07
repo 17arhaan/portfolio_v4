@@ -386,6 +386,12 @@ export default function SkillCategoryDisplay() {
         description:
           "Used for static site hosting with continuous deployment. Familiar with forms, functions, and identity services.",
       },
+      {
+        name: "Railway",
+        level: 90,
+        description:
+         " Used to deployed full-stack applications with continuous integration and managing environments, variables, databases, and serverless functions.",
+      },
     ],
     domains: [
       {
@@ -415,7 +421,7 @@ export default function SkillCategoryDisplay() {
       {
         name: "Machine Learning",
         level: 90,
-        description:
+        description
           "Strong theoretical understanding and practical experience implementing supervised and unsupervised learning algorithms for various applications.",
       },
       {
