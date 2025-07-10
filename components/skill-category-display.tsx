@@ -421,7 +421,7 @@ export default function SkillCategoryDisplay() {
       {
         name: "Machine Learning",
         level: 90,
-        description
+        description:
           "Strong theoretical understanding and practical experience implementing supervised and unsupervised learning algorithms for various applications.",
       },
       {
