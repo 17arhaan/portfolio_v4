@@ -144,10 +144,10 @@ export default function ProgressSection({ githubUsername, leetcodeUsername }: Pr
     {
       id: 4,
       title: 'Creathon',
-      description: 'Challenge',
+      description: 'Coding Challenge',
       year: 2024,
       month: 'November',
-      type: 'hackathon' as const,
+      type: 'competition' as const,
       position: 'Participant',
       details: [
         'Participated in creative tech challenge with 300+ participating teams',
