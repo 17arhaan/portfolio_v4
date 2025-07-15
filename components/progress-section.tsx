@@ -13,18 +13,22 @@ interface ProgressSectionProps {
 
 // Achievement type definitions
 interface Achievement {
+  id: number
   title: string
   description?: string
   year: number
+  month: string
   type: 'hackathon' | 'competition' | 'ranking' | 'certification'
   position?: string
   participants?: string
   prize?: string
+  details?: string[]
 }
 
 export default function ProgressSection({ githubUsername, leetcodeUsername }: ProgressSectionProps) {
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null)
   const [stats, setStats] = useState({
     github: {
       stars: 0,
@@ -85,51 +89,111 @@ export default function ProgressSection({ githubUsername, leetcodeUsername }: Pr
     fetchStats()
   }, [githubUsername, leetcodeUsername])
 
-  // Enhanced achievements data
+
+
+  // Enhanced achievements data with chronological order and detailed information
   const achievements: Achievement[] = [
     {
+      id: 1,
       title: 'MET Rank - 171',
       year: 2020,
-      type: 'ranking',
-      position: '171',
-      participants: '150,000+'
+      month: 'May',
+      type: 'ranking' as const,
+      // position: '171',
+      participants: 'Amongst 50,000+ applicants',
+      details: [
+        'Achieved All India Rank 171 in Manipal Entrance Test among 150,000+ applicants',
+        'Secured admission to B.Tech Computer Science program at Manipal Institute of Technology',
+        'Demonstrated exceptional performance in Mathematics, Physics, and Chemistry',
+        'Top 0.1% of all test takers nationwide',
+        'Achievement recognized by Manipal Academy of Higher Education'
+      ]
     },
     {
-      title: 'Hacksplostion',
-      description: 'Hackathon',
-      year: 2024,
-      type: 'hackathon',
-      position: 'Finalist'
-    },
-    {
+      id: 2,
       title: 'Think-a-thon',
-      description: 'Competition',
+      description: 'Innovation Competition',
       year: 2024,
-      type: 'competition',
-      position: 'Winner'
+      month: 'March',
+      type: 'competition' as const,
+      position: 'Participant',
+      details: [
+        'Participated in university-wide innovation and idea competition',
+        'Presented AI-powered solution for educational technology enhancement',
+        'Competed against 200+ teams from various engineering disciplines',
+        'Demonstrated exceptional problem-solving and innovative thinking',
+        'Received recognition from university administration and industry mentors'
+      ]
     },
     {
+      id: 3,
+      title: 'Hacksplosion',
+      description: 'Tech Hackathon',
+      year: 2024,
+      month: 'September',
+      type: 'hackathon' as const,
+      position: 'Participant',
+      details: [
+        'Participated in major tech hackathon with 500+ participants',
+        'Developed full-stack application in 48 hours using modern web technologies',
+        'Implemented AI/ML features for enhanced user experience',
+        'Presented solution to panel of industry experts and venture capitalists',
+        'Gained valuable experience and networking connections'
+      ]
+    },
+    {
+      id: 4,
       title: 'Creathon',
-      description: 'Hackathon',
+      description: 'Challenge',
       year: 2024,
-      type: 'hackathon',
-      position: 'Top 10'
+      month: 'November',
+      type: 'hackathon' as const,
+      position: 'Participant',
+      details: [
+        'Participated in creative tech challenge with 300+ participating teams',
+        'Created innovative solution combining creativity with technical excellence',
+        'Collaborated with cross-functional team of designers and developers',
+        'Received feedback from industry professionals and potential investors',
+        'Project showcased technical and creative problem-solving skills'
+      ]
     },
     {
-      title: 'Adobe Hackathon',
-      description: 'Design Challenge',
-      year: 2025,
-      type: 'hackathon',
-      position: 'Participant'
-    },
-    {
+      id: 5,
       title: 'HackWithInfy',
-      description: 'Hackathon',
+      description: 'Infosys Global Hackathon',
       year: 2025,
-      type: 'hackathon',
-      position: 'Qualifier'
+      month: 'January',
+      type: 'hackathon' as const,
+      position: 'Qualifier',
+      details: [
+        'Successfully qualified for Infosys global hackathon competition',
+        'Competed among thousands of participants from universities worldwide',
+        'Developed enterprise-grade solution addressing real business challenges',
+        'Gained exposure to industry-standard development practices and tools',
+        'Opportunity to interact with Infosys engineers and technical leaders'
+      ]
+    },
+    {
+      id: 6,
+      title: 'Adobe Hackathon',
+      description: 'Design & Development Challenge',
+      year: 2025,
+      month: 'February',
+      type: 'hackathon' as const,
+      position: 'Participant',
+      details: [
+        'Participated in Adobe-sponsored design and development hackathon',
+        'Focused on creating innovative user experiences using Adobe technologies',
+        'Worked with Adobe Creative Suite and development frameworks',
+        'Gained insights into design thinking and user-centered development',
+        'Networked with Adobe engineers and design professionals'
+      ]
     }
-  ]
+  ].sort((a, b) => {
+    if (a.year !== b.year) return a.year - b.year
+    const monthOrder = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+    return monthOrder.indexOf(a.month) - monthOrder.indexOf(b.month)
+  })
 
   const getAchievementIcon = (type: Achievement['type']) => {
     switch (type) {
@@ -149,15 +213,40 @@ export default function ProgressSection({ githubUsername, leetcodeUsername }: Pr
   const getAchievementColor = (type: Achievement['type']) => {
     switch (type) {
       case 'hackathon':
-        return 'text-purple-400 bg-purple-400/10 border-purple-400/20'
+        return {
+          border: 'border-purple-500/30 hover:border-purple-500/50',
+          bg: 'bg-purple-500/10',
+          text: 'text-purple-400',
+          glow: 'hover:shadow-[0_0_15px_rgba(168,85,247,0.3)]'
+        }
       case 'competition':
-        return 'text-emerald-400 bg-emerald-400/10 border-emerald-400/20'
+        return {
+          border: 'border-emerald-500/30 hover:border-emerald-500/50',
+          bg: 'bg-emerald-500/10',
+          text: 'text-emerald-400',
+          glow: 'hover:shadow-[0_0_15px_rgba(16,185,129,0.3)]'
+        }
       case 'ranking':
-        return 'text-yellow-400 bg-yellow-400/10 border-yellow-400/20'
+        return {
+          border: 'border-yellow-500/30 hover:border-yellow-500/50',
+          bg: 'bg-yellow-500/10',
+          text: 'text-yellow-400',
+          glow: 'hover:shadow-[0_0_15px_rgba(245,158,11,0.3)]'
+        }
       case 'certification':
-        return 'text-blue-400 bg-blue-400/10 border-blue-400/20'
+        return {
+          border: 'border-blue-500/30 hover:border-blue-500/50',
+          bg: 'bg-blue-500/10',
+          text: 'text-blue-400',
+          glow: 'hover:shadow-[0_0_15px_rgba(59,130,246,0.3)]'
+        }
       default:
-        return 'text-gray-400 bg-gray-400/10 border-gray-400/20'
+        return {
+          border: 'border-gray-500/30 hover:border-gray-500/50',
+          bg: 'bg-gray-500/10',
+          text: 'text-gray-400',
+          glow: 'hover:shadow-[0_0_15px_rgba(107,114,128,0.3)]'
+        }
     }
   }
 
@@ -328,7 +417,7 @@ export default function ProgressSection({ githubUsername, leetcodeUsername }: Pr
           </motion.div>
         </div>
 
-        {/* Enhanced Achievement Timeline */}
+        {/* Achievement Timeline */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -338,130 +427,151 @@ export default function ProgressSection({ githubUsername, leetcodeUsername }: Pr
         >
           <div className="mb-12">
             <h3 className="text-2xl font-bold text-center mb-4">Achievement Timeline</h3>
-            <div className="w-16 h-1 bg-gradient-to-r from-purple-400 to-blue-400 mx-auto"></div>
+            <div className="w-16 h-1 bg-white mx-auto"></div>
           </div>
 
-          {/* Timeline Years */}
-          <div className="flex justify-between items-center mb-8 px-4">
-            {[2020, 2024, 2025].map((year) => (
+          <div className="relative mt-8 pb-4">
+            {/* Animated timeline vertical line with gradient effect */}
+            <motion.div
+              className="absolute left-1/2 md:left-1/2 transform -translate-x-1/2 top-0 bottom-0 w-[2px] bg-gradient-to-b from-white/5 via-white/20 to-white/5 overflow-hidden"
+              initial={{ height: 0 }}
+              whileInView={{ height: "100%" }}
+              viewport={{ once: true }}
+              transition={{ duration: 1.5, ease: "easeOut" }}
+            >
+              {/* Gradient flowing effect */}
               <motion.div
-                key={year}
-                initial={{ opacity: 0, scale: 0.8 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: year * 0.1 }}
-                className="text-center"
-              >
-                <div className="text-lg font-bold text-white bg-gradient-to-r from-purple-500 to-blue-500 px-4 py-2 rounded-full shadow-lg">
-                  {year}
-                </div>
-              </motion.div>
-            ))}
-          </div>
+                className="absolute inset-0 w-full"
+                style={{
+                  background: "linear-gradient(to bottom, transparent, rgba(255,255,255,0.3), transparent)",
+                  height: "50%",
+                }}
+                animate={{
+                  y: ["-100%", "200%"],
+                }}
+                transition={{
+                  duration: 3,
+                  ease: "linear",
+                  repeat: Number.POSITIVE_INFINITY,
+                  repeatType: "loop",
+                }}
+              />
+            </motion.div>
 
-          {/* Achievement Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {achievements.map((achievement, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20, scale: 0.9 }}
-                whileInView={{ opacity: 1, y: 0, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                whileHover={{ scale: 1.05, y: -5 }}
-                className={`
-                  relative p-6 rounded-xl border backdrop-blur-sm 
-                  ${getAchievementColor(achievement.type)}
-                  hover:shadow-lg hover:shadow-white/10 transition-all duration-300
-                  group cursor-pointer
-                `}
-              >
-                {/* Achievement Type Badge */}
-                <div className="flex items-center gap-2 mb-3">
-                  <div className={`p-2 rounded-lg ${getAchievementColor(achievement.type).split(' ')[1]}`}>
-                    {getAchievementIcon(achievement.type)}
+            
+
+            {/* Timeline entries */}
+            {achievements.map((achievement, index) => {
+              const colors = getAchievementColor(achievement.type)
+              return (
+                                 <motion.div
+                   key={achievement.id}
+                   initial={{ opacity: 0, y: 20 }}
+                   whileInView={{ opacity: 1, y: 0 }}
+                   viewport={{ once: true }}
+                   transition={{ duration: 0.5, delay: index * 0.2 }}
+                   className={`relative mb-8 flex items-center w-full ${index % 2 === 0 ? "justify-start" : "justify-end"}`}
+                   onMouseEnter={() => setHoveredIndex(index)}
+                   onMouseLeave={() => setHoveredIndex(null)}
+                 >
+                  {/* Fixed position date marker at center of timeline */}
+                  <div className="absolute left-1/2 md:left-1/2 transform -translate-x-1/2 top-1/2 -translate-y-1/2 z-10">
+                    <motion.div
+                      className="w-10 h-10 flex items-center justify-center cursor-pointer"
+                      whileHover={{ scale: 1.1 }}
+                      transition={{ duration: 0.2 }}
+                    >
+                      <motion.div
+                        className={`w-4 h-4 rounded-full ${colors.bg} backdrop-blur-sm transition-all duration-300 flex items-center justify-center border-2 ${colors.border} ${
+                          hoveredIndex === index ? `scale-150 ${colors.glow}` : ""
+                        }`}
+                      >
+                        <div className={`w-2 h-2 rounded-full ${colors.text.replace('text-', 'bg-')}`} />
+                      </motion.div>
+
+                      {/* Date tooltip */}
+                      <motion.div
+                        className="absolute whitespace-nowrap text-xs font-medium bg-black/70 backdrop-blur-sm px-2 py-1 rounded-sm border border-white/10"
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={hoveredIndex === index ? { opacity: 1, y: 24 } : { opacity: 0, y: 20 }}
+                        transition={{ duration: 0.2 }}
+                      >
+                        {achievement.month} {achievement.year}
+                      </motion.div>
+                    </motion.div>
                   </div>
-                  <span className="text-xs uppercase tracking-wider font-medium text-gray-400">
-                    {achievement.type}
-                  </span>
-                </div>
 
-                {/* Achievement Content */}
-                <div className="space-y-2">
-                  <h4 className="text-lg font-bold text-white group-hover:text-white/90 transition-colors">
-                    {achievement.title}
-                  </h4>
-                  
-                  {achievement.description && (
-                    <p className="text-sm text-gray-300">
-                      {achievement.description}
-                    </p>
-                  )}
+                                     {/* Content box */}
+                   <motion.div
+                     className={`w-full md:w-[calc(50%-4rem)] bg-black/40 backdrop-blur-sm border ${colors.border} ${colors.glow} rounded-lg p-3 md:p-4 transition-all relative ${
+                       index % 2 === 0 ? "md:mr-8" : "md:ml-8"
+                     }`}
+                     whileHover={{ scale: 1.03 }}
+                     animate={
+                       hoveredIndex === index
+                         ? {
+                             y: -5,
+                           }
+                         : {}
+                     }
+                   >
+                    {/* Animated connector line to timeline */}
+                    <motion.div
+                      className={`absolute top-1/2 transform -translate-y-1/2 h-[1px] hidden md:block ${
+                        index % 2 === 0
+                          ? "right-0 translate-x-full bg-gradient-to-r from-white/50 to-transparent"
+                          : "left-0 -translate-x-full bg-gradient-to-l from-white/50 to-transparent"
+                      }`}
+                      initial={{ width: 0 }}
+                      whileInView={{ width: "2rem" }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.5, delay: 0.3 + index * 0.2 }}
+                      style={{
+                        filter: hoveredIndex === index ? "drop-shadow(0 0 2px rgba(255,255,255,0.5))" : "none",
+                      }}
+                    />
 
-                  {achievement.position && (
-                    <div className="flex items-center gap-2 text-sm">
-                      <span className="text-gray-400">Position:</span>
-                      <span className="font-medium text-white">{achievement.position}</span>
+                                         {/* Achievement content */}
+                     <div className="flex items-start">
+                       <motion.div
+                         className={`w-10 h-10 md:w-12 md:h-12 rounded-lg overflow-hidden mr-3 md:mr-4 ${colors.bg} flex items-center justify-center flex-shrink-0 border ${colors.border}`}
+                         whileHover={{ scale: 1.05 }}
+                       >
+                        <div className={colors.text}>
+                          {getAchievementIcon(achievement.type)}
+                        </div>
+                      </motion.div>
+                                             <div className="flex-1">
+                         <div className="flex items-center justify-between mb-1">
+                           <h3 className="text-base md:text-lg font-bold">{achievement.title}</h3>
+                           <span className={`text-xs uppercase tracking-wider font-medium ${colors.text}`}>
+                             {achievement.type}
+                           </span>
+                         </div>
+                         {achievement.description && (
+                           <p className="text-gray-300 text-xs md:text-sm mb-1">{achievement.description}</p>
+                         )}
+                         <div className="flex flex-wrap gap-1 text-xs">
+                           {achievement.position && (
+                             <span className="bg-white/10 px-1.5 py-0.5 rounded text-xs">
+                               {achievement.position}
+                             </span>
+                           )}
+                           {achievement.participants && (
+                             <span className="bg-white/10 px-1.5 py-0.5 rounded text-xs">
+                               {achievement.participants}
+                             </span>
+                           )}
+                         </div>
+                      </div>
                     </div>
-                  )}
+                  </motion.div>
+                </motion.div>
+              )
+            })}
 
-                  {achievement.participants && (
-                    <div className="flex items-center gap-2 text-sm">
-                      <span className="text-gray-400">Among:</span>
-                      <span className="font-medium text-white">{achievement.participants}</span>
-                    </div>
-                  )}
-                </div>
-
-                {/* Year Badge */}
-                <div className="absolute top-4 right-4">
-                  <span className="text-xs font-bold px-2 py-1 bg-black/30 rounded-full">
-                    {achievement.year}
-                  </span>
-                </div>
-
-                {/* Hover Effect */}
-                <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
-              </motion.div>
-            ))}
-          </div>
-
-          {/* Achievement Summary */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-            className="mt-12 p-6 bg-gradient-to-r from-purple-500/10 to-blue-500/10 rounded-xl border border-purple-500/20"
-          >
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
-              <div>
-                <div className="text-2xl font-bold text-purple-400">
-                  {achievements.filter(a => a.type === 'hackathon').length}
-                </div>
-                <div className="text-sm text-gray-400">Hackathons</div>
-              </div>
-              <div>
-                <div className="text-2xl font-bold text-emerald-400">
-                  {achievements.filter(a => a.type === 'competition').length}
-                </div>
-                <div className="text-sm text-gray-400">Competitions</div>
-              </div>
-              <div>
-                <div className="text-2xl font-bold text-yellow-400">
-                  {achievements.filter(a => a.type === 'ranking').length}
-                </div>
-                <div className="text-sm text-gray-400">Rankings</div>
-              </div>
-              <div>
-                <div className="text-2xl font-bold text-blue-400">
-                  {achievements.length}
-                </div>
-                <div className="text-sm text-gray-400">Total</div>
-              </div>
-            </div>
-          </motion.div>
-        </motion.div>
+                       </div>
+         </motion.div>
       </motion.div>
     </section>
   )
