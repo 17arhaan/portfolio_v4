@@ -909,287 +909,7 @@ export default function Portfolio() {
             <SectionHeader title="Projects" icon={<Briefcase className="w-6 h-6" />} />
 
             {/* Projects Grid */}
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-16">
-              {[
-                {
-                  id: 11,
-                  title: "Driver Drowsiness Recognition System",
-                  description:
-                    "• Developed a real-time driver drowsiness detection system using Next.js and computer vision technologies\n\n• Implemented facial landmark detection and eye aspect ratio calculation for accurate drowsiness detection\n\n• Created a responsive dashboard with real-time monitoring and alert system\n\n• Integrated WebSocket for live video streaming and instant alerts\n\n• Built a modern UI with Tailwind CSS and Framer Motion for smooth animations\n\n• Implemented error handling and fallback mechanisms for robust performance\n\n• Added comprehensive documentation and setup instructions",
-                  image: "/drowsiness.png",
-                  tags: [
-                    "Next.js",
-                    "TypeScript",
-                    "Computer Vision",
-                    "WebSocket",
-                    "Tailwind CSS",
-                    "Framer Motion",
-                    "OpenCV",
-                    "dlib",
-                    "Real-time Processing",
-                    "Responsive Design"
-                  ],
-                  links: [
-                    { url: "https://driver-drowsiness-recognition.vercel.app/", icon: ExternalLink },
-                    { url: "https://github.com/17arhaan/driver_drowsiness_recognition", icon: Github },
-                  ],
-                },
-                {
-                  id: 10,
-                  title: "DriveMind",
-                  description:
-                    "• Designed and implemented a real-time multimodal data pipeline integrating traffic camera feeds, audio streams, and text-based incident reports\n\n• Developed reinforcement learning algorithms (PPO) using Stable-Baselines3 in a custom Gymnasium environment for adaptive route decisions\n\n• Engineered custom reward functions optimizing for safety, travel time, and fuel efficiency; achieved a 15% reduction in average commute time\n\n• Developed FastAPI backend serving real-time data and RL inference endpoints; implemented WebSocket streams for continuous updates\n\n• Created a cross-platform React Native mobile app with dynamic map visualization (Mapbox SDK) and voice-guided navigation\n\n• Validated performance in CARLA and SUMO simulators before deploying to limited real-world data; monitored model drift and retrained periodically",
-                  image: "/drivemind.png",
-                  tags: [
-                    "Python",
-                    "Reinforcement Learning",
-                    "Stable-Baselines3",
-                    "PyTorch",
-                    "YOLOv8",
-                    "Whisper",
-                    "FastAPI",
-                    "React Native",
-                    "Mapbox SDK",
-                    "Docker",
-                    "Kubernetes",
-                    "AWS",
-                    "PostgreSQL",
-                    "Redis",
-                    "CARLA",
-                    "SUMO",
-                    "WebSockets",
-                    "Computer Vision",
-                  ],
-                  links: [
-                    { url: "https://github.com/17arhaan/DriveMind", icon: Github },
-                  ],
-                },
-                {
-                  id: 1,
-                  title: "Morpheus 3D",
-                  description:
-                    "• Developed a 3D model generation platform using Hyper3D Rodin API with React and Three.js\n\n• Implemented text-to-3D and image-to-3D model generation with customizable quality settings\n\n• Created a user-friendly interface with real-time 3D model preview and orbit controls\n\n• Integrated multiple output formats (GLB, USDZ, FBX, OBJ, STL) with quality options\n\n• Built a responsive UI with shadcn/ui components and React Three Fiber for 3D rendering\n\n• Implemented advanced features like T/A pose for human models and material customization",
-                  image: "/3d_l.png",
-                  tags: [
-                    "Next.js",
-                    "C++",
-                    "TypeScript",
-                    "React",
-                    "Hyper3D API",
-                    "WebGL",
-                    "shadcn/ui",
-                    "React Three Fiber",
-                    "Tailwind CSS",
-                  ],
-                  links: [
-                    { url: "https://github.com/17arhaan/Morpheus3D", icon: Github },
-                    { url: "https://morpheus3-d.vercel.app/", icon: ExternalLink },
-                  ],
-                },
-                {
-                  id: 2,
-                  title: "J.A.R.V.I.S",
-                  description:
-                    "• Built a sophisticated AI assistant with multi-modal capabilities using Python, TensorFlow, and advanced NLP models\n\n• Implemented real-time object detection with YOLOv8 achieving 91% mAP, and speech recognition with 95% accuracy\n\n• Developed a CNN-based face authentication system with 98% accuracy, supporting multi-user profiles and dynamic learning\n\n• Created a modular architecture with 20+ custom plugins for task automation, system control, and API integrations\n\n• Integrated OpenAI's GPT models for context-aware conversations and task understanding\n\n• Engineered a custom wake word detection system with 99% accuracy using MFCC features and Deep Learning",
-                  image: "/jarvis_l.png",
-                  tags: [
-                    "Python",
-                    "TensorFlow",
-                    "PyTorch",
-                    "YOLOv8",
-                    "OpenAI API",
-                    "Whisper ASR",
-                    "CNN",
-                    "RNN",
-                    "LSTM",
-                    "GRU",
-                    "FastAPI",
-                  ],
-                  links: [
-                    { url: "https://github.com/17arhaan/J.A.R.V.I.S", icon: Github },
-                  ],
-                },
-                {
-                  id: 3,
-                  title: "Humanoid Simulation",
-                  description:
-                    "• Developed a physics-based humanoid robot simulation using Python and PyBullet\n\n• Implemented reinforcement learning algorithms for bipedal locomotion control\n\n• Created custom reward functions and state representations for stable walking\n\n• Integrated motion capture data for natural movement patterns\n\n• Built a real-time visualization system with PyOpenGL\n\n• Implemented collision detection and response for realistic interactions\n\n• Added support for different terrains and environmental conditions",
-                  image: "/mujoco.png",
-                  tags: [
-                    "Python",
-                    "PyBullet",
-                    "PyTorch",
-                    "Reinforcement Learning",
-                    "OpenGL",
-                    "Physics Simulation",
-                    "Motion Planning",
-                    "Control Systems",
-                    "Robotics",
-                    "3D Graphics",
-                  ],
-                  links: [
-                    { url: "https://github.com/17arhaan/Humanoid_Simulation", icon: Github },
-                  ],
-                },
-                {
-                  id: 4,
-                  title: "W.E.A.L.T.H",
-                  description:
-                    "• Engineered a full-stack finance tracking application with Next.js 13, TypeScript, and PostgreSQL\n\n• Implemented real-time transaction tracking with WebSocket integration for live updates\n\n• Built a RESTful API with Express.js featuring JWT authentication and role-based access control\n\n• Designed a responsive UI with Tailwind CSS and Framer Motion for smooth animations\n\n• Integrated Plaid API for secure bank account linking and automated transaction imports\n\n• Developed custom analytics dashboard with Chart.js for visualizing spending patterns\n\n• Implemented automated bill detection and recurring payment tracking using ML algorithms",
-                  image: "/wealth_l.png",
-                  tags: [
-                    "Next.js",
-                    "TypeScript",
-                    "Express.js",
-                    "Tailwind CSS",
-                    "PostgreSQL",
-                    "Prisma",
-                    "WebSocket",
-                    "JWT",
-                    "Plaid API",
-                    "Chart.js",
-                  ],
-                  links: [
-                    { url: "https://wealth-pi.vercel.app/", icon: ExternalLink },
-                    { url: "https://github.com/17arhaan/W.E.A.L.T.H", icon: Github },
-                  ],
-                },
-                {
-                  id: 5,
-                  title: "Twitter Sentiment Analysis",
-                  description:
-                    "• Built a real-time Twitter sentiment analysis platform using Next.js and Python\n\n• Implemented custom NLP models with 92% accuracy for sentiment classification\n\n• Created an interactive dashboard with real-time sentiment visualization using Chart.js\n\n• Developed a secure authentication system with JWT and password hashing\n\n• Built a responsive UI with shadcn/ui components and Tailwind CSS\n\n• Integrated Twitter API for real-time tweet fetching and analysis\n\n• Added user profiles with analysis history and saved searches",
-                  image: "/sentiment_l.png",
-                  tags: ["Next.js", "TypeScript", "Python", "Tailwind CSS", "Chart.js", "JWT", "shadcn/ui", "Twitter API"],
-                  links: [
-                    { url: "https://sentiment-analysis-sepia.vercel.app/", icon: ExternalLink },
-                    { url: "https://github.com/17arhaan/Sentiment_Analysis", icon: Github },
-                  ],
-                },
-                {
-                  id: 6,
-                  title: "SnakeCV",
-                  description:
-                    "• Developed a multi-mode Snake Game with computer vision controls using Python, OpenCV, and React\n\n• Implemented real-time hand gesture recognition with 98% accuracy using MediaPipe and custom CV models\n\n• Created an AI agent using Q-learning achieving average scores of 50+ points\n\n• Built a responsive web version with React and TypeScript featuring custom animations\n\n• Designed a replay system storing game states in IndexedDB for offline access\n\n• Integrated WebRTC for real-time multiplayer functionality with <100ms latency\n\n• Added leaderboard system with Firebase real-time database integration",
-                  image: "/snake_l.png",
-                  tags: [
-                    "Python",
-                    "OpenCV",
-                    "MediaPipe",
-                    "React",
-                    "TypeScript",
-                    "WebRTC",
-                    "Firebase",
-                    "Q-Learning",
-                    "WebGL",
-                    "Socket.io",
-                  ],
-                  links: [
-                    { url: "https://github.com/17arhaan/Snake_CV_ML", icon: Github },
-                  ],
-                },
-                {
-                  id: 7,
-                  title: "TherapAI",
-                  description:
-                    "• Built an AI-powered mental health platform using Python, FastAPI, and React\n\n• Integrated GPT-4 with custom fine-tuning for therapeutic conversations achieving 90% user satisfaction\n\n• Implemented real-time emotion detection from text and voice with 94% accuracy\n\n• Developed secure user authentication and HIPAA-compliant data storage\n\n• Created a progressive web app with offline support and push notifications\n\n• Built an emergency response system with automated escalation protocols\n\n• Integrated with external mental health resources and crisis hotlines",
-                  image: "/therapai.png",
-                  tags: [
-                    "Python",
-                    "FastAPI",
-                    "PyTorch",
-                    "TensorFlow",
-                    "Transformers",
-                    "Hugging Face",
-                    "NumPy",
-                    "Pandas",
-                    "MongoDB",
-                    "Docker",
-                  ],
-                  links: [
-                    { url: "https://github.com/17arhaan/TherapAI", icon: Github },
-                  ],
-                },
-                {
-                  id: 8,
-                  title: "Speedy",
-                  description:
-                    "• Built an interactive reaction time test with Next.js and Framer Motion\n\n• Implemented random delay system to prevent anticipation\n\n• Created performance metrics and feedback system\n\n• Added dark mode support and responsive design\n\n• Integrated beautiful animations and transitions\n\n• Developed tracking system for best times\n\n• Deployed on Vercel with automatic CI/CD pipeline",
-                  image: "/speedy_l.png",
-                  tags: [
-                    "Node.js",
-                    "TypeScript",
-                    "Tailwind CSS",
-                    "Framer Motion",
-                    "Next.js",
-                    "Vercel",
-                    "CI/CD",
-                    "React",
-                    "Animation",
-                  ],
-                  links: [
-                    { url: "https://speedy-green.vercel.app/", icon: ExternalLink },
-                    { url: "https://github.com/17arhaan/Speedy", icon: Github },
-                  ],
-                },
-                {
-                  id: 9,
-                  title: "Mind Mapper",
-                  description:
-                    "• Built an AI-powered mind map generator using Next.js and React Flow\n\n• Integrated Google Gemini API for intelligent content generation with robust error handling\n\n• Implemented interactive node-based visualization with drag-and-drop functionality\n\n• Created custom node and edge components for enhanced visual appeal\n\n• Added export functionality for saving mind maps as high-quality PNG images\n\n• Developed a responsive design with dark mode support\n\n• Implemented real-time node expansion and connection management\n\n• Added comprehensive error handling and user feedback system",
-                  image: "/mindmapper_l.png",
-                  tags: [
-                    "Next.js",
-                    "TypeScript",
-                    "React Flow",
-                    "Google Gemini API",
-                    "Tailwind CSS",
-                    "shadcn/ui",
-                    "Node.js",
-                    "AI/ML",
-                    "Error Handling",
-                  ],
-                  links: [
-                    { url: "https://v0-mindmap-app-sigma.vercel.app", icon: ExternalLink },
-                    { url: "https://github.com/17arhaan/Mind_Mapper", icon: Github },
-                  ],
-                },
-                {
-                  id: 12,
-                  title: "Facial Emotion Recognition using CNN",
-                  description:
-                    "• Developed a deep learning-based facial emotion recognition system using Convolutional Neural Networks trained on the Kaggle facial emotion dataset\n\n• Implemented real-time facial emotion detection supporting 7 emotions (happy, sad, angry, surprise, fear, disgust, neutral) with high accuracy\n\n• Integrated Haar Cascade classifiers for robust face detection and OpenCV for real-time video processing\n\n• Built a comprehensive CNN architecture with convolutional layers, pooling layers, dropout for regularization, and softmax activation for multi-class prediction\n\n• Created an easy-to-use implementation with Jupyter notebook format, saved model weights (200 epochs), and comprehensive documentation\n\n• Achieved high-performance emotion classification that can detect multiple faces and classify emotions simultaneously in real-time\n\n• Designed the system as a foundation for emotion-aware applications in human-computer interaction and sentiment analysis",
-                  image: "/face_recog.png",
-                  tags: [
-                    "Python",
-                    "TensorFlow",
-                    "Keras",
-                    "OpenCV",
-                    "CNN",
-                    "Computer Vision",
-                    "Deep Learning",
-                    "Emotion Recognition",
-                    "Real-time Processing",
-                    "Jupyter Notebook",
-                    "NumPy",
-                    "Pandas",
-                    "Matplotlib",
-                  ],
-                  links: [
-                    { url: "https://github.com/17arhaan/facial-recognition", icon: Github },
-                  ],
-                },
-              ].map((project) => (
-                <ProjectCard
-                  key={project.id}
-                  title={project.title}
-                  description={project.description}
-                  tags={project.tags}
-                  links={project.links}
-                  image={project.image}
-                />
-              ))}
-            </div>
+            <ProjectsGrid />
           </div>
         </section>
 
@@ -1646,18 +1366,6 @@ function CertificationsGrid() {
 
   const certifications = [
     {
-      id: 8,
-      title: "Meta Back-End Developer Professional Certificate",
-      issuer: "Meta",
-      date: "June 2025",
-      expiryDate: null,
-      description: "Comprehensive professional certification covering back-end development fundamentals, APIs, databases, security, and deployment. Building job-ready skills with hands-on projects and real-world applications. Mastered advanced concepts in server-side programming, database management, and API development. Implemented secure authentication systems and optimized database queries for performance.",
-      credentialId: null,
-      credentialURL: "",
-      skills: ["Back-End Development", "APIs", "Database Design", "Python", "Django", "Version Control", "Cloud Deployment", "Security", "System Design", "Web Development"],
-      image: "/meta.png",
-    },
-    {
       id: 5,
       title: "Foundations of AI and Machine Learning",
       issuer: "Microsoft",
@@ -1787,7 +1495,7 @@ function CertificationsGrid() {
       credentialId: "SJLWN7K2IOV1",
       credentialURL: "https://www.coursera.org/account/accomplishments/verify/SJLWN7K2IOV1",
       skills: ["Engineering Ethics", "Case Study Analysis", "Risk Assessment", "Decision Making", "Problem Solving", "Critical Thinking", "Professional Responsibility", "Safety Engineering", "Failure Analysis"],
-      image: "/university-of-illinois-logo.png",
+      image: "/michigan.jpg",
     },
     {
       id: 12,
@@ -2646,6 +2354,323 @@ function ProjectCard({
         )}
       </AnimatePresence>
     </>
+  )
+}
+
+function ProjectsGrid() {
+  const [showAllProjects, setShowAllProjects] = useState(false)
+  
+  const projects = [
+    {
+      id: 12,
+      title: "Facial Emotion Recognition using CNN",
+      description:
+        "• Developed a CNN-based facial emotion recognition system trained on Kaggle dataset\n\n• Implemented real-time detection for 7 emotions with high accuracy\n\n• Integrated Haar Cascade classifiers for robust face detection\n\n• Built comprehensive CNN architecture with regularization techniques\n\n• Created Jupyter notebook implementation with saved model weights (200 epochs)\n\n• Achieved multi-face emotion classification in real-time\n\n• Designed as foundation for emotion-aware applications",
+      image: "/face_recog.png",
+      tags: [
+        "Python",
+        "TensorFlow",
+        "Keras",
+        "OpenCV",
+        "CNN",
+        "Computer Vision",
+        "Deep Learning",
+        "Emotion Recognition",
+        "Real-time Processing",
+        "Jupyter Notebook",
+        "NumPy",
+        "Pandas",
+        "Matplotlib",
+      ],
+      links: [
+        { url: "https://github.com/17arhaan/facial-recognition", icon: Github },
+      ],
+    },
+    {
+      id: 3,
+      title: "Humanoid Simulation",
+      description:
+        "• Developed a physics-based humanoid robot simulation using Python and PyBullet\n\n• Implemented reinforcement learning algorithms for bipedal locomotion control\n\n• Created custom reward functions and state representations for stable walking\n\n• Integrated motion capture data for natural movement patterns\n\n• Built a real-time visualization system with PyOpenGL\n\n• Implemented collision detection and response for realistic interactions\n\n• Added support for different terrains and environmental conditions",
+      image: "/mujoco.png",
+      tags: [
+        "Python",
+        "PyBullet",
+        "PyTorch",
+        "Reinforcement Learning",
+        "OpenGL",
+        "Physics Simulation",
+        "Motion Planning",
+        "Control Systems",
+        "Robotics",
+        "3D Graphics",
+      ],
+      links: [
+        { url: "https://github.com/17arhaan/Humanoid_Simulation", icon: Github },
+      ],
+    },
+    {
+      id: 9,
+      title: "Mind Mapper",
+      description:
+        "• Built an AI-powered mind map generator using Next.js and React Flow\n\n• Integrated Google Gemini API for intelligent content generation with robust error handling\n\n• Implemented interactive node-based visualization with drag-and-drop functionality\n\n• Created custom node and edge components for enhanced visual appeal\n\n• Added export functionality for saving mind maps as high-quality PNG images\n\n• Developed a responsive design with dark mode support\n\n• Implemented real-time node expansion and connection management\n\n• Added comprehensive error handling and user feedback system",
+      image: "/mindmapper_l.png",
+      tags: [
+        "Next.js",
+        "TypeScript",
+        "React Flow",
+        "Google Gemini API",
+        "Tailwind CSS",
+        "shadcn/ui",
+        "Node.js",
+        "AI/ML",
+        "Error Handling",
+      ],
+      links: [
+        { url: "https://v0-mindmap-app-sigma.vercel.app", icon: ExternalLink },
+        { url: "https://github.com/17arhaan/Mind_Mapper", icon: Github },
+      ],
+    },
+    {
+      id: 11,
+      title: "Driver Drowsiness Recognition System",
+      description:
+        "• Developed a real-time driver drowsiness detection system using Next.js and computer vision technologies\n\n• Implemented facial landmark detection and eye aspect ratio calculation for accurate drowsiness detection\n\n• Created a responsive dashboard with real-time monitoring and alert system\n\n• Integrated WebSocket for live video streaming and instant alerts\n\n• Built a modern UI with Tailwind CSS and Framer Motion for smooth animations\n\n• Implemented error handling and fallback mechanisms for robust performance\n\n• Added comprehensive documentation and setup instructions",
+      image: "/drowsiness.png",
+      tags: [
+        "Next.js",
+        "TypeScript",
+        "Computer Vision",
+        "WebSocket",
+        "Tailwind CSS",
+        "Framer Motion",
+        "OpenCV",
+        "dlib",
+        "Real-time Processing",
+        "Responsive Design"
+      ],
+      links: [
+        { url: "https://driver-drowsiness-recognition.vercel.app/", icon: ExternalLink },
+        { url: "https://github.com/17arhaan/driver_drowsiness_recognition", icon: Github },
+      ],
+    },
+    {
+      id: 10,
+      title: "DriveMind",
+      description:
+        "• Designed and implemented a real-time multimodal data pipeline integrating traffic camera feeds, audio streams, and text-based incident reports\n\n• Developed reinforcement learning algorithms (PPO) using Stable-Baselines3 in a custom Gymnasium environment for adaptive route decisions\n\n• Engineered custom reward functions optimizing for safety, travel time, and fuel efficiency; achieved a 15% reduction in average commute time\n\n• Developed FastAPI backend serving real-time data and RL inference endpoints; implemented WebSocket streams for continuous updates\n\n• Created a cross-platform React Native mobile app with dynamic map visualization (Mapbox SDK) and voice-guided navigation\n\n• Validated performance in CARLA and SUMO simulators before deploying to limited real-world data; monitored model drift and retrained periodically",
+      image: "/drivemind.png",
+      tags: [
+        "Python",
+        "Reinforcement Learning",
+        "Stable-Baselines3",
+        "PyTorch",
+        "YOLOv8",
+        "Whisper",
+        "FastAPI",
+        "React Native",
+        "Mapbox SDK",
+        "Docker",
+        "Kubernetes",
+        "AWS",
+        "PostgreSQL",
+        "Redis",
+        "CARLA",
+        "SUMO",
+        "WebSockets",
+        "Computer Vision",
+      ],
+      links: [
+        { url: "https://github.com/17arhaan/DriveMind", icon: Github },
+      ],
+    },
+    {
+      id: 1,
+      title: "Morpheus 3D",
+      description:
+        "• Developed a 3D model generation platform using Hyper3D Rodin API with React and Three.js\n\n• Implemented text-to-3D and image-to-3D model generation with customizable quality settings\n\n• Created a user-friendly interface with real-time 3D model preview and orbit controls\n\n• Integrated multiple output formats (GLB, USDZ, FBX, OBJ, STL) with quality options\n\n• Built a responsive UI with shadcn/ui components and React Three Fiber for 3D rendering\n\n• Implemented advanced features like T/A pose for human models and material customization",
+      image: "/3d_l.png",
+      tags: [
+        "Next.js",
+        "C++",
+        "TypeScript",
+        "React",
+        "Hyper3D API",
+        "WebGL",
+        "shadcn/ui",
+        "React Three Fiber",
+        "Tailwind CSS",
+      ],
+      links: [
+        { url: "https://github.com/17arhaan/Morpheus3D", icon: Github },
+        { url: "https://morpheus3-d.vercel.app/", icon: ExternalLink },
+      ],
+    },
+    {
+      id: 2,
+      title: "J.A.R.V.I.S",
+      description:
+        "• Built a sophisticated AI assistant with multi-modal capabilities using Python, TensorFlow, and advanced NLP models\n\n• Implemented real-time object detection with YOLOv8 achieving 91% mAP, and speech recognition with 95% accuracy\n\n• Developed a CNN-based face authentication system with 98% accuracy, supporting multi-user profiles and dynamic learning\n\n• Created a modular architecture with 20+ custom plugins for task automation, system control, and API integrations\n\n• Integrated OpenAI's GPT models for context-aware conversations and task understanding\n\n• Engineered a custom wake word detection system with 99% accuracy using MFCC features and Deep Learning",
+      image: "/jarvis_l.png",
+      tags: [
+        "Python",
+        "TensorFlow",
+        "PyTorch",
+        "YOLOv8",
+        "OpenAI API",
+        "Whisper ASR",
+        "CNN",
+        "RNN",
+        "LSTM",
+        "GRU",
+        "FastAPI",
+      ],
+      links: [
+        { url: "https://github.com/17arhaan/J.A.R.V.I.S", icon: Github },
+      ],
+    },
+    {
+      id: 4,
+      title: "W.E.A.L.T.H",
+      description:
+        "• Engineered a full-stack finance tracking application with Next.js 13, TypeScript, and PostgreSQL\n\n• Implemented real-time transaction tracking with WebSocket integration for live updates\n\n• Built a RESTful API with Express.js featuring JWT authentication and role-based access control\n\n• Designed a responsive UI with Tailwind CSS and Framer Motion for smooth animations\n\n• Integrated Plaid API for secure bank account linking and automated transaction imports\n\n• Developed custom analytics dashboard with Chart.js for visualizing spending patterns\n\n• Implemented automated bill detection and recurring payment tracking using ML algorithms",
+      image: "/wealth_l.png",
+      tags: [
+        "Next.js",
+        "TypeScript",
+        "Express.js",
+        "Tailwind CSS",
+        "PostgreSQL",
+        "Prisma",
+        "WebSocket",
+        "JWT",
+        "Plaid API",
+        "Chart.js",
+      ],
+      links: [
+        { url: "https://wealth-pi.vercel.app/", icon: ExternalLink },
+        { url: "https://github.com/17arhaan/W.E.A.L.T.H", icon: Github },
+      ],
+    },
+    {
+      id: 5,
+      title: "Twitter Sentiment Analysis",
+      description:
+        "• Built a real-time Twitter sentiment analysis platform using Next.js and Python\n\n• Implemented custom NLP models with 92% accuracy for sentiment classification\n\n• Created an interactive dashboard with real-time sentiment visualization using Chart.js\n\n• Developed a secure authentication system with JWT and password hashing\n\n• Built a responsive UI with shadcn/ui components and Tailwind CSS\n\n• Integrated Twitter API for real-time tweet fetching and analysis\n\n• Added user profiles with analysis history and saved searches",
+      image: "/sentiment_l.png",
+      tags: ["Next.js", "TypeScript", "Python", "Tailwind CSS", "Chart.js", "JWT", "shadcn/ui", "Twitter API"],
+      links: [
+        { url: "https://sentiment-analysis-sepia.vercel.app/", icon: ExternalLink },
+        { url: "https://github.com/17arhaan/Sentiment_Analysis", icon: Github },
+      ],
+    },
+    {
+      id: 6,
+      title: "SnakeCV",
+      description:
+        "• Developed a multi-mode Snake Game with computer vision controls using Python, OpenCV, and React\n\n• Implemented real-time hand gesture recognition with 98% accuracy using MediaPipe and custom CV models\n\n• Created an AI agent using Q-learning achieving average scores of 50+ points\n\n• Built a responsive web version with React and TypeScript featuring custom animations\n\n• Designed a replay system storing game states in IndexedDB for offline access\n\n• Integrated WebRTC for real-time multiplayer functionality with <100ms latency\n\n• Added leaderboard system with Firebase real-time database integration",
+      image: "/snake_l.png",
+      tags: [
+        "Python",
+        "OpenCV",
+        "MediaPipe",
+        "React",
+        "TypeScript",
+        "WebRTC",
+        "Firebase",
+        "Q-Learning",
+        "WebGL",
+        "Socket.io",
+      ],
+      links: [
+        { url: "https://github.com/17arhaan/Snake_CV_ML", icon: Github },
+      ],
+    },
+    {
+      id: 7,
+      title: "TherapAI",
+      description:
+        "• Built an AI-powered mental health platform using Python, FastAPI, and React\n\n• Integrated GPT-4 with custom fine-tuning for therapeutic conversations achieving 90% user satisfaction\n\n• Implemented real-time emotion detection from text and voice with 94% accuracy\n\n• Developed secure user authentication and HIPAA-compliant data storage\n\n• Created a progressive web app with offline support and push notifications\n\n• Built an emergency response system with automated escalation protocols\n\n• Integrated with external mental health resources and crisis hotlines",
+      image: "/therapai.png",
+      tags: [
+        "Python",
+        "FastAPI",
+        "PyTorch",
+        "TensorFlow",
+        "Transformers",
+        "Hugging Face",
+        "NumPy",
+        "Pandas",
+        "MongoDB",
+        "Docker",
+      ],
+      links: [
+        { url: "https://github.com/17arhaan/TherapAI", icon: Github },
+      ],
+    },
+    {
+      id: 8,
+      title: "Visualify",
+      description:
+        "• Developed a Spotify data visualization platform using the Spotify Web API and D3.js\n\n• Created interactive charts and graphs showing user listening patterns and music preferences\n\n• Implemented OAuth 2.0 authentication for secure Spotify account integration\n\n• Built responsive data visualizations showing top tracks, artists, and genres over time\n\n• Designed an intuitive dashboard with smooth animations and transitions\n\n• Added features for playlist analysis and music recommendation insights\n\n• Optimized for both desktop and mobile viewing experiences",
+      image: "/visualify_l.png",
+      tags: [
+        "React",
+        "D3.js",
+        "Spotify API",
+        "OAuth 2.0",
+        "Data Visualization",
+        "Chart.js",
+        "Tailwind CSS",
+        "Node.js",
+        "Express.js",
+      ],
+      links: [
+        { url: "https://github.com/17arhaan/Visualify", icon: Github },
+      ],
+    },
+  ]
+
+  // Show only first 3 projects initially (featured projects)
+  const displayedProjects = showAllProjects ? projects : projects.slice(0, 3)
+
+  return (
+    <div className="mt-16">
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {displayedProjects.map((project) => (
+          <ProjectCard
+            key={project.id}
+            title={project.title}
+            description={project.description}
+            tags={project.tags}
+            links={project.links}
+            image={project.image}
+          />
+        ))}
+      </div>
+      
+      {/* View More Button */}
+      {!showAllProjects && (
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.3 }}
+          className="flex justify-center mt-12"
+        >
+          <motion.button
+            onClick={() => setShowAllProjects(true)}
+            whileHover={{ scale: 1.05, y: -2 }}
+            whileTap={{ scale: 0.95 }}
+            className="px-8 py-3 bg-white/10 hover:bg-white/20 border border-white/20 hover:border-white/40 rounded-lg text-white font-medium transition-all duration-300 hover:shadow-[0_0_20px_rgba(255,255,255,0.1)] backdrop-blur-sm"
+          >
+            <span className="flex items-center gap-2">
+              View More Projects
+              <ChevronDown className="w-4 h-4" />
+            </span>
+          </motion.button>
+        </motion.div>
+      )}
+    </div>
   )
 }
 
