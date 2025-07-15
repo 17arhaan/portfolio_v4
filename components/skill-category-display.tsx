@@ -4,7 +4,7 @@ import type React from "react"
 
 import { useState, useEffect, useRef } from "react"
 import { motion, AnimatePresence } from "framer-motion"
-import { Code2, Layers, Library, Wrench, Globe, Brain, Languages, Terminal, MousePointerClick, X } from "lucide-react"
+import { Code2, Layers, Library, Wrench, Globe, Brain, Languages, Terminal, MousePointerClick, X, Server } from "lucide-react"
 
 // Define types for skills
 type SkillCategory =
@@ -13,6 +13,7 @@ type SkillCategory =
   | "libraries"
   | "tools"
   | "platforms"
+  | "apis"
   | "domains"
   | "languages"
   | "commands"
@@ -30,6 +31,7 @@ export default function SkillCategoryDisplay() {
     "libraries",
     "tools",
     "platforms",
+    "apis",
     "domains",
     "languages",
     "commands",
@@ -41,6 +43,7 @@ export default function SkillCategoryDisplay() {
     libraries: "Libraries",
     tools: "Tools",
     platforms: "Platforms",
+    apis: "APIs & Web Services",
     domains: "Domains",
     languages: "Languages",
     commands: "Commands",
@@ -52,6 +55,7 @@ export default function SkillCategoryDisplay() {
     libraries: <Library className="w-5 h-5" />,
     tools: <Wrench className="w-5 h-5" />,
     platforms: <Globe className="w-5 h-5" />,
+    apis: <Server className="w-5 h-5" />,
     domains: <Brain className="w-5 h-5" />,
     languages: <Languages className="w-5 h-5" />,
     commands: <Terminal className="w-5 h-5" />,
@@ -127,6 +131,24 @@ export default function SkillCategoryDisplay() {
           "Used for system programming, embedded systems projects, and understanding computer architecture. Comfortable with pointers, memory allocation, and low-level operations.",
       },
       {
+        name: "SQL",
+        level: 90,
+        description:
+          "Extensive experience with SQL for database queries, optimization, and database design. Proficient in complex joins, subqueries, and stored procedures.",
+      },
+      {
+        name: "NoSQL",
+        level: 70,
+        description:
+          "Experience with document databases like MongoDB and key-value stores. Familiar with data modeling for unstructured data and scalability patterns.",
+      },
+      {
+        name: "HTML",
+        level: 95,
+        description:
+          "Expert in semantic HTML markup, accessibility best practices, and modern HTML5 features for structuring web content.",
+      },
+      {
         name: "MySQL",
         level: 90,
         description:
@@ -195,18 +217,6 @@ export default function SkillCategoryDisplay() {
           "Recently adopted for React projects requiring server-side rendering and static site generation. Learning advanced features like API routes and incremental static regeneration.",
       },
       {
-        name: "FastAPI",
-        level: 45,
-        description:
-          "Beginning to use for high-performance Python APIs. Appreciate the automatic documentation, type checking, and async support.",
-      },
-      {
-        name: "restAPI",
-        level: 75,
-        description:
-          "Experience designing and implementing RESTful APIs following best practices. Proficient with API documentation, versioning, and security measures.",
-      },
-      {
         name: "Chart.js",
         level: 70,
         description:
@@ -257,10 +267,40 @@ export default function SkillCategoryDisplay() {
           "Used for computer vision projects. Experienced with image processing, feature detection, and object tracking algorithms.",
       },
       {
+        name: "SciPy",
+        level: 50,
+        description:
+          "Used for scientific computing tasks like optimization, signal processing, and statistical analysis. Building deeper expertise in specific modules.",
+      },
+      {
+        name: "Selenium",
+        level: 65,
+        description:
+          "Experience with web automation and testing using Selenium. Familiar with element locators, wait strategies, and cross-browser testing.",
+      },
+      {
         name: "OpenMPI",
         level: 75,
         description:
           "Used for distributed computing in high-performance applications. Familiar with parallel programming patterns and communication protocols.",
+      },
+      {
+        name: "CUDA",
+        level: 70,
+        description:
+          "Experience accelerating computations with GPU programming. Familiar with memory management and optimization techniques for CUDA kernels.",
+      },
+      {
+        name: "Beautiful Soup",
+        level: 85,
+        description:
+          "Essential library for web scraping and HTML/XML parsing. Proficient with navigating complex DOM structures and extracting data efficiently.",
+      },
+      {
+        name: "Keras",
+        level: 80,
+        description:
+          "High-level neural networks API for rapid prototyping. Experienced with building and training deep learning models with simplified syntax.",
       },
       {
         name: "TensorFlow",
@@ -274,24 +314,6 @@ export default function SkillCategoryDisplay() {
         description:
           "Used for NLP projects with pre-trained models. Learning advanced techniques for fine-tuning and deploying transformer-based models.",
       },
-      {
-        name: "SciPy",
-        level: 50,
-        description:
-          "Used for scientific computing tasks like optimization, signal processing, and statistical analysis. Building deeper expertise in specific modules.",
-      },
-      {
-        name: "CUDA",
-        level: 70,
-        description:
-          "Experience accelerating computations with GPU programming. Familiar with memory management and optimization techniques for CUDA kernels.",
-      },
-      {
-        name: "Selenium",
-        level: 65,
-        description:
-          "Experience with web automation and testing using Selenium. Familiar with element locators, wait strategies, and cross-browser testing.",
-      },
     ],
     tools: [
       {
@@ -299,18 +321,6 @@ export default function SkillCategoryDisplay() {
         level: 100,
         description:
           "Expert in the entire Office suite, particularly Excel for data analysis, PowerPoint for presentations, and Word for documentation.",
-      },
-      {
-        name: "HTML5",
-        level: 95,
-        description:
-          "Extensive experience with modern HTML features, semantic markup, and accessibility best practices for web development.",
-      },
-      {
-        name: "CSS3",
-        level: 95,
-        description:
-          "Strong skills in responsive design, animations, grid layouts, and CSS variables. Familiar with preprocessors like Sass.",
       },
       {
         name: "Git",
@@ -375,6 +385,18 @@ export default function SkillCategoryDisplay() {
           "Used GCP services for machine learning projects. Familiar with Google Colab, Cloud Storage, and BigQuery for data processing.",
       },
       {
+        name: "Google Colab",
+        level: 90,
+        description:
+          "Primary environment for machine learning experimentation and research. Expert in GPU/TPU acceleration, collaborative notebooks, and data integration.",
+      },
+      {
+        name: "Digital Ocean",
+        level: 70,
+        description:
+          "Experience deploying web applications and databases on Digital Ocean droplets. Familiar with their app platform and managed databases.",
+      },
+      {
         name: "Heroku",
         level: 60,
         description:
@@ -391,6 +413,44 @@ export default function SkillCategoryDisplay() {
         level: 90,
         description:
          " Used to deployed full-stack applications with continuous integration and managing environments, variables, databases, and serverless functions.",
+      },
+    ],
+    apis: [
+      {
+        name: "RESTful APIs",
+        level: 85,
+        description:
+          "Extensive experience designing and implementing RESTful APIs following best practices. Proficient with API documentation, versioning, and security measures.",
+      },
+      {
+        name: "FastAPI",
+        level: 45,
+        description:
+          "Beginning to use for high-performance Python APIs. Appreciate the automatic documentation, type checking, and async support.",
+      },
+      {
+        name: "GraphQL",
+        level: 40,
+        description:
+          "Learning GraphQL for efficient data fetching and API design. Understanding the query language and schema definition concepts.",
+      },
+      {
+        name: "JSON",
+        level: 95,
+        description:
+          "Expert in JSON data format for API communication and data exchange. Proficient with parsing, serialization, and schema validation.",
+      },
+      {
+        name: "XML",
+        level: 75,
+        description:
+          "Experience with XML for data exchange and configuration files. Familiar with parsing, validation, and transformation techniques.",
+      },
+      {
+        name: "OAuth 2.0",
+        level: 70,
+        description:
+          "Implemented OAuth 2.0 authentication flows for secure API access. Understanding of authorization codes, tokens, and security best practices.",
       },
     ],
     domains: [
@@ -522,18 +582,6 @@ export default function SkillCategoryDisplay() {
         level: 85,
         description:
           "Proficient with package managers like npm, pip, and apt for dependency management and system maintenance.",
-      },
-      {
-        name: "Git",
-        level: 90,
-        description:
-          "Proficient in version control with Git. Experienced with branching strategies, merge conflicts, and collaborative workflows.",
-      },
-      {
-        name: "Docker",
-        level: 85,
-        description:
-          "Skilled in containerization and orchestration. Experienced with Docker Compose, multi-stage builds, and container optimization.",
       },
       {
         name: "Linux",
@@ -890,12 +938,12 @@ export default function SkillCategoryDisplay() {
             </p>
 
             <motion.div
-              className="mt-12 grid grid-cols-4 gap-6"
+              className="mt-12 grid grid-cols-3 md:grid-cols-5 gap-6"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.5, duration: 0.5 }}
             >
-              {categories.slice(0, 4).map((category, index) => (
+              {categories.slice(0, 6).map((category, index) => (
                 <motion.div
                   key={category}
                   initial={{ opacity: 0, scale: 0.8 }}
