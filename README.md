@@ -72,7 +72,27 @@ npm run dev
 yarn dev
 ```
 
-5. Open [http://localhost:3000](http://localhost:3000) in your browser
+5. Set up environment variables (required for GitHub stats)
+```bash
+# Create a .env.local file in the root directory
+cp .env.local.example .env.local
+```
+
+6. Configure your GitHub token in `.env.local`:
+```bash
+GITHUB_TOKEN=your_github_personal_access_token_here
+```
+
+   **To get a GitHub Personal Access Token:**
+   - Go to [GitHub Settings > Developer settings > Personal access tokens](https://github.com/settings/tokens)
+   - Click "Generate new token" → "Generate new token (classic)"
+   - Give it a name like "Portfolio Stats"
+   - Select these scopes:
+     - `public_repo` (to read public repository information)
+     - `read:user` (to read user profile information)
+   - Copy the generated token to your `.env.local` file
+
+7. Open [http://localhost:3000](http://localhost:3000) in your browser
 
 ## 📁 Project Structure
 

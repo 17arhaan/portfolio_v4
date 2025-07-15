@@ -16,7 +16,13 @@ export async function GET(request: Request) {
 
   if (!process.env.GITHUB_TOKEN && !process.env.NEXT_PUBLIC_GITHUB_TOKEN) {
     console.error('GitHub token not found in environment variables')
-    return NextResponse.json({ error: 'GitHub token not configured' }, { status: 500 })
+    console.error('Please set GITHUB_TOKEN in your .env.local file')
+    console.error('Visit https://github.com/settings/tokens to create a token')
+    return NextResponse.json({ 
+      error: 'GitHub token not configured',
+      message: 'Please set GITHUB_TOKEN in your .env.local file',
+      instructions: 'Visit https://github.com/settings/tokens to create a token'
+    }, { status: 500 })
   }
 
   try {

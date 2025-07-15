@@ -21,7 +21,15 @@ export async function getGitHubStats(username: string): Promise<GitHubStats> {
     const response = await fetch(`/api/github?username=${encodeURIComponent(username)}`)
     
     if (!response.ok) {
-      throw new Error('Failed to fetch GitHub stats')
+      const errorData = await response.json().catch(() => ({}))
+      if (errorData.error === 'GitHub token not configured') {
+        console.error('🔧 GitHub API Setup Required:')
+        console.error('1. Create a GitHub Personal Access Token at: https://github.com/settings/tokens')
+        console.error('2. Add it to your .env.local file as: GITHUB_TOKEN=your_token_here')
+        console.error('3. Restart your development server')
+        throw new Error('GitHub token not configured - check console for setup instructions')
+      }
+      throw new Error(`Failed to fetch GitHub stats: ${response.status}`)
     }
 
     const data = await response.json()
