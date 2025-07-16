@@ -1,14 +1,12 @@
 import { Resend } from 'resend';
 import { NextResponse } from 'next/server';
 
-// Add debug logging for API key
-console.log('API Key exists:', !!process.env.RESEND_API_KEY);
-console.log('API Key length:', process.env.RESEND_API_KEY?.length);
-
-const resend = new Resend(process.env.RESEND_API_KEY);
-
 export async function POST(request: Request) {
   try {
+    // Add debug logging for API key
+    console.log('API Key exists:', !!process.env.RESEND_API_KEY);
+    console.log('API Key length:', process.env.RESEND_API_KEY?.length);
+
     if (!process.env.RESEND_API_KEY) {
       console.error('RESEND_API_KEY is not defined');
       return NextResponse.json(
@@ -16,6 +14,8 @@ export async function POST(request: Request) {
         { status: 500 }
       );
     }
+
+    const resend = new Resend(process.env.RESEND_API_KEY);
 
     const body = await request.json();
     const { name, email, phone, company, inquiry, website, availability, subject, message } = body;
@@ -46,7 +46,7 @@ export async function POST(request: Request) {
       from: 'Portfolio Contact <onboarding@resend.dev>',
       to: ['17arhaan@gmail.com'],
       subject: `New Contact Form Submission: ${subject}`,
-      reply_to: email,
+      replyTo: email,
       html: `
         <!DOCTYPE html>
         <html>

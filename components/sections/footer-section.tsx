@@ -42,9 +42,11 @@ export default function FooterSection({
             <Image 
               src="/sign.png" 
               alt="Arhaan Girdhar" 
-              width={56}
-              height={56}
+              width={96}
+              height={96}
               className="h-24 w-auto object-contain hover:opacity-80 transition-opacity" 
+              loading="lazy"
+              unoptimized={true}
             />
           </motion.div>
           

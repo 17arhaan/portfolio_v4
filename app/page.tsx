@@ -279,7 +279,15 @@ export default function Portfolio() {
               whileTap={{ scale: 0.95 }}
               className="focus:outline-none"
             >
-              <Image src="/sign.png" alt="Arhaan Girdhar" width={56} height={56} className="h-14 w-auto object-contain my-auto mt-[3px]" />
+              <Image 
+                src="/sign.png" 
+                alt="Arhaan Girdhar" 
+                width={56} 
+                height={56} 
+                className="h-14 w-auto object-contain my-auto mt-[3px]" 
+                priority={true}
+                unoptimized={true}
+              />
             </motion.button>
           </motion.div>
 

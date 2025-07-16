@@ -3,6 +3,7 @@
 import React, { useState, useRef, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { ChevronRight, ExternalLink, X } from "lucide-react"
+import Image from "next/image"
 
 interface Certification {
   id: number
@@ -202,14 +203,17 @@ export default function CertificationsGrid() {
             className="border border-white/10 rounded-lg overflow-hidden bg-black/50 backdrop-blur-sm cursor-pointer h-auto sm:h-64 md:h-72 flex flex-col items-center justify-center p-4 sm:p-6 transition-all hover:border-white/30"
           >
             <motion.div
-              className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 mb-3 sm:mb-4 md:mb-6 flex items-center justify-center"
+              className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 mb-3 sm:mb-4 md:mb-6 flex items-center justify-center relative"
               whileHover={{ scale: 1.05 }}
               transition={{ type: "spring", stiffness: 400, damping: 10 }}
             >
-              <img
+              <Image
                 src={cert.image || "/placeholder.svg"}
                 alt={cert.issuer}
+                width={96}
+                height={96}
                 className="max-w-full max-h-full object-contain"
+                sizes="(max-width: 640px) 64px, (max-width: 768px) 80px, 96px"
               />
             </motion.div>
             <div className="flex-grow flex flex-col justify-between">
@@ -270,20 +274,18 @@ export default function CertificationsGrid() {
                 >
                   <div className="flex items-center">
                     <motion.div
-                      className="w-96 h-48 rounded-lg overflow-hidden mr-4 bg-white/5 flex items-center justify-center border border-white/10"
+                      className="w-96 h-48 rounded-lg overflow-hidden mr-4 bg-white/5 flex items-center justify-center border border-white/10 relative"
                       initial={{ scale: 0.9, opacity: 0 }}
                       animate={{ scale: 1, opacity: 1 }}
                       transition={{ duration: 0.5, delay: 0.1 }}
                       whileHover={{ scale: 1.05 }}
                     >
-                      <img
+                      <Image
                         src={selectedCertificate.image}
                         alt={`${selectedCertificate.issuer} logo`}
-                        className="w-full h-full object-contain p-4"
-                        onError={(e) => {
-                          const target = e.target as HTMLImageElement
-                          target.src = "/generic-company-logo.png"
-                        }}
+                        fill
+                        className="object-contain p-4"
+                        sizes="384px"
                       />
                     </motion.div>
                     <div>
