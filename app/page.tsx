@@ -22,7 +22,6 @@ import ProgressSection from "@/components/progress-section"
 
 function VideoPlayer({ isPlaying, onEnded }: { isPlaying: boolean; onEnded: () => void }) {
   const videoRef = useRef<HTMLVideoElement>(null);
-  const [volume, setVolume] = useState(0.5);
 
   useEffect(() => {
     if (isPlaying && videoRef.current) {
@@ -31,14 +30,6 @@ function VideoPlayer({ isPlaying, onEnded }: { isPlaying: boolean; onEnded: () =
       });
     }
   }, [isPlaying]);
-
-  const handleVolumeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const newVolume = parseFloat(e.target.value);
-    setVolume(newVolume);
-    if (videoRef.current) {
-      videoRef.current.volume = newVolume;
-    }
-  };
 
   const handleVideoEnded = () => {
     onEnded();
@@ -63,19 +54,6 @@ function VideoPlayer({ isPlaying, onEnded }: { isPlaying: boolean; onEnded: () =
           onEnded={handleVideoEnded}
           onClick={(e) => e.stopPropagation()}
         />
-        <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-black/50 px-4 py-2 rounded-lg flex items-center gap-2">
-          <input
-            type="range"
-            min="0"
-            max="1"
-            step="0.1"
-            value={volume}
-            onChange={handleVolumeChange}
-            className="w-24 accent-white"
-            aria-label="Volume control"
-          />
-          <span className="text-white text-sm">{Math.round(volume * 100)}%</span>
-        </div>
       </div>
     </motion.div>
   );

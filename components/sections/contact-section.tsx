@@ -111,45 +111,45 @@ export default function ContactSection() {
           Let's collaborate and create something amazing together.
         </motion.p>
 
-        <div className="grid md:grid-cols-2 gap-6 lg:gap-8 mt-8">
-          {/* Left Column */}
+        <div className="grid md:grid-cols-1 lg:grid-cols-5 gap-6 lg:gap-8 mt-8">
+          {/* Left Column - Contact Info */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="bg-black/70 backdrop-blur-sm border border-white/10 rounded-lg p-8 flex flex-col h-full"
+            className="lg:col-span-2 bg-black/70 backdrop-blur-sm border border-white/10 rounded-lg p-6 flex flex-col h-full"
           >
-            <h3 className="text-2xl font-bold mb-8">Let's Connect</h3>
+            <h3 className="text-2xl font-bold mb-6">Let's Connect</h3>
 
-            <div className="space-y-6">
+            <div className="space-y-4">
               <div className="flex items-center">
-                <a href="mailto:17arhaan.connect@gmail.com" className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center mr-4 flex-shrink-0 hover:bg-white/20 transition-colors">
-                  <Mail className="w-5 h-5 text-gray-300" />
+                <a href="mailto:17arhaan.connect@gmail.com" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center mr-3 flex-shrink-0 hover:bg-white/20 transition-colors">
+                  <Mail className="w-4 h-4 text-gray-300" />
                 </a>
                 <div>
-                  <p className="text-gray-400 text-sm">Email</p>
-                  <a href="mailto:17arhaan.connect@gmail.com" className="text-white font-medium hover:text-gray-300 transition-colors">
+                  <p className="text-gray-400 text-xs">Email</p>
+                  <a href="mailto:17arhaan.connect@gmail.com" className="text-white font-medium hover:text-gray-300 transition-colors text-sm">
                     17arhaan.connect@gmail.com
                   </a>
                 </div>
               </div>
 
               <div className="flex items-center">
-                <a href="tel:+919650984445" className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center mr-4 flex-shrink-0 hover:bg-white/20 transition-colors">
-                  <Phone className="w-5 h-5 text-gray-300" />
+                <a href="tel:+919650984445" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center mr-3 flex-shrink-0 hover:bg-white/20 transition-colors">
+                  <Phone className="w-4 h-4 text-gray-300" />
                 </a>
                 <div>
-                  <p className="text-gray-400 text-sm">Phone</p>
-                  <a href="tel:+919650984445" className="text-white font-medium hover:text-gray-300 transition-colors">
+                  <p className="text-gray-400 text-xs">Phone</p>
+                  <a href="tel:+919650984445" className="text-white font-medium hover:text-gray-300 transition-colors text-sm">
                     +919650984445
                   </a>
                 </div>
               </div>
             </div>
 
-            <div className="mt-10">
-              <p className="text-gray-400 mb-4">Follow Me:</p>
+            <div className="mt-8">
+              <p className="text-gray-400 mb-3 text-sm">Follow Me:</p>
               <div className="flex space-x-4">
                 <SocialLink icon={<Github className="w-5 h-5" />} href="https://github.com/17arhaan" />
                 <SocialLink icon={<Linkedin className="w-5 h-5" />} href="https://www.linkedin.com/in/arhaan17/" />
@@ -163,32 +163,32 @@ export default function ContactSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="mt-12 relative"
+              className="mt-8 relative"
             >
-              <div className="bg-white/5 backdrop-blur-sm rounded-lg p-6 border border-white/10 relative">
+              <div className="bg-white/5 backdrop-blur-sm rounded-lg p-4 border border-white/10 relative">
                 {/* Large quote marks */}
-                <div className="absolute -top-5 -left-2 text-white/10 text-7xl font-serif leading-none">"</div>
-                <div className="absolute -bottom-8 -right-2 text-white/10 text-7xl font-serif leading-none">"</div>
+                <div className="absolute -top-3 -left-1 text-white/10 text-5xl font-serif leading-none">"</div>
+                <div className="absolute -bottom-5 -right-1 text-white/10 text-5xl font-serif leading-none">"</div>
 
                 {/* Quote icon */}
-                <div className="flex justify-center mb-4">
-                  <div className="bg-white/10 rounded-full p-2">
-                    <Quote className="w-5 h-5 text-white/70" />
+                <div className="flex justify-center mb-3">
+                  <div className="bg-white/10 rounded-full p-1.5">
+                    <Quote className="w-4 h-4 text-white/70" />
                   </div>
                 </div>
 
                 {/* Quote text */}
-                <p className="text-white/90 text-lg font-light leading-relaxed tracking-wide text-center">
+                <p className="text-white/90 text-sm font-light leading-relaxed tracking-wide text-center">
                   I believe great technology should feel personal, solving real problems with a human touch. Let's
                   create something meaningful together.
                 </p>
 
                 {/* Decorative line */}
-                <div className="mt-5 flex justify-center">
+                <div className="mt-3 flex justify-center">
                   <motion.div
-                    className="h-[1px] bg-gradient-to-r from-transparent via-white/30 to-transparent w-24"
+                    className="h-[1px] bg-gradient-to-r from-transparent via-white/30 to-transparent w-16"
                     initial={{ width: 0 }}
-                    whileInView={{ width: 96 }}
+                    whileInView={{ width: 64 }}
                     viewport={{ once: true }}
                     transition={{ duration: 1, delay: 0.5 }}
                   />
@@ -197,20 +197,20 @@ export default function ContactSection() {
             </motion.div>
           </motion.div>
 
-          {/* Right Column */}
+          {/* Right Column - Form */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="bg-black/70 backdrop-blur-sm border border-white/10 rounded-lg p-8"
+            className="lg:col-span-3 bg-black/70 backdrop-blur-sm border border-white/10 rounded-lg p-6"
           >
-            <h3 className="text-2xl font-bold mb-8">Send a Message</h3>
+            <h3 className="text-2xl font-bold mb-6">Send a Message</h3>
 
-            <form ref={formRef} onSubmit={handleSubmit} className="space-y-6">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <form ref={formRef} onSubmit={handleSubmit} className="space-y-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-gray-400 mb-2">
+                  <label htmlFor="name" className="block text-sm font-medium text-gray-400 mb-1.5">
                     Name <span className="text-white/60">*</span>
                   </label>
                   <div className="relative">
@@ -219,7 +219,7 @@ export default function ContactSection() {
                       type="text"
                       id="name"
                       name="name"
-                      className="w-full pl-10 pr-4 py-3 bg-white/5 border border-white/10 rounded-md focus:outline-none focus:ring-1 focus:ring-white/30 transition-all"
+                      className="w-full pl-10 pr-4 py-2.5 bg-white/5 border border-white/10 rounded-md focus:outline-none focus:ring-1 focus:ring-white/30 transition-all"
                       placeholder="Your name"
                       required
                     />
@@ -227,7 +227,7 @@ export default function ContactSection() {
                 </div>
 
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-gray-400 mb-2">
+                  <label htmlFor="email" className="block text-sm font-medium text-gray-400 mb-1.5">
                     Email <span className="text-white/60">*</span>
                   </label>
                   <div className="relative">
@@ -236,7 +236,7 @@ export default function ContactSection() {
                       type="email"
                       id="email"
                       name="email"
-                      className="w-full pl-10 pr-4 py-3 bg-white/5 border border-white/10 rounded-md focus:outline-none focus:ring-1 focus:ring-white/30 transition-all"
+                      className="w-full pl-10 pr-4 py-2.5 bg-white/5 border border-white/10 rounded-md focus:outline-none focus:ring-1 focus:ring-white/30 transition-all"
                       placeholder="your@email.com"
                       required
                     />
@@ -244,9 +244,9 @@ export default function ContactSection() {
                 </div>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
-                  <label htmlFor="phone" className="block text-sm font-medium text-gray-400 mb-2">
+                  <label htmlFor="phone" className="block text-sm font-medium text-gray-400 mb-1.5">
                     Phone
                   </label>
                   <div className="relative">
@@ -255,14 +255,14 @@ export default function ContactSection() {
                       type="tel"
                       id="phone"
                       name="phone"
-                      className="w-full pl-10 pr-4 py-3 bg-white/5 border border-white/10 rounded-md focus:outline-none focus:ring-1 focus:ring-white/30 transition-all"
+                      className="w-full pl-10 pr-4 py-2.5 bg-white/5 border border-white/10 rounded-md focus:outline-none focus:ring-1 focus:ring-white/30 transition-all"
                       placeholder="Your phone number"
                     />
                   </div>
                 </div>
 
                 <div>
-                  <label htmlFor="company" className="block text-sm font-medium text-gray-400 mb-2">
+                  <label htmlFor="company" className="block text-sm font-medium text-gray-400 mb-1.5">
                     Company
                   </label>
                   <div className="relative">
@@ -271,113 +271,117 @@ export default function ContactSection() {
                       type="text"
                       id="company"
                       name="company"
-                      className="w-full pl-10 pr-4 py-3 bg-white/5 border border-white/10 rounded-md focus:outline-none focus:ring-1 focus:ring-white/30 transition-all"
+                      className="w-full pl-10 pr-4 py-2.5 bg-white/5 border border-white/10 rounded-md focus:outline-none focus:ring-1 focus:ring-white/30 transition-all"
                       placeholder="Your company"
                     />
                   </div>
                 </div>
               </div>
 
-              <div>
-                <label htmlFor="inquiry" className="block text-sm font-medium text-gray-400 mb-2">
-                  Inquiry Type <span className="text-white/60">*</span>
-                </label>
-                <div className="relative">
-                  <MessageSquare className="w-4 h-4 text-gray-500 absolute left-3 top-1/2 transform -translate-y-1/2" />
-                  <select
-                    id="inquiry"
-                    name="inquiry"
-                    className="w-full pl-10 pr-4 py-3 bg-white/5 border border-white/10 rounded-md focus:outline-none focus:ring-1 focus:ring-white/30 transition-all appearance-none"
-                    required
-                  >
-                    <option value="">Select an option</option>
-                    <option value="Project">Project</option>
-                    <option value="Job">Job</option>
-                    <option value="Collaboration">Collaboration</option>
-                    <option value="Other">Other</option>
-                  </select>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                  <label htmlFor="inquiry" className="block text-sm font-medium text-gray-400 mb-1.5">
+                    Inquiry Type <span className="text-white/60">*</span>
+                  </label>
+                  <div className="relative">
+                    <MessageSquare className="w-4 h-4 text-gray-500 absolute left-3 top-1/2 transform -translate-y-1/2" />
+                    <select
+                      id="inquiry"
+                      name="inquiry"
+                      className="w-full pl-10 pr-4 py-2.5 bg-white/5 border border-white/10 rounded-md focus:outline-none focus:ring-1 focus:ring-white/30 transition-all appearance-none"
+                      required
+                    >
+                      <option value="">Select an option</option>
+                      <option value="Project">Project</option>
+                      <option value="Job">Job</option>
+                      <option value="Collaboration">Collaboration</option>
+                      <option value="Other">Other</option>
+                    </select>
+                  </div>
                 </div>
-              </div>
 
-              <div>
-                <label htmlFor="website" className="block text-sm font-medium text-gray-400 mb-2">
-                  Website
-                </label>
-                <div className="relative">
-                  <Globe className="w-4 h-4 text-gray-500 absolute left-3 top-1/2 transform -translate-y-1/2" />
-                  <input
-                    type="url"
-                    id="website"
-                    name="website"
-                    className="w-full pl-10 pr-4 py-3 bg-white/5 border border-white/10 rounded-md focus:outline-none focus:ring-1 focus:ring-white/30 transition-all"
-                    placeholder="https://your-website.com"
-                  />
-                </div>
-              </div>
-
-              <div>
-                <label htmlFor="availability" className="block text-sm font-medium text-gray-400 mb-2">
-                  Availability
-                </label>
-                <Popover>
-                  <PopoverTrigger asChild>
-                    <div className="relative">
-                      <CalendarIcon className="w-4 h-4 text-gray-500 absolute left-3 top-1/2 transform -translate-y-1/2" />
-                      <input
-                        type="text"
-                        id="availability"
-                        name="availability"
-                        className="w-full pl-10 pr-4 py-3 bg-white/5 border border-white/10 rounded-md focus:outline-none focus:ring-1 focus:ring-white/30 transition-all cursor-text"
-                        placeholder="When are you available?"
-                        value={date ? format(date, "PPP") : ""}
-                        readOnly
-                      />
-                    </div>
-                  </PopoverTrigger>
-                  <PopoverContent className="w-auto p-0 bg-zinc-900 border border-white/10" align="start">
-                    <Calendar
-                      mode="single"
-                      selected={date}
-                      onSelect={setDate}
-                      initialFocus
-                      className="rounded-md"
+                <div>
+                  <label htmlFor="website" className="block text-sm font-medium text-gray-400 mb-1.5">
+                    Website
+                  </label>
+                  <div className="relative">
+                    <Globe className="w-4 h-4 text-gray-500 absolute left-3 top-1/2 transform -translate-y-1/2" />
+                    <input
+                      type="url"
+                      id="website"
+                      name="website"
+                      className="w-full pl-10 pr-4 py-2.5 bg-white/5 border border-white/10 rounded-md focus:outline-none focus:ring-1 focus:ring-white/30 transition-all"
+                      placeholder="https://your-website.com"
                     />
-                  </PopoverContent>
-                </Popover>
+                  </div>
+                </div>
               </div>
 
-              <div>
-                <label htmlFor="subject" className="block text-sm font-medium text-gray-400 mb-2">
-                  Subject <span className="text-white/60">*</span>
-                </label>
-                <div className="relative">
-                  <FileText className="w-4 h-4 text-gray-500 absolute left-3 top-1/2 transform -translate-y-1/2" />
-                  <input
-                    type="text"
-                    id="subject"
-                    name="subject"
-                    className="w-full pl-10 pr-4 py-3 bg-white/5 border border-white/10 rounded-md focus:outline-none focus:ring-1 focus:ring-white/30 transition-all"
-                    placeholder="What's this about?"
-                    required
-                  />
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                  <label htmlFor="availability" className="block text-sm font-medium text-gray-400 mb-1.5">
+                    Availability
+                  </label>
+                  <Popover>
+                    <PopoverTrigger asChild>
+                      <div className="relative">
+                        <CalendarIcon className="w-4 h-4 text-gray-500 absolute left-3 top-1/2 transform -translate-y-1/2" />
+                        <input
+                          type="text"
+                          id="availability"
+                          name="availability"
+                          className="w-full pl-10 pr-4 py-2.5 bg-white/5 border border-white/10 rounded-md focus:outline-none focus:ring-1 focus:ring-white/30 transition-all cursor-text"
+                          placeholder="When are you available?"
+                          value={date ? format(date, "PPP") : ""}
+                          readOnly
+                        />
+                      </div>
+                    </PopoverTrigger>
+                    <PopoverContent className="w-auto p-0 bg-zinc-900 border border-white/10" align="start">
+                      <Calendar
+                        mode="single"
+                        selected={date}
+                        onSelect={setDate}
+                        initialFocus
+                        className="rounded-md"
+                      />
+                    </PopoverContent>
+                  </Popover>
+                </div>
+
+                <div>
+                  <label htmlFor="subject" className="block text-sm font-medium text-gray-400 mb-1.5">
+                    Subject <span className="text-white/60">*</span>
+                  </label>
+                  <div className="relative">
+                    <FileText className="w-4 h-4 text-gray-500 absolute left-3 top-1/2 transform -translate-y-1/2" />
+                    <input
+                      type="text"
+                      id="subject"
+                      name="subject"
+                      className="w-full pl-10 pr-4 py-2.5 bg-white/5 border border-white/10 rounded-md focus:outline-none focus:ring-1 focus:ring-white/30 transition-all"
+                      placeholder="What's this about?"
+                      required
+                    />
+                  </div>
                 </div>
               </div>
 
               <div>
-                <label htmlFor="message" className="block text-sm font-medium text-gray-400 mb-2">
+                <label htmlFor="message" className="block text-sm font-medium text-gray-400 mb-1.5">
                   Message <span className="text-white/60">*</span>
                 </label>
                 <div className="relative">
-                  <MessageSquare className="w-4 h-4 text-gray-500 absolute left-3 top-1/2 transform -translate-y-1/2" />
+                  <MessageSquare className="w-4 h-4 text-gray-500 absolute left-3 top-4" />
                   <textarea
                     id="message"
                     name="message"
-                    rows={4}
+                    rows={3}
                     ref={messageRef}
                     value={messageValue}
                     onChange={handleMessageChange}
                     style={{ height: messageHeight, overflow: 'hidden', resize: 'none' }}
-                    className="w-full pl-10 pr-4 py-3 bg-white/5 border border-white/10 rounded-md focus:outline-none focus:ring-1 focus:ring-white/30 transition-all resize-none"
+                    className="w-full pl-10 pr-4 py-2.5 bg-white/5 border border-white/10 rounded-md focus:outline-none focus:ring-1 focus:ring-white/30 transition-all resize-none"
                     placeholder="Your message..."
                     required
                   />
@@ -389,7 +393,7 @@ export default function ContactSection() {
                 whileTap={{ scale: 0.98 }}
                 type="submit"
                 disabled={isSubmitting}
-                className={`w-full flex items-center justify-center px-6 py-3 text-white font-medium rounded-md transition-all duration-300 ${
+                className={`w-full flex items-center justify-center px-6 py-2.5 text-white font-medium rounded-md transition-all duration-300 ${
                   isSubmitting 
                     ? 'bg-white/10 opacity-50 cursor-not-allowed' 
                     : submitStatus.type === 'success'
