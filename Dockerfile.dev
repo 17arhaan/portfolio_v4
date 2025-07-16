@@ -3,8 +3,13 @@ FROM node:18-alpine
 WORKDIR /app
 
 # Install dependencies
-COPY package*.json ./
-RUN npm ci
+COPY package.json package-lock.json* pnpm-lock.yaml* ./
+RUN \
+  if [ -f pnpm-lock.yaml ]; then \
+    npm install -g pnpm && pnpm install; \
+  else \
+    npm install; \
+  fi
 
 # Copy source code
 COPY . .
@@ -13,4 +18,9 @@ COPY . .
 EXPOSE 3000
 
 # Start development server
-CMD ["npm", "run", "dev"] 
+CMD \
+  if [ -f pnpm-lock.yaml ]; then \
+    pnpm run dev; \
+  else \
+    npm run dev; \
+  fi 

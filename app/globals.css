@@ -110,35 +110,7 @@
   }
 }
 
-/* Optimized animations */
-@layer utilities {
-  .animate-gradient-slow {
-    background-size: 400% 400%;
-    animation: gradient 15s ease infinite;
-  }
-  
-  .animate-gradient-medium {
-    background-size: 400% 400%;
-    animation: gradient 10s ease infinite;
-  }
-  
-  .animate-gradient-fast {
-    background-size: 400% 400%;
-    animation: gradient 8s ease infinite;
-  }
-}
-
-@keyframes gradient {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
+/* Removed heavy animations for better performance */
 
 /* Text clamp utilities */
 @layer utilities {

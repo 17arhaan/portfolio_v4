@@ -222,62 +222,19 @@ export default function Portfolio() {
         </motion.div>
       )}
 
-      {/* Only show custom cursor on non-mobile devices */}
-      {!isMobile && <CustomCursor />}
-
-      {/* Subtle moving gradient background */}
+      {/* Simple static background */}
       <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
-        <div className="absolute inset-0 opacity-[0.15] bg-[radial-gradient(ellipse_at_top,rgba(255,255,255,0.25),transparent_70%)] animate-gradient-slow"></div>
-        <div className="absolute -inset-[100%] opacity-[0.12] bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.3),transparent_80%)] blur-xl animate-gradient-medium"></div>
-        <div className="absolute -inset-[50%] opacity-[0.1] bg-[radial-gradient(circle_at_70%_60%,rgba(255,255,255,0.25),transparent_60%)] blur-md animate-gradient-fast"></div>
-        <div className="absolute top-0 left-0 right-0 h-[500px] opacity-[0.1] bg-[linear-gradient(180deg,rgba(255,255,255,0.3),transparent)] animate-pulse"></div>
+        <div className="absolute inset-0 opacity-[0.05] bg-[radial-gradient(ellipse_at_top,rgba(255,255,255,0.3),transparent_70%)]"></div>
       </div>
 
-      {/* Grid background effect */}
-      <div className="absolute inset-0 grid grid-cols-12 grid-rows-12 opacity-10 pointer-events-none">
-        {Array.from({ length: 144 }).map((_, i) => (
-          <div key={i} className="border-[0.5px] border-white/30" />
-        ))}
-      </div>
 
-      {/* Animated particles */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {windowSize.width > 0 && Array.from({ length: 20 }).map((_, i) => (
-          <motion.div
-            key={i}
-            className="absolute w-1.5 h-1.5 rounded-full bg-white/30"
-            initial={{
-              x: Math.random() * windowSize.width,
-              y: Math.random() * windowSize.height,
-              scale: Math.random() * 0.6 + 0.4,
-              opacity: Math.random() * 0.3 + 0.1,
-            }}
-            animate={{
-              y: [null, Math.random() * -100 - 50],
-              opacity: [null, 0],
-            }}
-            transition={{
-              duration: Math.random() * 15 + 15,
-              repeat: Number.POSITIVE_INFINITY,
-              ease: "linear",
-            }}
-          />
-        ))}
-      </div>
 
       <header className="fixed top-0 left-0 right-0 z-50 bg-black/40 backdrop-blur-sm border-b border-white/10">
         <nav className="container mx-auto px-3 sm:px-6 py-2 flex justify-between items-center min-h-[56px]">
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.5 }}
-            className="text-xl font-bold flex items-center justify-center"
-          >
-            <motion.button
+          <div className="text-xl font-bold flex items-center justify-center">
+            <button
               onClick={() => scrollToSection("home")}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="focus:outline-none"
+              className="focus:outline-none hover:opacity-80 transition-opacity"
             >
               <Image 
                 src="/sign.png" 
@@ -288,15 +245,10 @@ export default function Portfolio() {
                 priority={true}
                 unoptimized={true}
               />
-            </motion.button>
-          </motion.div>
+            </button>
+          </div>
 
-          <motion.ul
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="hidden md:flex space-x-8"
-          >
+          <ul className="hidden md:flex space-x-8">
             {["home", "about", "experience", "projects", "certifications", "skills", "achievements", "contact"].map((item) => (
               <li key={item}>
                 <button
@@ -306,26 +258,17 @@ export default function Portfolio() {
                   }`}
                 >
                   {activeSection === item && (
-                    <motion.span
-                      layoutId="activeSection"
-                      className="absolute -bottom-1 left-0 right-0 h-0.5 bg-white"
-                      transition={{ type: "spring", stiffness: 380, damping: 30 }}
-                    />
+                    <span className="absolute -bottom-1 left-0 right-0 h-0.5 bg-white" />
                   )}
                   {item}
                 </button>
               </li>
             ))}
-          </motion.ul>
+          </ul>
 
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.5, delay: 0.4 }}
-            className="md:hidden"
-          >
+          <div className="md:hidden">
             <MobileMenu scrollToSection={scrollToSection} activeSection={activeSection} />
-          </motion.div>
+          </div>
         </nav>
       </header>
 

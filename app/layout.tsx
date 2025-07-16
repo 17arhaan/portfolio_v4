@@ -57,10 +57,11 @@ export const metadata: Metadata = {
     siteName: "Arhaan Girdhar Portfolio",
     images: [
       {
-        url: "/favicon.png",
+        url: "https://www.arhaanportfolio.in/AG1.png",
         width: 1200,
         height: 630,
         alt: "Arhaan Girdhar - Software Developer & AI Enthusiast",
+        type: "image/png",
       },
     ],
     locale: "en_US",
@@ -71,7 +72,7 @@ export const metadata: Metadata = {
     title: "Arhaan Girdhar | Software Developer & AI Enthusiast",
     description: "A passionate software developer and AI enthusiast with a knack for turning complex problems into elegant solutions. Currently pursuing my B.Tech in Computer Science at MIT Manipal, I specialize in full-stack development, machine learning, and computer vision. My goal is to create technology that makes a meaningful impact while continuously learning and growing in this ever-evolving field.",
     creator: "@17arhaan",
-    images: ["/favicon.png"],
+    images: ["https://www.arhaanportfolio.in/AG1.png"],
   },
   robots: {
     index: true,
@@ -91,9 +92,9 @@ export const metadata: Metadata = {
   },
   category: "technology",
   icons: {
-    icon: "/AG3.png",
-    apple: "/AG3.png",
-    shortcut: "/AG3.png"
+    icon: "/AG1.png",
+    apple: "/AG1.png",
+    shortcut: "/AG1.png"
   },
 }
 
