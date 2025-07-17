@@ -6,6 +6,7 @@ import { Github, Linkedin, Mail } from "lucide-react"
 import Image from "next/image"
 import SocialLink from "@/components/ui/social-link"
 import LeetCodeLink from "@/components/leetcode-link"
+import HackerRankLink from "@/components/hackerrank-link"
 
 interface FooterSectionProps {
   isVideoPlaying: boolean
@@ -201,6 +202,7 @@ export default function FooterSection({
             <SocialLink icon={<Github className="w-5 h-5" />} href="https://github.com/17arhaan" />
             <SocialLink icon={<Linkedin className="w-5 h-5" />} href="https://www.linkedin.com/in/arhaan17/" />
             <LeetCodeLink href="https://leetcode.com/u/arhaan17/" />
+            <HackerRankLink href="https://www.hackerrank.com/profile/17arhaan" />
             <SocialLink icon={<Mail className="w-5 h-5" />} href="mailto:17arhaan.connect@gmail.com" />
           </motion.div>
 

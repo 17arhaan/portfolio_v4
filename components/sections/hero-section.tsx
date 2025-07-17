@@ -5,6 +5,7 @@ import { motion } from "framer-motion"
 import { ChevronDown, Github, Linkedin, Mail } from "lucide-react"
 import SocialLink from "@/components/ui/social-link"
 import LeetCodeLink from "@/components/leetcode-link"
+import HackerRankLink from "@/components/hackerrank-link"
 
 interface HeroSectionProps {
   typedText: string
@@ -171,6 +172,7 @@ export default function HeroSection({ typedText, scrollToSection }: HeroSectionP
               <SocialLink icon={<Github className="w-6 h-6" />} href="https://github.com/17arhaan" />
               <SocialLink icon={<Linkedin className="w-6 h-6" />} href="https://www.linkedin.com/in/arhaan17/" />
               <LeetCodeLink href="https://leetcode.com/u/arhaan17/" />
+              <HackerRankLink href="https://www.hackerrank.com/profile/17arhaan" />
               <SocialLink icon={<Mail className="w-6 h-6" />} href="mailto:17arhaan.connect@gmail.com" />
             </div>
           </div>

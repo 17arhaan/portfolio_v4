@@ -24,6 +24,18 @@ export default function CertificationsGrid() {
 
   const certifications: Certification[] = [
     {
+      id: 13,
+      title: "Software Engineer Intern",
+      issuer: "HackerRank",
+      date: "July 2025",
+      expiryDate: null,
+      description: "Verified certification demonstrating proficiency in software engineering fundamentals including problem-solving techniques, algorithmic thinking, and programming skills. This credential validates competency in core computer science concepts, data structures, algorithms, and practical coding abilities essential for software engineering roles. The certification covers essential programming paradigms and best practices used in modern software development.",
+      credentialId: "eea1b7288ec1",
+      credentialURL: "https://www.hackerrank.com/certificates/eea1b7288ec1",
+      skills: ["Software Engineering", "Problem Solving", "Algorithms", "Data Structures", "Programming", "Computer Science", "Coding", "Technical Assessment"],
+      image: "/hackerrank.png",
+    },
+    {
       id: 5,
       title: "Foundations of AI and Machine Learning",
       issuer: "Microsoft",

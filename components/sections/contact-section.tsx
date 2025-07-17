@@ -24,6 +24,7 @@ import { Calendar } from "@/components/ui/calendar"
 import SectionHeader from "@/components/ui/section-header"
 import SocialLink from "@/components/ui/social-link"
 import LeetCodeLink from "@/components/leetcode-link"
+import HackerRankLink from "@/components/hackerrank-link"
 
 export default function ContactSection() {
   const [isSubmitting, setIsSubmitting] = useState(false)
@@ -154,6 +155,7 @@ export default function ContactSection() {
                 <SocialLink icon={<Github className="w-5 h-5" />} href="https://github.com/17arhaan" />
                 <SocialLink icon={<Linkedin className="w-5 h-5" />} href="https://www.linkedin.com/in/arhaan17/" />
                 <LeetCodeLink href="https://leetcode.com/u/arhaan17/" />
+                <HackerRankLink href="https://www.hackerrank.com/profile/17arhaan" />
               </div>
             </div>
 
