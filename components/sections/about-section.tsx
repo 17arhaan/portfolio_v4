@@ -34,6 +34,9 @@ export default function AboutSection() {
                 width={224}
                 height={224}
                 className="w-full h-full object-cover transition-all duration-500"
+                priority={true}
+                quality={95}
+                sizes="(max-width: 768px) 192px, 224px"
               />
             </motion.div>
 

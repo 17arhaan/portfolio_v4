@@ -3,6 +3,7 @@
 import React, { useState, useRef, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { ChevronDown, ExternalLink, Github, X } from "lucide-react"
+import Image from "next/image"
 
 interface Project {
   id: number
@@ -263,10 +264,15 @@ function ProjectCard({
         />
 
         <div className="relative h-48 overflow-hidden">
-          <img
+          <Image
             src={image}
             alt={title}
-            className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+            fill
+            className="object-cover transition-transform duration-300 group-hover:scale-110"
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            loading="lazy"
+            placeholder="blur"
+            blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkbHB0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
           />
           {/* Image overlay gradient */}
           <div className={`absolute inset-0 bg-gradient-to-t ${colors.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
@@ -324,16 +330,18 @@ function ProjectCard({
                 >
                   <div className="flex flex-col md:flex-row items-center md:items-start w-full">
                     <motion.div
-                      className="w-full md:w-96 h-48 rounded-lg overflow-hidden md:mr-4 bg-white/5 flex items-center justify-center border border-white/10 mb-4 md:mb-0"
+                      className="w-full md:w-96 h-48 rounded-lg overflow-hidden md:mr-4 bg-white/5 flex items-center justify-center border border-white/10 mb-4 md:mb-0 relative"
                       initial={{ scale: 0.9, opacity: 0 }}
                       animate={{ scale: 1, opacity: 1 }}
                       transition={{ duration: 0.5, delay: 0.1 }}
                       whileHover={{ scale: 1.05 }}
                     >
-                      <img
+                      <Image
                         src={image}
                         alt={title}
-                        className="w-full h-full object-cover"
+                        fill
+                        className="object-cover"
+                        sizes="(max-width: 768px) 100vw, 384px"
                       />
                     </motion.div>
                     <div className="flex-1 text-center md:text-left">

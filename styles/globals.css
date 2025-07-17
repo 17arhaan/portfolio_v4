@@ -88,8 +88,24 @@ body {
   * {
     @apply border-border;
   }
-  body {
+  
+  html, body {
     @apply bg-background text-foreground;
+    /* Prevent overscroll behavior */
+    overscroll-behavior: none;
+    /* Disable text selection by default */
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+  }
+  
+  /* Allow text selection for specific elements where needed */
+  input, textarea, [contenteditable="true"] {
+    user-select: text;
+    -webkit-user-select: text;
+    -moz-user-select: text;
+    -ms-user-select: text;
   }
 }
 
