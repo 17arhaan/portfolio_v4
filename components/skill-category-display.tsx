@@ -131,16 +131,16 @@ export default function SkillCategoryDisplay() {
           "Used for system programming, embedded systems projects, and understanding computer architecture. Comfortable with pointers, memory allocation, and low-level operations.",
       },
       {
-        name: "SQL",
+        name: "SQLite",
         level: 90,
         description:
-          "Extensive experience with SQL for database queries, optimization, and database design. Proficient in complex joins, subqueries, and stored procedures.",
+          "Extensive experience with SQLite for lightweight database operations, embedded applications, and local data storage. Proficient in database optimization, schema design, and file-based database management.",
       },
       {
-        name: "NoSQL",
+        name: "MongoDB",
         level: 70,
         description:
-          "Experience with document databases like MongoDB and key-value stores. Familiar with data modeling for unstructured data and scalability patterns.",
+          "Experience with MongoDB for document-based data storage, schema-less database design, and scalable NoSQL applications. Familiar with aggregation pipelines, indexing, and data modeling for unstructured data.",
       },
       {
         name: "HTML",
@@ -159,6 +159,12 @@ export default function SkillCategoryDisplay() {
         level: 75,
         description:
           "Used for projects requiring advanced database features. Familiar with JSON operations, full-text search, and performance tuning in PostgreSQL.",
+      },
+      {
+        name: "MATLAB",
+        level: 80,
+        description:
+          "Used for numerical computing, signal processing, and algorithm prototyping in academic projects. Familiar with toolboxes for specialized domains.",
       },
     ],
     frameworks: [
@@ -335,12 +341,6 @@ export default function SkillCategoryDisplay() {
           "Essential tool for data exploration, visualization, and creating reproducible research. Experienced with advanced features and extensions.",
       },
       {
-        name: "MATLAB",
-        level: 80,
-        description:
-          "Used for numerical computing, signal processing, and algorithm prototyping in academic projects. Familiar with toolboxes for specialized domains.",
-      },
-      {
         name: "JavaFX",
         level: 70,
         description:
@@ -363,6 +363,12 @@ export default function SkillCategoryDisplay() {
         level: 40,
         description:
           "Beginning to use services like S3, Lambda, and EC2. Currently expanding knowledge of the AWS ecosystem for cloud-native applications.",
+      },
+      {
+        name: "Google Colab",
+        level: 90,
+        description:
+          "Essential tool for machine learning experimentation and collaborative data science projects. Experienced with GPU acceleration, shared notebooks, and integration with Google Drive.",
       },
     ],
     platforms: [
@@ -476,7 +482,7 @@ export default function SkillCategoryDisplay() {
         name: "Database Management",
         level: 95,
         description:
-          "Expert in database design, normalization, query optimization, and administration for both SQL and NoSQL databases.",
+          "Expert in database design, normalization, query optimization, and administration for both SQLite and MongoDB databases.",
       },
       {
         name: "Machine Learning",
@@ -531,6 +537,24 @@ export default function SkillCategoryDisplay() {
         level: 65,
         description:
           "Experience optimizing algorithms for multi-core and distributed systems. Familiar with threading models, synchronization, and parallel patterns.",
+      },
+      {
+        name: "Reinforcement Learning",
+        level: 75,
+        description:
+          "Understanding of RL fundamentals including Q-learning, policy gradients, and actor-critic methods. Experience implementing RL algorithms for decision-making and optimization problems.",
+      },
+      {
+        name: "Software Engineering",
+        level: 90,
+        description:
+          "Strong foundation in software engineering principles including system design, testing, code review, and project management. Experienced with SDLC methodologies and best practices for scalable software development.",
+      },
+      {
+        name: "Social Media Analysis",
+        level: 80,
+        description:
+          "Experience analyzing social media data for sentiment analysis, trend detection, and user behavior insights. Proficient with social media APIs, data mining techniques, and visualization of social network patterns.",
       },
     ],
     languages: [

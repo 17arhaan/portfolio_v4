@@ -152,7 +152,7 @@ export default function CertificationsGrid() {
       description: "Essential data analysis techniques for machine learning, including data cleaning, feature engineering, and statistical analysis methods.",
       credentialId: "Y53G36TKQGCU",
       credentialURL: "https://www.coursera.org/account/accomplishments/certificate/Y53G36TKQGCU",
-      skills: ["Machine Learning", "Data Preprocessing", "Feature Engineering", "Data Cleaning", "SQL", "NoSQL", "APIs", "Outlier Detection", "Feature Scaling", "Hypothesis Testing"],
+      skills: ["Machine Learning", "Data Preprocessing", "Feature Engineering", "Data Cleaning", "SQLite", "MongoDB", "APIs", "Outlier Detection", "Feature Scaling", "Hypothesis Testing"],
       image: "/ibm.png",
     },
     {
