@@ -78,7 +78,7 @@ export default function Portfolio() {
     "Problem Solver",
     "Algorithm Enthusiast",
     "AI / ML Junior",
-    "CS Student",
+    "CS Undergraduate",
   ]
 
   useEffect(() => {
