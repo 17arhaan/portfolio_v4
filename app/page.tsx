@@ -9,13 +9,14 @@ import ReactConfetti from 'react-confetti'
 import HeroSection from "@/components/sections/hero-section"
 import AboutSection from "@/components/sections/about-section"
 import ExperienceSection from "@/components/sections/experience-section"
+import FreelanceSection from "@/components/sections/freelance-section"
 import ProjectsSection from "@/components/sections/projects-section"
 import CertificationsSection from "@/components/sections/certifications-section"
 import ContactSection from "@/components/sections/contact-section"
 import FooterSection from "@/components/sections/footer-section"
 
 // UI Components
-import MobileMenu from "@/components/ui/mobile-menu"
+import HamburgerMenu from "@/components/ui/hamburger-menu"
 import CustomCursor from "@/components/custom-cursor"
 import SkillCategoryDisplayComponent from "@/components/skill-category-display"
 import ProgressSection from "@/components/progress-section"
@@ -137,7 +138,7 @@ export default function Portfolio() {
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ["home", "about", "experience", "projects", "certifications", "skills", "achievements", "contact"]
+      const sections = ["home", "about", "experience", "freelance", "projects", "certifications", "skills", "achievements", "contact"]
       const scrollPosition = window.scrollY + 100
 
       for (const section of sections) {
@@ -207,48 +208,26 @@ export default function Portfolio() {
 
 
 
-      <header className="fixed top-0 left-0 right-0 z-50 bg-black/40 backdrop-blur-sm border-b border-white/10">
-        <nav className="container mx-auto px-3 sm:px-6 py-2 flex justify-between items-center min-h-[56px]">
-          <div className="text-xl font-bold flex items-center justify-center">
-            <button
-              onClick={() => scrollToSection("home")}
-              className="focus:outline-none hover:opacity-80 transition-opacity"
-            >
-              <Image 
-                src="/sign.png" 
-                alt="Arhaan Girdhar" 
-                width={56} 
-                height={56} 
-                className="h-14 w-auto object-contain my-auto mt-[3px]" 
-                priority={true}
-                unoptimized={true}
-              />
-            </button>
-          </div>
+      {/* Logo */}
+      <div className="fixed top-6 left-1/2 transform -translate-x-1/2 z-50">
+        <button
+          onClick={() => scrollToSection("home")}
+          className="focus:outline-none hover:opacity-80 transition-opacity"
+        >
+          <Image 
+            src="/sign.png" 
+            alt="Arhaan Girdhar" 
+            width={56} 
+            height={56} 
+            className="h-14 w-auto object-contain" 
+            priority={true}
+            unoptimized={true}
+          />
+        </button>
+      </div>
 
-          <ul className="hidden md:flex space-x-8">
-            {["home", "about", "experience", "projects", "certifications", "skills", "achievements", "contact"].map((item) => (
-              <li key={item}>
-                <button
-                  onClick={() => scrollToSection(item)}
-                  className={`capitalize hover:text-white transition-colors relative ${
-                    activeSection === item ? "text-white" : "text-gray-400"
-                  }`}
-                >
-                  {activeSection === item && (
-                    <span className="absolute -bottom-1 left-0 right-0 h-0.5 bg-white" />
-                  )}
-                  {item}
-                </button>
-              </li>
-            ))}
-          </ul>
-
-          <div className="md:hidden">
-            <MobileMenu scrollToSection={scrollToSection} activeSection={activeSection} />
-          </div>
-        </nav>
-      </header>
+      {/* Hamburger Menu */}
+      <HamburgerMenu scrollToSection={scrollToSection} activeSection={activeSection} />
 
       <main className="relative z-10">
         <HeroSection 
@@ -259,6 +238,8 @@ export default function Portfolio() {
         <AboutSection />
 
         <ExperienceSection />
+
+        <FreelanceSection />
 
         <ProjectsSection />
 

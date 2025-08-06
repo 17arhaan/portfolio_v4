@@ -74,16 +74,16 @@ export default function EnhancedExperienceSection() {
     },
     {
       id: 0,
-      role: "Machine Learning Intern",
+      role: "Artificial Intelligence & Machine Learning Intern",
       company: "Concur IP (A Questel Company)",
       location: "On-Site | Noida, IN",
       period: "May 2025 - Jul 2025",
       description: [
-        "Built and deployed ML-assisted scraping pipelines that automated counterfeit monitoring across 20+ global platforms, enabling protection for 15+ brands and reducing manual review time by 75%.",
-        "Implemented advanced filtering algorithms using machine learning models that improved detection accuracy by 40%, enabling quicker identification of IP violations and reducing false positives by 50%.",
-        "Developed scalable data processing workflows using Apache Spark and Python, handling 10M+ daily data points with 99.5% reliability and real-time monitoring capabilities.",
-        "Collaborated with legal and enforcement teams to integrate ML insights into IP protection strategies, resulting in 30% faster enforcement actions and improved client satisfaction scores.",
-        "Created automated reporting dashboards using Tableau and Power BI that provided real-time analytics to stakeholders, improving decision-making speed and transparency across 8 client accounts.",
+        "Contributed to training and optimization of PyTorch-based logo-detection models for low-latency, real-time monitoring microservices under strict confidentiality.",
+        "Assisted in designing and maintaining distributed scraping and ETL workflows to automate large-scale image ingestion.",
+        "Supported AWS CI/CD pipeline setup, including blue/green deployments to facilitate secure and seamless model updates.",
+        "Collaborated with product, QA, and DevOps teams to translate requirements into technical implementations within a confidential project.",
+        "Conducted data-quality checks and model performance evaluations to drive continuous improvement of detection accuracy.",
       ],
       skills: [
         "Machine Learning",
@@ -276,27 +276,7 @@ export default function EnhancedExperienceSection() {
         </motion.div>
       ))}
 
-      {/* References Button - After timeline */}
-      <motion.div
-        initial={{ opacity: 0, y: -20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.5 }}
-        className="flex justify-center mt-16"
-      >
-        <motion.a
-          href="https://drive.google.com/drive/folders/1S55QbJu8Pv5a8wAxj5SMgOviAwjTbmKl?usp=sharing"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex items-center gap-2 px-6 py-3 bg-black/40 backdrop-blur-md border border-white/10 rounded-lg hover:bg-black/60 transition-all duration-300 group"
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-        >
-          <FileText className="w-5 h-5 text-white/70 group-hover:text-white transition-colors" />
-          <span className="text-white/70 group-hover:text-white transition-colors">View References</span>
-          <ExternalLink className="w-4 h-4 text-white/70 group-hover:text-white transition-colors" />
-        </motion.a>
-      </motion.div>
+
 
       <AnimatePresence>
         {selectedExperience && (

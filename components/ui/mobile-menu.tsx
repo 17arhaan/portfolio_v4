@@ -40,7 +40,7 @@ export default function MobileMenu({ scrollToSection, activeSection }: MobileMen
             className="absolute top-16 left-0 right-0 bg-black border-b border-white/10 overflow-hidden"
           >
             <ul className="py-4 px-6">
-              {["home", "about", "experience", "projects", "certifications", "skills", "achievements", "contact"].map((item) => (
+              {["home", "about", "experience", "freelance", "projects", "certifications", "skills", "achievements", "contact"].map((item) => (
                 <motion.li
                   key={item}
                   initial={{ x: -20, opacity: 0 }}
