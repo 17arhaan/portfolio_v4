@@ -37,7 +37,7 @@ export default function FreelanceSection() {
       ],
       skills: ["ReactJs", "TypeScript", "Tailwind CSS", "UI/UX Design", "Responsive","SEO Optimized"],
       logoUrl: "/civitas.jpg",
-      website: "https://civitas.com"
+      website: "https://civitasinfra.com/"
     },
     {
       id: 2,
@@ -53,7 +53,7 @@ export default function FreelanceSection() {
       ],
       skills: ["ReactJs", "TypeScript", "Tailwind CSS", "UI/UX Design", "Responsive","SEO Optimized"],
       logoUrl: "/ai-legal-logo.jpeg",
-      website: "https://ailegal.com"
+      website: "https://ailegal.co.in/"
     }
   ]
 
