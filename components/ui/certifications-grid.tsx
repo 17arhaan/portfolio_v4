@@ -24,6 +24,30 @@ export default function CertificationsGrid() {
 
   const certifications: Certification[] = [
     {
+      id: 15,
+      title: "Google Cloud Fundamentals: Core Infrastructure",
+      issuer: "Google",
+      date: "Nov 2025",
+      expiryDate: null,
+      description: "This beginner-level course introduces the core concepts, services, and architecture of Google Cloud Platform (GCP). Learners gain hands-on experience with cloud computing, identity and access management, virtual machines, storage options, and application deployment. The program emphasizes how infrastructure is organized and controlled in GCP, how to build basic cloud environments, and how to scale applications efficiently.",
+      credentialId: "Currently Ongoing",
+      credentialURL: null,
+      skills: ["Cloud Infrastructure", "GCP Resource Management", "IAM", "Scalability", "Application Deployment", "VM Setup", "Storage Configuration", "Google Cloud Platform", "Cloud Computing", "Infrastructure as Code"],
+      image: "/google.png",
+    },
+    {
+      id: 14,
+      title: "Python for Data Science, AI & Development",
+      issuer: "IBM",
+      date: "Nov 2025",
+      expiryDate: null,
+      description: "A beginner-friendly, hands-on course designed to teach Python programming from scratch with a focus on data science and AI applications. Learners gain practical experience in writing Python code, working with data, and automating tasks using Jupyter Notebooks. Covers Python basics, data structures, control flow, OOP fundamentals, file handling, data analysis with NumPy and Pandas, and web scraping with BeautifulSoup & API access with requests.",
+      credentialId: "Currently Ongoing",
+      credentialURL: null,
+      skills: ["Python Scripting", "Data Manipulation", "OOP", "Automation", "Web Scraping", "API Integration", "Data Analysis", "NumPy", "Pandas", "BeautifulSoup", "Jupyter Notebooks", "Machine Learning", "AI Applications"],
+      image: "/ibm.png",
+    },
+    {
       id: 13,
       title: "Software Engineer Intern",
       issuer: "HackerRank",
@@ -238,7 +262,7 @@ export default function CertificationsGrid() {
                 </p>
                 {cert.credentialId && (
                   <p className="text-gray-500 text-xs mt-1 text-center">
-                    ID: {cert.credentialId}
+                    {cert.credentialId === "Currently Ongoing" ? "Status: Currently Ongoing" : `ID: ${cert.credentialId}`}
                   </p>
                 )}
               </div>
@@ -325,7 +349,7 @@ export default function CertificationsGrid() {
                       >
                         <span>{selectedCertificate.date}</span>
                       </motion.div>
-                      {selectedCertificate.credentialURL && (
+                      {selectedCertificate.credentialURL ? (
                         <motion.div
                           initial={{ opacity: 0, y: 10 }}
                           animate={{ opacity: 1, y: 0 }}
@@ -363,7 +387,18 @@ export default function CertificationsGrid() {
                             </motion.a>
                           )}
                         </motion.div>
-                      )}
+                      ) : selectedCertificate.credentialId === "Currently Ongoing" ? (
+                        <motion.div
+                          initial={{ opacity: 0, y: 10 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          transition={{ duration: 0.4, delay: 0.5 }}
+                          className="mt-4"
+                        >
+                          <div className="inline-flex items-center px-4 py-2 bg-blue-500/20 text-blue-400 rounded-md border border-blue-500/30">
+                            <span className="text-sm font-medium">Course in Progress</span>
+                          </div>
+                        </motion.div>
+                      ) : null}
                     </div>
                   </div>
                   <motion.button
