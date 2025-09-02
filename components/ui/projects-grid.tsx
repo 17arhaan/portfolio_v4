@@ -2,7 +2,7 @@
 
 import React, { useState, useRef, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
-import { ChevronDown, ExternalLink, Github, X } from "lucide-react"
+import { ChevronDown, ExternalLink, Github, X, FileText } from "lucide-react"
 import Image from "next/image"
 
 interface Project {
@@ -164,6 +164,28 @@ function ProjectCard({
           tag: "hover:bg-[#c15ffd]/20 hover:text-[#c15ffd]",
           modal: "border-[#c15ffd]/30",
           dot: "border-[#c15ffd]/60"
+        }
+      case "Ceaser":
+        return {
+          border: "border-[#ff99d8]/30 hover:border-[#ff99d8]/50 hover:shadow-[0_0_15px_rgba(255,153,216,0.3)]",
+          gradient: "from-[#ff99d8]/20 via-[#ff99d8]/10 to-transparent",
+          glow: "group-hover:shadow-[0_0_30px_rgba(255,153,216,0.2)]",
+          text: "group-hover:text-[#ff99d8]",
+          button: "hover:bg-[#ff99d8]/20 hover:text-[#ff99d8]",
+          tag: "hover:bg-[#ff99d8]/20 hover:text-[#ff99d8]",
+          modal: "border-[#ff99d8]/30",
+          dot: "border-[#ff99d8]/60"
+        }
+      case "Legacy IP Suite":
+        return {
+          border: "border-[#ff5757]/30 hover:border-[#ff5757]/50 hover:shadow-[0_0_15px_rgba(255,87,87,0.3)]",
+          gradient: "from-[#ff5757]/20 via-[#ff5757]/10 to-transparent",
+          glow: "group-hover:shadow-[0_0_30px_rgba(255,87,87,0.2)]",
+          text: "group-hover:text-[#ff5757]",
+          button: "hover:bg-[#ff5757]/20 hover:text-[#ff5757]",
+          tag: "hover:bg-[#ff5757]/20 hover:text-[#ff5757]",
+          modal: "border-[#ff5757]/30",
+          dot: "border-[#ff5757]/60"
         }
       default:
         return {
@@ -354,40 +376,70 @@ function ProjectCard({
                         {title}
                       </motion.h3>
                       <div className="flex flex-wrap justify-center md:justify-start gap-2 mt-4">
-                        {links.map((link, index) => (
-                          <motion.a
-                            key={index}
-                            href={link.url}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            whileHover={{ scale: 1.05, y: -2 }}
-                            whileTap={{ scale: 0.95 }}
-                            className={`flex items-center px-4 py-2 bg-white/5 backdrop-blur-md border border-white/10 ${colors.button} rounded-md text-sm font-medium transition-all duration-300 hover:shadow-[0_0_15px_rgba(255,255,255,0.1)]`}
+                        {links.length > 0 ? (
+                          links.map((link, index) => (
+                            <motion.a
+                              key={index}
+                              href={link.url}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              whileHover={{ scale: 1.05, y: -2 }}
+                              whileTap={{ scale: 0.95 }}
+                              className={`flex items-center px-4 py-2 bg-white/5 backdrop-blur-md border border-white/10 ${colors.button} rounded-md text-sm font-medium transition-all duration-300 hover:shadow-[0_0_15px_rgba(255,255,255,0.1)]`}
+                            >
+                              {link.icon === Github ? (
+                                <>
+                                  <Github className="w-4 h-4 mr-2" />
+                                  View Code
+                                </>
+                              ) : (
+                                <>
+                                  <ExternalLink className="w-4 h-4 mr-2" />
+                                  View Demo
+                                </>
+                              )}
+                            </motion.a>
+                          ))
+                        ) : (
+                          <motion.div
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            transition={{ duration: 0.5, delay: 0.3 }}
+                            className="flex items-center px-4 py-2 bg-white/10 backdrop-blur-md border border-white/20 rounded-md text-sm font-medium text-white/80"
                           >
-                            {link.icon === Github ? (
-                              <>
-                                <Github className="w-4 h-4 mr-2" />
-                                View Code
-                              </>
-                            ) : (
-                              <>
-                                <ExternalLink className="w-4 h-4 mr-2" />
-                                View Demo
-                              </>
-                            )}
-                          </motion.a>
-                        ))}
+                            <FileText className="w-4 h-4 mr-2" />
+                            Confidential Project for Questel
+                          </motion.div>
+                        )}
                       </div>
                     </div>
                   </div>
-                  <motion.button
-                    onClick={() => setIsModalOpen(false)}
-                    className="text-gray-400 hover:text-white p-1 z-10"
-                    whileHover={{ scale: 1.1, rotate: 90 }}
-                    whileTap={{ scale: 0.9 }}
-                  >
-                    <X className="w-6 h-6" />
-                  </motion.button>
+                  <div className="flex items-center gap-4">
+                    {title === "Ceaser" && (
+                      <motion.div
+                        initial={{ opacity: 0, scale: 0.8 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        transition={{ duration: 0.5, delay: 0.2 }}
+                        className="bg-white/10 backdrop-blur-md border border-white/20 rounded-lg p-2"
+                      >
+                        <Image
+                          src="/questel.jpg"
+                          alt="Questel Logo"
+                          width={80}
+                          height={40}
+                          className="rounded-sm"
+                        />
+                      </motion.div>
+                    )}
+                    <motion.button
+                      onClick={() => setIsModalOpen(false)}
+                      className="text-gray-400 hover:text-white p-1 z-10"
+                      whileHover={{ scale: 1.1, rotate: 90 }}
+                      whileTap={{ scale: 0.9 }}
+                    >
+                      <X className="w-6 h-6" />
+                    </motion.button>
+                  </div>
                 </motion.div>
 
                 <div className="space-y-8">
@@ -469,28 +521,55 @@ export default function ProjectsGrid() {
   
   const projects = [
     {
-      id: 12,
-      title: "Facial Emotion Recognition using CNN",
+      id: 13,
+      title: "Ceaser",
       description:
-        "• Developed a CNN-based facial emotion recognition system trained on Kaggle dataset\n\n• Implemented real-time detection for 7 emotions with high accuracy\n\n• Integrated Haar Cascade classifiers for robust face detection\n\n• Built comprehensive CNN architecture with regularization techniques\n\n• Created Jupyter notebook implementation with saved model weights (200 epochs)\n\n• Achieved multi-face emotion classification in real-time\n\n• Designed as foundation for emotion-aware applications",
-      image: "/face_recog.png",
+        "• Developed an AI-driven brand protection platform with automated web scraping across 30+ global marketplaces and social platforms\n\n• Incorporated logo detection, keyword filtering, and scalable backend infrastructure through cloud-based deployment\n\n• Engineered real-time dashboards and pioneered machine learning inference pipelines, enabling sub-2s response time\n\n• Implemented visual counterfeit detection and streamlined enforcement workflows across both web and browser extension applications",
+      image: "/ceaser.png",
+      tags: [
+        "Next.js",
+        "SQLite",
+        "Docker",
+        "Python",
+        "React",
+        "AWS",
+        "Django REST",
+        "AI/ML",
+        "Web Scraping",
+        "Logo Detection",
+        "Brand Protection",
+        "Real-time Processing",
+        "Browser Extension",
+        "Machine Learning",
+        "Cloud Deployment"
+      ],
+      links: [],
+    },
+    {
+      id: 14,
+      title: "Legacy IP Suite",
+      description:
+        "• Built a Python + SQL pipeline to migrate 7,500+ legacy records (clients, patents, trademarks, deadlines) from MySQL to PostgreSQL\n\n• Implemented multi-level validation (schema, business rules, referential integrity) and detailed audit logging\n\n• Automated data standardization and validation utilities (date parsing, country code normalization, duplicate resolution)\n\n• Surfaced 2,000+ quality issues and improved migration integrity to 95% preservation\n\n• Created comprehensive ETL pipeline with data quality assessment and modern web interface",
+      image: "/legacy.png",
       tags: [
         "Python",
-        "TensorFlow",
-        "Keras",
-        "OpenCV",
-        "CNN",
-        "Computer Vision",
-        "Deep Learning",
-        "Emotion Recognition",
-        "Real-time Processing",
-        "Jupyter Notebook",
-        "NumPy",
-        "Pandas",
-        "Matplotlib",
+        "Docker",
+        "PostgreSQL",
+        "HTML",
+        "ETL Pipeline",
+        "Data Migration",
+        "MySQL",
+        "Data Validation",
+        "Business Rules",
+        "Audit Logging",
+        "Data Quality",
+        "Web Interface",
+        "REST API",
+        "FastAPI",
+        "SQLAlchemy"
       ],
       links: [
-        { url: "https://github.com/17arhaan/facial-recognition", icon: Github },
+        { url: "https://github.com/17arhaan/Legacy-IP-Suite", icon: Github },
       ],
     },
     {
@@ -513,6 +592,31 @@ export default function ProjectsGrid() {
       ],
       links: [
         { url: "https://github.com/17arhaan/Humanoid_Simulation", icon: Github },
+      ],
+    },
+    {
+      id: 12,
+      title: "Facial Emotion Recognition using CNN",
+      description:
+        "• Developed a CNN-based facial emotion recognition system trained on Kaggle dataset\n\n• Implemented real-time detection for 7 emotions with high accuracy\n\n• Integrated Haar Cascade classifiers for robust face detection\n\n• Built comprehensive CNN architecture with regularization techniques\n\n• Created Jupyter notebook implementation with saved model weights (200 epochs)\n\n• Achieved multi-face emotion classification in real-time\n\n• Designed as foundation for emotion-aware applications",
+      image: "/face_recog.png",
+      tags: [
+        "Python",
+        "TensorFlow",
+        "Keras",
+        "OpenCV",
+        "CNN",
+        "Computer Vision",
+        "Deep Learning",
+        "Emotion Recognition",
+        "Real-time Processing",
+        "Jupyter Notebook",
+        "NumPy",
+        "Pandas",
+        "Matplotlib",
+      ],
+      links: [
+        { url: "https://github.com/17arhaan/facial-recognition", icon: Github },
       ],
     },
     {
