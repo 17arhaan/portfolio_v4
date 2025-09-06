@@ -606,32 +606,6 @@ export default function ProjectsGrid() {
       ],
     },
     {
-      id: 15,
-      title: "Speedy",
-      description:
-        "• Built a modern, interactive reaction time test using Next.js, Framer Motion, and Tailwind CSS\n\n• Implemented random delay system to prevent anticipation and ensure accurate testing\n\n• Created performance metrics with detailed feedback and best time tracking\n\n• Developed beautiful animations and smooth transitions using Framer Motion\n\n• Added dark mode support and fully responsive design for all devices\n\n• Integrated shadcn/ui components for consistent and modern UI design\n\n• Built comprehensive performance rating system with 8 different speed categories",
-      image: "/speedy_l.png",
-      tags: [
-        "Next.js",
-        "TypeScript",
-        "Framer Motion",
-        "Tailwind CSS",
-        "shadcn/ui",
-        "React",
-        "Interactive Testing",
-        "Performance Metrics",
-        "Dark Mode",
-        "Responsive Design",
-        "Animation",
-        "User Experience",
-        "Real-time Testing",
-        "Web Application"
-      ],
-      links: [
-        { url: "https://github.com/17arhaan/Speedy", icon: Github },
-      ],
-    },
-    {
       id: 12,
       title: "Facial Emotion Recognition using CNN",
       description:
