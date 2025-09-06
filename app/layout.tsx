@@ -105,11 +105,6 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
-  verification: {
-    google: "your-google-site-verification",
-    yandex: "your-yandex-verification",
-    yahoo: "your-yahoo-verification",
-  },
   category: "technology",
   classification: "Personal Portfolio",
   icons: {
