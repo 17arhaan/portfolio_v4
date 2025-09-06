@@ -34,6 +34,9 @@ export default function AboutSection() {
                 width={224}
                 height={224}
                 className="w-full h-full object-cover transition-all duration-500"
+                priority={true}
+                quality={95}
+                sizes="(max-width: 768px) 192px, 224px"
               />
             </motion.div>
 
@@ -181,6 +184,51 @@ export default function AboutSection() {
                 </motion.div>
                 <span className="absolute -bottom-6 text-xs opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   View
+                </span>
+              </motion.a>
+
+              <motion.a
+                href="https://drive.google.com/drive/folders/1S55QbJu8Pv5a8wAxj5SMgOviAwjTbmKl?usp=sharing"
+                target="_blank"
+                rel="noopener noreferrer"
+                title="View Certificates"
+                whileHover={{
+                  scale: 1.15,
+                  y: -2,
+                  color: "rgba(255, 255, 255, 1)",
+                  backgroundColor: "rgba(255, 255, 255, 0.2)",
+                  transition: {
+                    duration: 0.3,
+                    ease: "easeOut",
+                    scale: { type: "spring", stiffness: 400, damping: 10 },
+                  },
+                }}
+                whileTap={{ scale: 0.95 }}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.3, delay: 0.9 }}
+                className="w-12 h-12 bg-white/10 hover:bg-white/15 rounded-full flex items-center justify-center transition-all text-white/80 relative overflow-hidden group"
+              >
+                <motion.div
+                  className="absolute inset-0 bg-gradient-to-tr from-white/5 to-white/20 opacity-0 group-hover:opacity-100"
+                  initial={{ rotate: 0 }}
+                  whileHover={{ rotate: 180 }}
+                  transition={{ duration: 1.5 }}
+                />
+                <motion.div
+                  whileHover={{
+                    scale: [1, 1.1, 0.95, 1.05, 1],
+                    rotate: [0, 5, -5, 3, 0],
+                  }}
+                  transition={{
+                    duration: 0.6,
+                    ease: "easeInOut",
+                  }}
+                >
+                  <FileText className="w-6 h-6" />
+                </motion.div>
+                <span className="absolute -bottom-6 text-xs opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  Certificates
                 </span>
               </motion.a>
             </div>

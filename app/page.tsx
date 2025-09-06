@@ -9,20 +9,20 @@ import ReactConfetti from 'react-confetti'
 import HeroSection from "@/components/sections/hero-section"
 import AboutSection from "@/components/sections/about-section"
 import ExperienceSection from "@/components/sections/experience-section"
+import FreelanceSection from "@/components/sections/freelance-section"
 import ProjectsSection from "@/components/sections/projects-section"
 import CertificationsSection from "@/components/sections/certifications-section"
 import ContactSection from "@/components/sections/contact-section"
 import FooterSection from "@/components/sections/footer-section"
 
 // UI Components
-import MobileMenu from "@/components/ui/mobile-menu"
+import HamburgerMenu from "@/components/ui/hamburger-menu"
 import CustomCursor from "@/components/custom-cursor"
 import SkillCategoryDisplayComponent from "@/components/skill-category-display"
 import ProgressSection from "@/components/progress-section"
 
 function VideoPlayer({ isPlaying, onEnded }: { isPlaying: boolean; onEnded: () => void }) {
   const videoRef = useRef<HTMLVideoElement>(null);
-  const [volume, setVolume] = useState(0.5);
 
   useEffect(() => {
     if (isPlaying && videoRef.current) {
@@ -31,14 +31,6 @@ function VideoPlayer({ isPlaying, onEnded }: { isPlaying: boolean; onEnded: () =
       });
     }
   }, [isPlaying]);
-
-  const handleVolumeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const newVolume = parseFloat(e.target.value);
-    setVolume(newVolume);
-    if (videoRef.current) {
-      videoRef.current.volume = newVolume;
-    }
-  };
 
   const handleVideoEnded = () => {
     onEnded();
@@ -63,19 +55,6 @@ function VideoPlayer({ isPlaying, onEnded }: { isPlaying: boolean; onEnded: () =
           onEnded={handleVideoEnded}
           onClick={(e) => e.stopPropagation()}
         />
-        <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-black/50 px-4 py-2 rounded-lg flex items-center gap-2">
-          <input
-            type="range"
-            min="0"
-            max="1"
-            step="0.1"
-            value={volume}
-            onChange={handleVolumeChange}
-            className="w-24 accent-white"
-            aria-label="Volume control"
-          />
-          <span className="text-white text-sm">{Math.round(volume * 100)}%</span>
-        </div>
       </div>
     </motion.div>
   );
@@ -100,7 +79,7 @@ export default function Portfolio() {
     "Problem Solver",
     "Algorithm Enthusiast",
     "AI / ML Junior",
-    "CS Student",
+    "CS Undergraduate",
   ]
 
   useEffect(() => {
@@ -159,7 +138,7 @@ export default function Portfolio() {
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ["home", "about", "experience", "projects", "certifications", "skills", "achievements", "contact"]
+      const sections = ["home", "about", "experience", "freelance", "projects", "certifications", "skills", "achievements", "contact"]
       const scrollPosition = window.scrollY + 100
 
       for (const section of sections) {
@@ -222,106 +201,47 @@ export default function Portfolio() {
         </motion.div>
       )}
 
-      {/* Only show custom cursor on non-mobile devices */}
-      {!isMobile && <CustomCursor />}
-
-      {/* Subtle moving gradient background */}
+      {/* Simple static background */}
       <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
-        <div className="absolute inset-0 opacity-[0.15] bg-[radial-gradient(ellipse_at_top,rgba(255,255,255,0.25),transparent_70%)] animate-gradient-slow"></div>
-        <div className="absolute -inset-[100%] opacity-[0.12] bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.3),transparent_80%)] blur-xl animate-gradient-medium"></div>
-        <div className="absolute -inset-[50%] opacity-[0.1] bg-[radial-gradient(circle_at_70%_60%,rgba(255,255,255,0.25),transparent_60%)] blur-md animate-gradient-fast"></div>
-        <div className="absolute top-0 left-0 right-0 h-[500px] opacity-[0.1] bg-[linear-gradient(180deg,rgba(255,255,255,0.3),transparent)] animate-pulse"></div>
+        <div className="absolute inset-0 opacity-[0.05] bg-[radial-gradient(ellipse_at_top,rgba(255,255,255,0.3),transparent_70%)]"></div>
       </div>
 
-      {/* Grid background effect */}
-      <div className="absolute inset-0 grid grid-cols-12 grid-rows-12 opacity-10 pointer-events-none">
-        {Array.from({ length: 144 }).map((_, i) => (
-          <div key={i} className="border-[0.5px] border-white/30" />
-        ))}
-      </div>
 
-      {/* Animated particles */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {windowSize.width > 0 && Array.from({ length: 20 }).map((_, i) => (
-          <motion.div
-            key={i}
-            className="absolute w-1.5 h-1.5 rounded-full bg-white/30"
-            initial={{
-              x: Math.random() * windowSize.width,
-              y: Math.random() * windowSize.height,
-              scale: Math.random() * 0.6 + 0.4,
-              opacity: Math.random() * 0.3 + 0.1,
-            }}
-            animate={{
-              y: [null, Math.random() * -100 - 50],
-              opacity: [null, 0],
-            }}
-            transition={{
-              duration: Math.random() * 15 + 15,
-              repeat: Number.POSITIVE_INFINITY,
-              ease: "linear",
-            }}
-          />
-        ))}
-      </div>
 
-      <header className="fixed top-0 left-0 right-0 z-50 bg-black/40 backdrop-blur-sm border-b border-white/10">
-        <nav className="container mx-auto px-3 sm:px-6 py-2 flex justify-between items-center min-h-[56px]">
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.5 }}
-            className="text-xl font-bold flex items-center justify-center"
+      {/* Logo and Navigation */}
+      <header className="fixed top-6 left-1/2 transform -translate-x-1/2 z-50" role="banner">
+        <nav role="navigation" aria-label="Main navigation">
+          <button
+            onClick={() => scrollToSection("home")}
+            className="focus:outline-none hover:opacity-80 transition-opacity"
+            aria-label="Go to home section"
           >
-            <motion.button
-              onClick={() => scrollToSection("home")}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="focus:outline-none"
-            >
-              <Image src="/sign.png" alt="Arhaan Girdhar" width={56} height={56} className="h-14 w-auto object-contain my-auto mt-[3px]" />
-            </motion.button>
-          </motion.div>
-
-          <motion.ul
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="hidden md:flex space-x-8"
-          >
-            {["home", "about", "experience", "projects", "certifications", "skills", "achievements", "contact"].map((item) => (
-              <li key={item}>
-                <button
-                  onClick={() => scrollToSection(item)}
-                  className={`capitalize hover:text-white transition-colors relative ${
-                    activeSection === item ? "text-white" : "text-gray-400"
-                  }`}
-                >
-                  {activeSection === item && (
-                    <motion.span
-                      layoutId="activeSection"
-                      className="absolute -bottom-1 left-0 right-0 h-0.5 bg-white"
-                      transition={{ type: "spring", stiffness: 380, damping: 30 }}
-                    />
-                  )}
-                  {item}
-                </button>
-              </li>
-            ))}
-          </motion.ul>
-
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.5, delay: 0.4 }}
-            className="md:hidden"
-          >
-            <MobileMenu scrollToSection={scrollToSection} activeSection={activeSection} />
-          </motion.div>
+            <Image 
+              src="/sign.png" 
+              alt="Arhaan Girdhar Logo" 
+              width={56} 
+              height={56} 
+              className="h-14 w-auto object-contain" 
+              priority={true}
+              unoptimized={true}
+            />
+          </button>
         </nav>
       </header>
 
-      <main className="relative z-10">
+      {/* Hidden navigation for SEO sitelinks */}
+      <nav className="sr-only" aria-label="Site navigation">
+        <ul>
+          <li><a href="/Arhaan_Resume.pdf" target="_blank" rel="noopener noreferrer">Resume</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#certifications">Certifications</a></li>
+        </ul>
+      </nav>
+
+      {/* Hamburger Menu */}
+      <HamburgerMenu scrollToSection={scrollToSection} activeSection={activeSection} />
+
+      <main className="relative z-10" role="main">
         <HeroSection 
           typedText={typedText} 
           scrollToSection={scrollToSection} 
@@ -330,6 +250,8 @@ export default function Portfolio() {
         <AboutSection />
 
         <ExperienceSection />
+
+        <FreelanceSection />
 
         <ProjectsSection />
 

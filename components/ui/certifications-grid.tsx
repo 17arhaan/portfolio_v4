@@ -3,6 +3,7 @@
 import React, { useState, useRef, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { ChevronRight, ExternalLink, X } from "lucide-react"
+import Image from "next/image"
 
 interface Certification {
   id: number
@@ -22,6 +23,42 @@ export default function CertificationsGrid() {
   const modalRef = useRef<HTMLDivElement>(null)
 
   const certifications: Certification[] = [
+    {
+      id: 15,
+      title: "Google Cloud Fundamentals: Core Infrastructure",
+      issuer: "Google",
+      date: "Nov 2025",
+      expiryDate: null,
+      description: "This beginner-level course introduces the core concepts, services, and architecture of Google Cloud Platform (GCP). Learners gain hands-on experience with cloud computing, identity and access management, virtual machines, storage options, and application deployment. The program emphasizes how infrastructure is organized and controlled in GCP, how to build basic cloud environments, and how to scale applications efficiently.",
+      credentialId: "Currently Ongoing",
+      credentialURL: null,
+      skills: ["Cloud Infrastructure", "GCP Resource Management", "IAM", "Scalability", "Application Deployment", "VM Setup", "Storage Configuration", "Google Cloud Platform", "Cloud Computing", "Infrastructure as Code"],
+      image: "/google.png",
+    },
+    {
+      id: 14,
+      title: "Python for Data Science, AI & Development",
+      issuer: "IBM",
+      date: "Nov 2025",
+      expiryDate: null,
+      description: "A beginner-friendly, hands-on course designed to teach Python programming from scratch with a focus on data science and AI applications. Learners gain practical experience in writing Python code, working with data, and automating tasks using Jupyter Notebooks. Covers Python basics, data structures, control flow, OOP fundamentals, file handling, data analysis with NumPy and Pandas, and web scraping with BeautifulSoup & API access with requests.",
+      credentialId: "Currently Ongoing",
+      credentialURL: null,
+      skills: ["Python Scripting", "Data Manipulation", "OOP", "Automation", "Web Scraping", "API Integration", "Data Analysis", "NumPy", "Pandas", "BeautifulSoup", "Jupyter Notebooks", "Machine Learning", "AI Applications"],
+      image: "/ibm.png",
+    },
+    {
+      id: 13,
+      title: "Software Engineer Intern",
+      issuer: "HackerRank",
+      date: "July 2025",
+      expiryDate: null,
+      description: "Verified certification demonstrating proficiency in software engineering fundamentals including problem-solving techniques, algorithmic thinking, and programming skills. This credential validates competency in core computer science concepts, data structures, algorithms, and practical coding abilities essential for software engineering roles. The certification covers essential programming paradigms and best practices used in modern software development.",
+      credentialId: "eea1b7288ec1",
+      credentialURL: "https://www.hackerrank.com/certificates/eea1b7288ec1",
+      skills: ["Software Engineering", "Problem Solving", "Algorithms", "Data Structures", "Programming", "Computer Science", "Coding", "Technical Assessment"],
+      image: "/hackerrank.png",
+    },
     {
       id: 5,
       title: "Foundations of AI and Machine Learning",
@@ -139,7 +176,7 @@ export default function CertificationsGrid() {
       description: "Essential data analysis techniques for machine learning, including data cleaning, feature engineering, and statistical analysis methods.",
       credentialId: "Y53G36TKQGCU",
       credentialURL: "https://www.coursera.org/account/accomplishments/certificate/Y53G36TKQGCU",
-      skills: ["Machine Learning", "Data Preprocessing", "Feature Engineering", "Data Cleaning", "SQL", "NoSQL", "APIs", "Outlier Detection", "Feature Scaling", "Hypothesis Testing"],
+      skills: ["Machine Learning", "Data Preprocessing", "Feature Engineering", "Data Cleaning", "SQLite", "MongoDB", "APIs", "Outlier Detection", "Feature Scaling", "Hypothesis Testing"],
       image: "/ibm.png",
     },
     {
@@ -202,14 +239,17 @@ export default function CertificationsGrid() {
             className="border border-white/10 rounded-lg overflow-hidden bg-black/50 backdrop-blur-sm cursor-pointer h-auto sm:h-64 md:h-72 flex flex-col items-center justify-center p-4 sm:p-6 transition-all hover:border-white/30"
           >
             <motion.div
-              className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 mb-3 sm:mb-4 md:mb-6 flex items-center justify-center"
+              className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 mb-3 sm:mb-4 md:mb-6 flex items-center justify-center relative"
               whileHover={{ scale: 1.05 }}
               transition={{ type: "spring", stiffness: 400, damping: 10 }}
             >
-              <img
+              <Image
                 src={cert.image || "/placeholder.svg"}
                 alt={cert.issuer}
+                width={96}
+                height={96}
                 className="max-w-full max-h-full object-contain"
+                sizes="(max-width: 640px) 64px, (max-width: 768px) 80px, 96px"
               />
             </motion.div>
             <div className="flex-grow flex flex-col justify-between">
@@ -222,7 +262,7 @@ export default function CertificationsGrid() {
                 </p>
                 {cert.credentialId && (
                   <p className="text-gray-500 text-xs mt-1 text-center">
-                    ID: {cert.credentialId}
+                    {cert.credentialId === "Currently Ongoing" ? "Status: Currently Ongoing" : `ID: ${cert.credentialId}`}
                   </p>
                 )}
               </div>
@@ -270,20 +310,18 @@ export default function CertificationsGrid() {
                 >
                   <div className="flex items-center">
                     <motion.div
-                      className="w-96 h-48 rounded-lg overflow-hidden mr-4 bg-white/5 flex items-center justify-center border border-white/10"
+                      className="w-96 h-48 rounded-lg overflow-hidden mr-4 bg-white/5 flex items-center justify-center border border-white/10 relative"
                       initial={{ scale: 0.9, opacity: 0 }}
                       animate={{ scale: 1, opacity: 1 }}
                       transition={{ duration: 0.5, delay: 0.1 }}
                       whileHover={{ scale: 1.05 }}
                     >
-                      <img
+                      <Image
                         src={selectedCertificate.image}
                         alt={`${selectedCertificate.issuer} logo`}
-                        className="w-full h-full object-contain p-4"
-                        onError={(e) => {
-                          const target = e.target as HTMLImageElement
-                          target.src = "/generic-company-logo.png"
-                        }}
+                        fill
+                        className="object-contain p-4"
+                        sizes="384px"
                       />
                     </motion.div>
                     <div>
@@ -311,7 +349,7 @@ export default function CertificationsGrid() {
                       >
                         <span>{selectedCertificate.date}</span>
                       </motion.div>
-                      {selectedCertificate.credentialURL && (
+                      {selectedCertificate.credentialURL ? (
                         <motion.div
                           initial={{ opacity: 0, y: 10 }}
                           animate={{ opacity: 1, y: 0 }}
@@ -349,7 +387,18 @@ export default function CertificationsGrid() {
                             </motion.a>
                           )}
                         </motion.div>
-                      )}
+                      ) : selectedCertificate.credentialId === "Currently Ongoing" ? (
+                        <motion.div
+                          initial={{ opacity: 0, y: 10 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          transition={{ duration: 0.4, delay: 0.5 }}
+                          className="mt-4"
+                        >
+                          <div className="inline-flex items-center px-4 py-2 bg-blue-500/20 text-blue-400 rounded-md border border-blue-500/30">
+                            <span className="text-sm font-medium">Course in Progress</span>
+                          </div>
+                        </motion.div>
+                      ) : null}
                     </div>
                   </div>
                   <motion.button

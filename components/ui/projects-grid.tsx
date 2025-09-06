@@ -2,7 +2,8 @@
 
 import React, { useState, useRef, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
-import { ChevronDown, ExternalLink, Github, X } from "lucide-react"
+import { ChevronDown, ExternalLink, Github, X, FileText } from "lucide-react"
+import Image from "next/image"
 
 interface Project {
   id: number
@@ -164,6 +165,39 @@ function ProjectCard({
           modal: "border-[#c15ffd]/30",
           dot: "border-[#c15ffd]/60"
         }
+      case "Ceaser":
+        return {
+          border: "border-[#ff99d8]/30 hover:border-[#ff99d8]/50 hover:shadow-[0_0_15px_rgba(255,153,216,0.3)]",
+          gradient: "from-[#ff99d8]/20 via-[#ff99d8]/10 to-transparent",
+          glow: "group-hover:shadow-[0_0_30px_rgba(255,153,216,0.2)]",
+          text: "group-hover:text-[#ff99d8]",
+          button: "hover:bg-[#ff99d8]/20 hover:text-[#ff99d8]",
+          tag: "hover:bg-[#ff99d8]/20 hover:text-[#ff99d8]",
+          modal: "border-[#ff99d8]/30",
+          dot: "border-[#ff99d8]/60"
+        }
+      case "Legacy IP Suite":
+        return {
+          border: "border-[#ff5757]/30 hover:border-[#ff5757]/50 hover:shadow-[0_0_15px_rgba(255,87,87,0.3)]",
+          gradient: "from-[#ff5757]/20 via-[#ff5757]/10 to-transparent",
+          glow: "group-hover:shadow-[0_0_30px_rgba(255,87,87,0.2)]",
+          text: "group-hover:text-[#ff5757]",
+          button: "hover:bg-[#ff5757]/20 hover:text-[#ff5757]",
+          tag: "hover:bg-[#ff5757]/20 hover:text-[#ff5757]",
+          modal: "border-[#ff5757]/30",
+          dot: "border-[#ff5757]/60"
+        }
+      case "Speedy":
+        return {
+          border: "border-[#00d4ff]/30 hover:border-[#00d4ff]/50 hover:shadow-[0_0_15px_rgba(0,212,255,0.3)]",
+          gradient: "from-[#00d4ff]/20 via-[#00d4ff]/10 to-transparent",
+          glow: "group-hover:shadow-[0_0_30px_rgba(0,212,255,0.2)]",
+          text: "group-hover:text-[#00d4ff]",
+          button: "hover:bg-[#00d4ff]/20 hover:text-[#00d4ff]",
+          tag: "hover:bg-[#00d4ff]/20 hover:text-[#00d4ff]",
+          modal: "border-[#00d4ff]/30",
+          dot: "border-[#00d4ff]/60"
+        }
       default:
         return {
           border: "border-white/10 hover:border-white/30",
@@ -263,10 +297,15 @@ function ProjectCard({
         />
 
         <div className="relative h-48 overflow-hidden">
-          <img
+          <Image
             src={image}
             alt={title}
-            className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+            fill
+            className="object-cover transition-transform duration-300 group-hover:scale-110"
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            loading="lazy"
+            placeholder="blur"
+            blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkbHB0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
           />
           {/* Image overlay gradient */}
           <div className={`absolute inset-0 bg-gradient-to-t ${colors.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
@@ -324,16 +363,18 @@ function ProjectCard({
                 >
                   <div className="flex flex-col md:flex-row items-center md:items-start w-full">
                     <motion.div
-                      className="w-full md:w-96 h-48 rounded-lg overflow-hidden md:mr-4 bg-white/5 flex items-center justify-center border border-white/10 mb-4 md:mb-0"
+                      className="w-full md:w-96 h-48 rounded-lg overflow-hidden md:mr-4 bg-white/5 flex items-center justify-center border border-white/10 mb-4 md:mb-0 relative"
                       initial={{ scale: 0.9, opacity: 0 }}
                       animate={{ scale: 1, opacity: 1 }}
                       transition={{ duration: 0.5, delay: 0.1 }}
                       whileHover={{ scale: 1.05 }}
                     >
-                      <img
+                      <Image
                         src={image}
                         alt={title}
-                        className="w-full h-full object-cover"
+                        fill
+                        className="object-cover"
+                        sizes="(max-width: 768px) 100vw, 384px"
                       />
                     </motion.div>
                     <div className="flex-1 text-center md:text-left">
@@ -346,40 +387,70 @@ function ProjectCard({
                         {title}
                       </motion.h3>
                       <div className="flex flex-wrap justify-center md:justify-start gap-2 mt-4">
-                        {links.map((link, index) => (
-                          <motion.a
-                            key={index}
-                            href={link.url}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            whileHover={{ scale: 1.05, y: -2 }}
-                            whileTap={{ scale: 0.95 }}
-                            className={`flex items-center px-4 py-2 bg-white/5 backdrop-blur-md border border-white/10 ${colors.button} rounded-md text-sm font-medium transition-all duration-300 hover:shadow-[0_0_15px_rgba(255,255,255,0.1)]`}
+                        {links.length > 0 ? (
+                          links.map((link, index) => (
+                            <motion.a
+                              key={index}
+                              href={link.url}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              whileHover={{ scale: 1.05, y: -2 }}
+                              whileTap={{ scale: 0.95 }}
+                              className={`flex items-center px-4 py-2 bg-white/5 backdrop-blur-md border border-white/10 ${colors.button} rounded-md text-sm font-medium transition-all duration-300 hover:shadow-[0_0_15px_rgba(255,255,255,0.1)]`}
+                            >
+                              {link.icon === Github ? (
+                                <>
+                                  <Github className="w-4 h-4 mr-2" />
+                                  View Code
+                                </>
+                              ) : (
+                                <>
+                                  <ExternalLink className="w-4 h-4 mr-2" />
+                                  View Demo
+                                </>
+                              )}
+                            </motion.a>
+                          ))
+                        ) : (
+                          <motion.div
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            transition={{ duration: 0.5, delay: 0.3 }}
+                            className="flex items-center px-4 py-2 bg-white/10 backdrop-blur-md border border-white/20 rounded-md text-sm font-medium text-white/80"
                           >
-                            {link.icon === Github ? (
-                              <>
-                                <Github className="w-4 h-4 mr-2" />
-                                View Code
-                              </>
-                            ) : (
-                              <>
-                                <ExternalLink className="w-4 h-4 mr-2" />
-                                View Demo
-                              </>
-                            )}
-                          </motion.a>
-                        ))}
+                            <FileText className="w-4 h-4 mr-2" />
+                            Confidential Project for Questel
+                          </motion.div>
+                        )}
                       </div>
                     </div>
                   </div>
-                  <motion.button
-                    onClick={() => setIsModalOpen(false)}
-                    className="text-gray-400 hover:text-white p-1 z-10"
-                    whileHover={{ scale: 1.1, rotate: 90 }}
-                    whileTap={{ scale: 0.9 }}
-                  >
-                    <X className="w-6 h-6" />
-                  </motion.button>
+                  <div className="flex items-center gap-4">
+                    {title === "Ceaser" && (
+                      <motion.div
+                        initial={{ opacity: 0, scale: 0.8 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        transition={{ duration: 0.5, delay: 0.2 }}
+                        className="bg-white/10 backdrop-blur-md border border-white/20 rounded-lg p-2"
+                      >
+                        <Image
+                          src="/questel.jpg"
+                          alt="Questel Logo"
+                          width={80}
+                          height={40}
+                          className="rounded-sm"
+                        />
+                      </motion.div>
+                    )}
+                    <motion.button
+                      onClick={() => setIsModalOpen(false)}
+                      className="text-gray-400 hover:text-white p-1 z-10"
+                      whileHover={{ scale: 1.1, rotate: 90 }}
+                      whileTap={{ scale: 0.9 }}
+                    >
+                      <X className="w-6 h-6" />
+                    </motion.button>
+                  </div>
                 </motion.div>
 
                 <div className="space-y-8">
@@ -461,6 +532,80 @@ export default function ProjectsGrid() {
   
   const projects = [
     {
+      id: 13,
+      title: "Ceaser",
+      description:
+        "• Developed an AI-driven brand protection platform with automated web scraping across 30+ global marketplaces and social platforms\n\n• Incorporated logo detection, keyword filtering, and scalable backend infrastructure through cloud-based deployment\n\n• Engineered real-time dashboards and pioneered machine learning inference pipelines, enabling sub-2s response time\n\n• Implemented visual counterfeit detection and streamlined enforcement workflows across both web and browser extension applications",
+      image: "/ceaser.png",
+      tags: [
+        "Next.js",
+        "SQLite",
+        "Docker",
+        "Python",
+        "React",
+        "AWS",
+        "Django REST",
+        "AI/ML",
+        "Web Scraping",
+        "Logo Detection",
+        "Brand Protection",
+        "Real-time Processing",
+        "Browser Extension",
+        "Machine Learning",
+        "Cloud Deployment"
+      ],
+      links: [],
+    },
+    {
+      id: 14,
+      title: "Legacy IP Suite",
+      description:
+        "• Built a Python + SQL pipeline to migrate 7,500+ legacy records (clients, patents, trademarks, deadlines) from MySQL to PostgreSQL\n\n• Implemented multi-level validation (schema, business rules, referential integrity) and detailed audit logging\n\n• Automated data standardization and validation utilities (date parsing, country code normalization, duplicate resolution)\n\n• Surfaced 2,000+ quality issues and improved migration integrity to 95% preservation\n\n• Created comprehensive ETL pipeline with data quality assessment and modern web interface",
+      image: "/legacy.png",
+      tags: [
+        "Python",
+        "Docker",
+        "PostgreSQL",
+        "HTML",
+        "ETL Pipeline",
+        "Data Migration",
+        "MySQL",
+        "Data Validation",
+        "Business Rules",
+        "Audit Logging",
+        "Data Quality",
+        "Web Interface",
+        "REST API",
+        "FastAPI",
+        "SQLAlchemy"
+      ],
+      links: [
+        { url: "https://github.com/17arhaan/Legacy-IP-Suite", icon: Github },
+      ],
+    },
+    {
+      id: 3,
+      title: "Humanoid Simulation",
+      description:
+        "• Developed a physics-based humanoid robot simulation using Python and PyBullet\n\n• Implemented reinforcement learning algorithms for bipedal locomotion control\n\n• Created custom reward functions and state representations for stable walking\n\n• Integrated motion capture data for natural movement patterns\n\n• Built a real-time visualization system with PyOpenGL\n\n• Implemented collision detection and response for realistic interactions\n\n• Added support for different terrains and environmental conditions",
+      image: "/mujoco.png",
+      tags: [
+        "Python",
+        "PyBullet",
+        "PyTorch",
+        "Reinforcement Learning",
+        "OpenGL",
+        "Physics Simulation",
+        "Motion Planning",
+        "Control Systems",
+        "Robotics",
+        "3D Graphics",
+      ],
+      links: [
+        { url: "https://github.com/17arhaan/Humanoid_Simulation", icon: Github },
+      ],
+    },
+    {
       id: 12,
       title: "Facial Emotion Recognition using CNN",
       description:
@@ -486,25 +631,29 @@ export default function ProjectsGrid() {
       ],
     },
     {
-      id: 3,
-      title: "Humanoid Simulation",
+      id: 15,
+      title: "Speedy",
       description:
-        "• Developed a physics-based humanoid robot simulation using Python and PyBullet\n\n• Implemented reinforcement learning algorithms for bipedal locomotion control\n\n• Created custom reward functions and state representations for stable walking\n\n• Integrated motion capture data for natural movement patterns\n\n• Built a real-time visualization system with PyOpenGL\n\n• Implemented collision detection and response for realistic interactions\n\n• Added support for different terrains and environmental conditions",
-      image: "/mujoco.png",
+        "• Built a modern, interactive reaction time test using Next.js, Framer Motion, and Tailwind CSS\n\n• Implemented random delay system to prevent anticipation and ensure accurate testing\n\n• Created performance metrics with detailed feedback and best time tracking\n\n• Developed beautiful animations and smooth transitions using Framer Motion\n\n• Added dark mode support and fully responsive design for all devices\n\n• Integrated shadcn/ui components for consistent and modern UI design\n\n• Built comprehensive performance rating system with 8 different speed categories",
+      image: "/speedy_l.png",
       tags: [
-        "Python",
-        "PyBullet",
-        "PyTorch",
-        "Reinforcement Learning",
-        "OpenGL",
-        "Physics Simulation",
-        "Motion Planning",
-        "Control Systems",
-        "Robotics",
-        "3D Graphics",
+        "Next.js",
+        "TypeScript",
+        "Framer Motion",
+        "Tailwind CSS",
+        "shadcn/ui",
+        "React",
+        "Interactive Testing",
+        "Performance Metrics",
+        "Dark Mode",
+        "Responsive Design",
+        "Animation",
+        "User Experience",
+        "Real-time Testing",
+        "Web Application"
       ],
       links: [
-        { url: "https://github.com/17arhaan/Humanoid_Simulation", icon: Github },
+        { url: "https://github.com/17arhaan/Speedy", icon: Github },
       ],
     },
     {
