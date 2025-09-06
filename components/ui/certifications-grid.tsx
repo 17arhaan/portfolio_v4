@@ -12,7 +12,7 @@ interface Certification {
   expiryDate?: string | null
   description: string
   credentialId?: string
-  credentialURL?: string | { title: string; url: string }[]
+  credentialURL?: string | { title: string; url: string }[] | null
   skills: string[]
   image: string
 }
