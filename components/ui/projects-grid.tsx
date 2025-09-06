@@ -187,6 +187,17 @@ function ProjectCard({
           modal: "border-[#ff5757]/30",
           dot: "border-[#ff5757]/60"
         }
+      case "Speedy":
+        return {
+          border: "border-[#00d4ff]/30 hover:border-[#00d4ff]/50 hover:shadow-[0_0_15px_rgba(0,212,255,0.3)]",
+          gradient: "from-[#00d4ff]/20 via-[#00d4ff]/10 to-transparent",
+          glow: "group-hover:shadow-[0_0_30px_rgba(0,212,255,0.2)]",
+          text: "group-hover:text-[#00d4ff]",
+          button: "hover:bg-[#00d4ff]/20 hover:text-[#00d4ff]",
+          tag: "hover:bg-[#00d4ff]/20 hover:text-[#00d4ff]",
+          modal: "border-[#00d4ff]/30",
+          dot: "border-[#00d4ff]/60"
+        }
       default:
         return {
           border: "border-white/10 hover:border-white/30",
@@ -592,6 +603,32 @@ export default function ProjectsGrid() {
       ],
       links: [
         { url: "https://github.com/17arhaan/Humanoid_Simulation", icon: Github },
+      ],
+    },
+    {
+      id: 15,
+      title: "Speedy",
+      description:
+        "• Built a modern, interactive reaction time test using Next.js, Framer Motion, and Tailwind CSS\n\n• Implemented random delay system to prevent anticipation and ensure accurate testing\n\n• Created performance metrics with detailed feedback and best time tracking\n\n• Developed beautiful animations and smooth transitions using Framer Motion\n\n• Added dark mode support and fully responsive design for all devices\n\n• Integrated shadcn/ui components for consistent and modern UI design\n\n• Built comprehensive performance rating system with 8 different speed categories",
+      image: "/speedy_l.png",
+      tags: [
+        "Next.js",
+        "TypeScript",
+        "Framer Motion",
+        "Tailwind CSS",
+        "shadcn/ui",
+        "React",
+        "Interactive Testing",
+        "Performance Metrics",
+        "Dark Mode",
+        "Responsive Design",
+        "Animation",
+        "User Experience",
+        "Real-time Testing",
+        "Web Application"
+      ],
+      links: [
+        { url: "https://github.com/17arhaan/Speedy", icon: Github },
       ],
     },
     {
