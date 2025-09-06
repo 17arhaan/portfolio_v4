@@ -1,0 +1,30 @@
+{
+  "name": "Arhaan Girdhar - Software Developer & AI Enthusiast",
+  "short_name": "Arhaan Girdhar",
+  "description": "Portfolio of Arhaan Girdhar - Passionate Computer Science student at MIT Manipal specializing in AI/ML, full-stack development, and computer vision.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#000000",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/AG1.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/AG1.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["portfolio", "technology", "education"],
+  "lang": "en-US",
+  "dir": "ltr",
+  "scope": "/",
+  "related_applications": [],
+  "prefer_related_applications": false
+}

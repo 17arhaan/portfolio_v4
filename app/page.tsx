@@ -208,28 +208,40 @@ export default function Portfolio() {
 
 
 
-      {/* Logo */}
-      <div className="fixed top-6 left-1/2 transform -translate-x-1/2 z-50">
-        <button
-          onClick={() => scrollToSection("home")}
-          className="focus:outline-none hover:opacity-80 transition-opacity"
-        >
-          <Image 
-            src="/sign.png" 
-            alt="Arhaan Girdhar" 
-            width={56} 
-            height={56} 
-            className="h-14 w-auto object-contain" 
-            priority={true}
-            unoptimized={true}
-          />
-        </button>
-      </div>
+      {/* Logo and Navigation */}
+      <header className="fixed top-6 left-1/2 transform -translate-x-1/2 z-50" role="banner">
+        <nav role="navigation" aria-label="Main navigation">
+          <button
+            onClick={() => scrollToSection("home")}
+            className="focus:outline-none hover:opacity-80 transition-opacity"
+            aria-label="Go to home section"
+          >
+            <Image 
+              src="/sign.png" 
+              alt="Arhaan Girdhar Logo" 
+              width={56} 
+              height={56} 
+              className="h-14 w-auto object-contain" 
+              priority={true}
+              unoptimized={true}
+            />
+          </button>
+        </nav>
+      </header>
+
+      {/* Hidden navigation for SEO sitelinks */}
+      <nav className="sr-only" aria-label="Site navigation">
+        <ul>
+          <li><a href="/Arhaan_Resume.pdf" target="_blank" rel="noopener noreferrer">Resume</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#certifications">Certifications</a></li>
+        </ul>
+      </nav>
 
       {/* Hamburger Menu */}
       <HamburgerMenu scrollToSection={scrollToSection} activeSection={activeSection} />
 
-      <main className="relative z-10">
+      <main className="relative z-10" role="main">
         <HeroSection 
           typedText={typedText} 
           scrollToSection={scrollToSection} 
