@@ -198,6 +198,17 @@ function ProjectCard({
           modal: "border-[#00d4ff]/30",
           dot: "border-[#00d4ff]/60"
         }
+      case "Code Safe":
+        return {
+          border: "border-[#ff8600]/30 hover:border-[#ff8600]/50 hover:shadow-[0_0_15px_rgba(255,134,0,0.3)]",
+          gradient: "from-[#ff8600]/20 via-[#ff8600]/10 to-transparent",
+          glow: "group-hover:shadow-[0_0_30px_rgba(255,134,0,0.2)]",
+          text: "group-hover:text-[#ff8600]",
+          button: "hover:bg-[#ff8600]/20 hover:text-[#ff8600]",
+          tag: "hover:bg-[#ff8600]/20 hover:text-[#ff8600]",
+          modal: "border-[#ff8600]/30",
+          dot: "border-[#ff8600]/60"
+        }
       default:
         return {
           border: "border-white/10 hover:border-white/30",
@@ -584,6 +595,36 @@ export default function ProjectsGrid() {
       ],
     },
     {
+      id: 16,
+      title: "Code Safe",
+      description:
+        "• Developed an AI-powered security vulnerability scanner using OpenAI and Anthropic top models for comprehensive codebase analysis\n\n• Implemented full-stack Next.js application with Python backend to detect critical vulnerability types (RCE, LFI, XSS, SQLI, SSRF, AFO, IDOR)\n\n• Integrated advanced prompt engineering and LLM orchestration with confidence scoring algorithms to minimize false positives\n\n• Achieved high-accuracy vulnerability detection with detailed exploits and remediation guidance for security applications\n\n• Built comprehensive CLI tool with Docker support and web interface for enterprise security teams\n\n• Implemented multi-model AI analysis with customizable confidence thresholds and detailed reporting",
+      image: "/codesafe.png",
+      tags: [
+        "Python",
+        "Next.js",
+        "TypeScript",
+        "OpenAI API",
+        "Anthropic API",
+        "LLM Orchestration",
+        "Security Analysis",
+        "Vulnerability Detection",
+        "Prompt Engineering",
+        "Docker",
+        "CLI Tool",
+        "Full-Stack Development",
+        "AI/ML",
+        "Cybersecurity",
+        "Static Analysis",
+        "Code Security",
+        "Penetration Testing",
+        "Bug Hunting"
+      ],
+      links: [
+        { url: "https://github.com/17arhaan/Code_Safe", icon: Github },
+      ],
+    },
+    {
       id: 3,
       title: "Humanoid Simulation",
       description:
@@ -878,13 +919,24 @@ export default function ProjectsGrid() {
     },
   ]
 
-  // Show only first 3 projects initially (featured projects)
-  const displayedProjects = showAllProjects ? projects : projects.slice(0, 3)
+  // Separate projects into featured and vibe coded sections
+  const featuredProjects = projects.filter(project => 
+    ['Ceaser', 'Legacy IP Suite', 'Code Safe', 'Humanoid Simulation', 'Facial Emotion Recognition using CNN', 'DriveMind', 'J.A.R.V.I.S', 'TherapAI'].includes(project.title)
+  )
+  
+  const vibeCodedProjects = projects.filter(project => 
+    ['Speedy', 'Mind Mapper', 'Morpheus 3D', 'W.E.A.L.T.H', 'Visualify', 'Twitter Sentiment Analysis', 'SnakeCV'].includes(project.title)
+  )
+
+  // Show only first 3 featured projects initially
+  const displayedFeaturedProjects = showAllProjects ? featuredProjects : featuredProjects.slice(0, 3)
+  const displayedVibeCodedProjects = showAllProjects ? vibeCodedProjects : []
 
   return (
     <div className="mt-16">
+      {/* Featured Projects */}
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {displayedProjects.map((project) => (
+        {displayedFeaturedProjects.map((project) => (
           <ProjectCard
             key={project.id}
             title={project.title}
@@ -895,6 +947,50 @@ export default function ProjectsGrid() {
           />
         ))}
       </div>
+
+      {/* Vibe Coded Section */}
+      {showAllProjects && (
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="mt-20"
+        >
+          {/* Divider */}
+          <div className="flex items-center justify-center mb-12">
+            <div className="flex items-center space-x-4 w-full max-w-md">
+              <div className="flex-1 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent"></div>
+              <motion.div
+                initial={{ scale: 0.8, opacity: 0 }}
+                whileInView={{ scale: 1, opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.3 }}
+                className="px-6 py-2 bg-gradient-to-r from-purple-500/20 to-pink-500/20 border border-purple-500/30 rounded-full backdrop-blur-sm"
+              >
+                <span className="text-lg font-semibold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+                  Vibe Coded
+                </span>
+              </motion.div>
+              <div className="flex-1 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent"></div>
+            </div>
+          </div>
+
+          {/* Vibe Coded Projects Grid */}
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {displayedVibeCodedProjects.map((project) => (
+              <ProjectCard
+                key={project.id}
+                title={project.title}
+                description={project.description}
+                tags={project.tags}
+                links={project.links}
+                image={project.image}
+              />
+            ))}
+          </div>
+        </motion.div>
+      )}
       
       {/* View More Button */}
       {!showAllProjects && (
