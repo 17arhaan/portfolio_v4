@@ -640,6 +640,31 @@ export default function ProjectsGrid() {
       ],
     },
     {
+      id: 13,
+      title: "Ceaser",
+      description:
+        "• Developed an AI-driven brand protection platform with automated web scraping across 30+ global marketplaces and social platforms\n\n• Incorporated logo detection, keyword filtering, and scalable backend infrastructure through cloud-based deployment\n\n• Engineered real-time dashboards and pioneered machine learning inference pipelines, enabling sub-2s response time\n\n• Implemented visual counterfeit detection and streamlined enforcement workflows across both web and browser extension applications",
+      image: "/ceaser.png",
+      tags: [
+        "Next.js",
+        "SQLite",
+        "Docker",
+        "Python",
+        "React",
+        "AWS",
+        "Django REST",
+        "AI/ML",
+        "Web Scraping",
+        "Logo Detection",
+        "Brand Protection",
+        "Real-time Processing",
+        "Browser Extension",
+        "Machine Learning",
+        "Cloud Deployment"
+      ],
+      links: [],
+    },
+    {
       id: 3,
       title: "Humanoid Simulation",
       description:
@@ -936,7 +961,7 @@ export default function ProjectsGrid() {
 
   // Separate projects into featured and vibe coded sections
   const featuredProjects = projects.filter(project => 
-    ['Ceaser', 'Legacy IP Suite', 'Code Safe', 'Humanoid Simulation', 'Facial Emotion Recognition using CNN', 'DriveMind', 'Maze Solver'].includes(project.title)
+    ['Legacy IP Suite', 'Code Safe', 'Maze Solver', 'Ceaser', 'Humanoid Simulation', 'Facial Emotion Recognition using CNN', 'DriveMind'].includes(project.title)
   )
   
   const vibeCodedProjects = projects.filter(project => 
