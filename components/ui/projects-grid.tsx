@@ -209,6 +209,17 @@ function ProjectCard({
           modal: "border-[#ff8600]/30",
           dot: "border-[#ff8600]/60"
         }
+      case "Maze Solver":
+        return {
+          border: "border-[#10b981]/30 hover:border-[#10b981]/50 hover:shadow-[0_0_15px_rgba(16,185,129,0.3)]",
+          gradient: "from-[#10b981]/20 via-[#10b981]/10 to-transparent",
+          glow: "group-hover:shadow-[0_0_30px_rgba(16,185,129,0.2)]",
+          text: "group-hover:text-[#10b981]",
+          button: "hover:bg-[#10b981]/20 hover:text-[#10b981]",
+          tag: "hover:bg-[#10b981]/20 hover:text-[#10b981]",
+          modal: "border-[#10b981]/30",
+          dot: "border-[#10b981]/60"
+        }
       default:
         return {
           border: "border-white/10 hover:border-white/30",
@@ -625,6 +636,35 @@ export default function ProjectsGrid() {
       ],
     },
     {
+      id: 17,
+      title: "Maze Solver",
+      description:
+        "• Developed a comprehensive reinforcement learning project implementing Monte Carlo, SARSA, and Q-Learning algorithms for autonomous maze navigation\n\n• Modeled maze environment as a Markov Decision Process (MDP) with state space, action space, transition probabilities, and reward functions\n\n• Implemented ε-greedy exploration strategy with decaying epsilon to balance exploration and exploitation during learning\n\n• Built comparative analysis framework tracking convergence behavior, policy optimality, and sample efficiency across algorithms\n\n• Created comprehensive visualization system including learning curves, policy heatmaps, and trajectory visualization\n\n• Achieved optimal policy convergence with Q-Learning demonstrating superior sample efficiency and faster convergence rates",
+      image: "/maze_solver.png",
+      tags: [
+        "Python",
+        "Reinforcement Learning",
+        "Monte Carlo",
+        "SARSA",
+        "Q-Learning",
+        "Markov Decision Process",
+        "Machine Learning",
+        "AI",
+        "Algorithm Comparison",
+        "Policy Optimization",
+        "Exploration Strategy",
+        "Value Function",
+        "Temporal Difference",
+        "Episodic Learning",
+        "Bootstrapping",
+        "Convergence Analysis",
+        "Data Visualization"
+      ],
+      links: [
+        { url: "https://github.com/17arhaan/Maze_Solver", icon: Github },
+      ],
+    },
+    {
       id: 3,
       title: "Humanoid Simulation",
       description:
@@ -921,11 +961,11 @@ export default function ProjectsGrid() {
 
   // Separate projects into featured and vibe coded sections
   const featuredProjects = projects.filter(project => 
-    ['Ceaser', 'Legacy IP Suite', 'Code Safe', 'Humanoid Simulation', 'Facial Emotion Recognition using CNN', 'DriveMind', 'J.A.R.V.I.S', 'TherapAI'].includes(project.title)
+    ['Ceaser', 'Legacy IP Suite', 'Code Safe', 'Humanoid Simulation', 'Facial Emotion Recognition using CNN', 'DriveMind', 'Maze Solver'].includes(project.title)
   )
   
   const vibeCodedProjects = projects.filter(project => 
-    ['Speedy', 'Mind Mapper', 'Morpheus 3D', 'W.E.A.L.T.H', 'Visualify', 'Twitter Sentiment Analysis', 'SnakeCV'].includes(project.title)
+    ['Speedy', 'Mind Mapper', 'Morpheus 3D', 'W.E.A.L.T.H', 'Visualify', 'Twitter Sentiment Analysis', 'SnakeCV', 'J.A.R.V.I.S', 'TherapAI'].includes(project.title)
   )
 
   // Show only first 3 featured projects initially
