@@ -167,25 +167,25 @@ function ProjectCard({
         }
       case "Ceaser":
         return {
-          border: "border-[#ff99d8]/30 hover:border-[#ff99d8]/50 hover:shadow-[0_0_15px_rgba(255,153,216,0.3)]",
-          gradient: "from-[#ff99d8]/20 via-[#ff99d8]/10 to-transparent",
-          glow: "group-hover:shadow-[0_0_30px_rgba(255,153,216,0.2)]",
-          text: "group-hover:text-[#ff99d8]",
-          button: "hover:bg-[#ff99d8]/20 hover:text-[#ff99d8]",
-          tag: "hover:bg-[#ff99d8]/20 hover:text-[#ff99d8]",
-          modal: "border-[#ff99d8]/30",
-          dot: "border-[#ff99d8]/60"
+          border: "border-[#5170ff]/30 hover:border-[#5170ff]/50 hover:shadow-[0_0_15px_rgba(81,112,255,0.3)]",
+          gradient: "from-[#5170ff]/20 via-[#5170ff]/10 to-transparent",
+          glow: "group-hover:shadow-[0_0_30px_rgba(81,112,255,0.2)]",
+          text: "group-hover:text-[#5170ff]",
+          button: "hover:bg-[#5170ff]/20 hover:text-[#5170ff]",
+          tag: "hover:bg-[#5170ff]/20 hover:text-[#5170ff]",
+          modal: "border-[#5170ff]/30",
+          dot: "border-[#5170ff]/60"
         }
       case "Legacy IP Suite":
         return {
-          border: "border-[#ff5757]/30 hover:border-[#ff5757]/50 hover:shadow-[0_0_15px_rgba(255,87,87,0.3)]",
-          gradient: "from-[#ff5757]/20 via-[#ff5757]/10 to-transparent",
-          glow: "group-hover:shadow-[0_0_30px_rgba(255,87,87,0.2)]",
-          text: "group-hover:text-[#ff5757]",
-          button: "hover:bg-[#ff5757]/20 hover:text-[#ff5757]",
-          tag: "hover:bg-[#ff5757]/20 hover:text-[#ff5757]",
-          modal: "border-[#ff5757]/30",
-          dot: "border-[#ff5757]/60"
+          border: "border-[#5170ff]/30 hover:border-[#5170ff]/50 hover:shadow-[0_0_15px_rgba(81,112,255,0.3)]",
+          gradient: "from-[#5170ff]/20 via-[#5170ff]/10 to-transparent",
+          glow: "group-hover:shadow-[0_0_30px_rgba(81,112,255,0.2)]",
+          text: "group-hover:text-[#5170ff]",
+          button: "hover:bg-[#5170ff]/20 hover:text-[#5170ff]",
+          tag: "hover:bg-[#5170ff]/20 hover:text-[#5170ff]",
+          modal: "border-[#5170ff]/30",
+          dot: "border-[#5170ff]/60"
         }
       case "Speedy":
         return {
@@ -200,25 +200,25 @@ function ProjectCard({
         }
       case "Code Safe":
         return {
-          border: "border-[#ff8600]/30 hover:border-[#ff8600]/50 hover:shadow-[0_0_15px_rgba(255,134,0,0.3)]",
-          gradient: "from-[#ff8600]/20 via-[#ff8600]/10 to-transparent",
-          glow: "group-hover:shadow-[0_0_30px_rgba(255,134,0,0.2)]",
-          text: "group-hover:text-[#ff8600]",
-          button: "hover:bg-[#ff8600]/20 hover:text-[#ff8600]",
-          tag: "hover:bg-[#ff8600]/20 hover:text-[#ff8600]",
-          modal: "border-[#ff8600]/30",
-          dot: "border-[#ff8600]/60"
+          border: "border-[#5170ff]/30 hover:border-[#5170ff]/50 hover:shadow-[0_0_15px_rgba(81,112,255,0.3)]",
+          gradient: "from-[#5170ff]/20 via-[#5170ff]/10 to-transparent",
+          glow: "group-hover:shadow-[0_0_30px_rgba(81,112,255,0.2)]",
+          text: "group-hover:text-[#5170ff]",
+          button: "hover:bg-[#5170ff]/20 hover:text-[#5170ff]",
+          tag: "hover:bg-[#5170ff]/20 hover:text-[#5170ff]",
+          modal: "border-[#5170ff]/30",
+          dot: "border-[#5170ff]/60"
         }
       case "Maze Solver":
         return {
-          border: "border-[#10b981]/30 hover:border-[#10b981]/50 hover:shadow-[0_0_15px_rgba(16,185,129,0.3)]",
-          gradient: "from-[#10b981]/20 via-[#10b981]/10 to-transparent",
-          glow: "group-hover:shadow-[0_0_30px_rgba(16,185,129,0.2)]",
-          text: "group-hover:text-[#10b981]",
-          button: "hover:bg-[#10b981]/20 hover:text-[#10b981]",
-          tag: "hover:bg-[#10b981]/20 hover:text-[#10b981]",
-          modal: "border-[#10b981]/30",
-          dot: "border-[#10b981]/60"
+          border: "border-[#5170ff]/30 hover:border-[#5170ff]/50 hover:shadow-[0_0_15px_rgba(81,112,255,0.3)]",
+          gradient: "from-[#5170ff]/20 via-[#5170ff]/10 to-transparent",
+          glow: "group-hover:shadow-[0_0_30px_rgba(81,112,255,0.2)]",
+          text: "group-hover:text-[#5170ff]",
+          button: "hover:bg-[#5170ff]/20 hover:text-[#5170ff]",
+          tag: "hover:bg-[#5170ff]/20 hover:text-[#5170ff]",
+          modal: "border-[#5170ff]/30",
+          dot: "border-[#5170ff]/60"
         }
       default:
         return {
