@@ -75,29 +75,29 @@ export default function CertificationsGrid() {
       id: 7,
       title: "Digital Marketing Specialization",
       issuer: "Illinois",
-      date: "April 2025",
+      date: "October 2025",
       expiryDate: null,
       description: "Comprehensive digital marketing specialization covering strategic planning, implementation, and emerging technologies. Mastered data analysis, consumer behavior, brand measurement, and campaign attribution through practical application of tools and visualization techniques. Explored digital marketing revolution, AI integration, and emerging media strategies. Developed expertise in executing data-driven marketing campaigns and ROI optimization techniques.",
       credentialId: "1ME6P85IAKC7 | QDDUU62J27AK | HT1IYP3OUP4U | SVK1J4UO7A5K | S14GC9RAC5X1 | TLX9N9272I35",
       credentialURL: [
         {
+          title: "Marketing Analysis in Practice",
+          url: "https://www.coursera.org/account/accomplishments/certificate/HT1IYP3OUP4U"
+        },
+        {
+          title: "Marketing Analysis in Theory",
+          url: "https://www.coursera.org/account/accomplishments/certificate/QDDUU62J27AK"
+        },
+        {
           title: "Marketing in Digital World",
           url: "https://www.coursera.org/account/accomplishments/certificate/1ME6P85IAKC7"
         },
         {
-          title: "Digital Marketing Analysis in Theory",
-          url: "https://www.coursera.org/account/accomplishments/certificate/QDDUU62J27AK"
-        },
-        {
-          title: "Digital Marketing Analysis in Practice",
-          url: "https://www.coursera.org/account/accomplishments/certificate/HT1IYP3OUP4U"
-        },
-        {
-          title: "Digital Marketing Implementation: Executing Strategies in a Connected, Data-Driven World",
+          title: "Digital Marketing Implementation",
           url: "https://www.coursera.org/account/accomplishments/verify/SVK1J4UO7A5K"
         },
         {
-          title: "Digital Marketing Strategy: Navigating Emerging Media and AI",
+          title: "Digital Marketing Strategy",
           url: "http://coursera.org/account/accomplishments/verify/S14GC9RAC5X1"
         },
         {
@@ -105,7 +105,7 @@ export default function CertificationsGrid() {
           url: "https://www.coursera.org/account/accomplishments/verify/TLX9N9272I35"
         }
       ],
-      skills: ["Data Analysis", "Consumer Behavior", "Brand Measurement", "Campaign Attribution", "Data Visualization", "Marketing Analytics", "Storytelling", "Business Impact", "Digital Marketing", "Web Analytics", "SEO", "Cross-Channel Marketing", "Customer Relationship Management", "AI Personalization", "Brand Management", "Marketing Automation", "Campaign Management", "Social Media Strategy", "Customer Experience Strategy", "Search Engine Optimization", "Emerging Technologies", "Data Ethics", "Marketing Communications", "Augmented Reality", "Data-Driven Decision-Making", "Strategic Communication", "Integrated Marketing Communications", "Artificial Intelligence", "Marketing Channel", "Innovation", "Marketing Strategies", "Business Strategy", "Business Transformation", "Case Studies", "Analysis", "Global Marketing", "Digital Transformation", "MarTech"],
+      skills: ["Data Analysis", "Consumer Behavior", "Brand Measurement", "Campaign Attribution", "Data Visualization", "Marketing Analytics", "SEO", "Cross-Channel Marketing", "Customer Relationship Management", "AI Personalization", "Brand Management", "Marketing Automation", "Campaign Management", "Search Engine Optimization", "Emerging Technologies", "Data Ethics", "Marketing Communications", "Business Strategy", "Business Transformation"],
       image: "/igies.png",
     },
     {
