@@ -77,8 +77,8 @@ export default function CertificationsGrid() {
       issuer: "Illinois",
       date: "April 2025",
       expiryDate: null,
-      description: "Strategic digital marketing training focusing on data analysis, consumer behavior, brand measurement, and campaign attribution through practical application of tools and visualization techniques. Mastered advanced analytics platforms and developed comprehensive marketing strategies. Implemented data-driven decision making and ROI optimization techniques for various marketing campaigns.",
-      credentialId: "1ME6P85IAKC7 | QDDUU62J27AK | HT1IYP3OUP4U",
+      description: "Comprehensive digital marketing specialization covering strategic planning, implementation, and emerging technologies. Mastered data analysis, consumer behavior, brand measurement, and campaign attribution through practical application of tools and visualization techniques. Explored digital marketing revolution, AI integration, and emerging media strategies. Developed expertise in executing data-driven marketing campaigns and ROI optimization techniques.",
+      credentialId: "1ME6P85IAKC7 | QDDUU62J27AK | HT1IYP3OUP4U | SVK1J4UO7A5K | S14GC9RAC5X1 | TLX9N9272I35",
       credentialURL: [
         {
           title: "Marketing in Digital World",
@@ -91,9 +91,21 @@ export default function CertificationsGrid() {
         {
           title: "Digital Marketing Analysis in Practice",
           url: "https://www.coursera.org/account/accomplishments/certificate/HT1IYP3OUP4U"
+        },
+        {
+          title: "Digital Marketing Implementation: Executing Strategies in a Connected, Data-Driven World",
+          url: "https://www.coursera.org/account/accomplishments/verify/SVK1J4UO7A5K"
+        },
+        {
+          title: "Digital Marketing Strategy: Navigating Emerging Media and AI",
+          url: "http://coursera.org/account/accomplishments/verify/S14GC9RAC5X1"
+        },
+        {
+          title: "The Digital Marketing Revolution",
+          url: "https://www.coursera.org/account/accomplishments/verify/TLX9N9272I35"
         }
       ],
-      skills: ["Data Analysis", "Consumer Behavior", "Brand Measurement", "Campaign Attribution", "Data Visualization", "Marketing Analytics", "Storytelling", "Business Impact"],
+      skills: ["Data Analysis", "Consumer Behavior", "Brand Measurement", "Campaign Attribution", "Data Visualization", "Marketing Analytics", "Storytelling", "Business Impact", "Digital Marketing", "Web Analytics", "SEO", "Cross-Channel Marketing", "Customer Relationship Management", "AI Personalization", "Brand Management", "Marketing Automation", "Campaign Management", "Social Media Strategy", "Customer Experience Strategy", "Search Engine Optimization", "Emerging Technologies", "Data Ethics", "Marketing Communications", "Augmented Reality", "Data-Driven Decision-Making", "Strategic Communication", "Integrated Marketing Communications", "Artificial Intelligence", "Marketing Channel", "Innovation", "Marketing Strategies", "Business Strategy", "Business Transformation", "Case Studies", "Analysis", "Global Marketing", "Digital Transformation", "MarTech"],
       image: "/igies.png",
     },
     {
@@ -308,9 +320,9 @@ export default function CertificationsGrid() {
                   animate={{ y: 0, opacity: 1 }}
                   transition={{ duration: 0.4 }}
                 >
-                  <div className="flex items-center">
+                  <div className="flex items-start">
                     <motion.div
-                      className="w-96 h-48 rounded-lg overflow-hidden mr-4 bg-white/5 flex items-center justify-center border border-white/10 relative"
+                      className="w-32 h-32 rounded-lg overflow-hidden mr-6 bg-white/5 flex items-center justify-center border border-white/10 relative flex-shrink-0"
                       initial={{ scale: 0.9, opacity: 0 }}
                       animate={{ scale: 1, opacity: 1 }}
                       transition={{ duration: 0.5, delay: 0.1 }}
@@ -320,8 +332,8 @@ export default function CertificationsGrid() {
                         src={selectedCertificate.image}
                         alt={`${selectedCertificate.issuer} logo`}
                         fill
-                        className="object-contain p-4"
-                        sizes="384px"
+                        className="object-contain p-3"
+                        sizes="128px"
                       />
                     </motion.div>
                     <div>
@@ -357,7 +369,7 @@ export default function CertificationsGrid() {
                           className="mt-4"
                         >
                           {Array.isArray(selectedCertificate.credentialURL) ? (
-                            <div className="space-y-2">
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                               {selectedCertificate.credentialURL.map((cred, index) => (
                                 <motion.a
                                   key={index}
@@ -366,10 +378,10 @@ export default function CertificationsGrid() {
                                   rel="noopener noreferrer"
                                   whileHover={{ scale: 1.02 }}
                                   whileTap={{ scale: 0.98 }}
-                                  className="inline-flex items-center px-4 py-2 bg-white/10 hover:bg-white/20 text-white rounded-md transition-colors"
+                                  className="flex items-start px-4 py-3 bg-white/10 hover:bg-white/20 text-white rounded-md transition-colors w-full"
                                 >
-                                  <ExternalLink className="w-4 h-4 mr-2" />
-                                  Verify {cred.title}
+                                  <ExternalLink className="w-4 h-4 mr-3 mt-0.5 flex-shrink-0" />
+                                  <span className="text-sm leading-relaxed">Verify {cred.title}</span>
                                 </motion.a>
                               ))}
                             </div>
