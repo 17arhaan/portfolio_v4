@@ -636,6 +636,7 @@ export default function ProjectsGrid() {
         "Data Visualization"
       ],
       links: [
+        { url: "https://maze-solver-sooty.vercel.app/", icon: ExternalLink },
         { url: "https://github.com/17arhaan/Maze_Solver", icon: Github },
       ],
     },
