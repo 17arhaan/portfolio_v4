@@ -18,7 +18,13 @@ export interface GitHubStats {
 export async function getGitHubStats(username: string): Promise<GitHubStats> {
   try {
     console.log('Fetching GitHub stats for:', username)
-    const response = await fetch(`/api/github?username=${encodeURIComponent(username)}`)
+    const response = await fetch(`/api/github?username=${encodeURIComponent(username)}`, {
+      cache: 'no-store',
+      headers: {
+        'Cache-Control': 'no-cache',
+        'Pragma': 'no-cache',
+      },
+    })
     
     if (!response.ok) {
       const errorData = await response.json().catch(() => ({}))
@@ -34,7 +40,7 @@ export async function getGitHubStats(username: string): Promise<GitHubStats> {
 
     const data = await response.json()
     console.log('GitHub stats response:', data)
-    return data
+    return data as GitHubStats
   } catch (error) {
     console.error('Error fetching GitHub stats:', error)
     return {

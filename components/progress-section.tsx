@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react"
 import { motion } from "framer-motion"
-import { Github, Code, Trophy, Star, GitFork, GitPullRequest, Loader2, Award, BarChart2, TrendingUp, Zap, Target, Crown, Medal } from "lucide-react"
+import { Github, Code, Trophy, Star, BookOpen, GitPullRequest, Loader2, Award, BarChart2, TrendingUp, Zap, Target, Crown, Medal } from "lucide-react"
 import { getGitHubStats } from "@/lib/github"
 import { getLeetCodeStats } from "@/lib/leetcode"
 
@@ -32,7 +32,7 @@ export default function ProgressSection({ githubUsername, leetcodeUsername }: Pr
   const [stats, setStats] = useState({
     github: {
       stars: 0,
-      forks: 0,
+      publicRepos: 0,
       contributions: 0,
       topPercentage: 0
     },
@@ -62,7 +62,7 @@ export default function ProgressSection({ githubUsername, leetcodeUsername }: Pr
         setStats({
           github: {
             stars: githubStats.stars || 0,
-            forks: githubStats.forks || 0,
+            publicRepos: githubStats.publicRepos || 0,
             contributions: githubStats.contributions || 0,
             topPercentage: githubStats.topPercentage || 0
           },
@@ -334,10 +334,10 @@ export default function ProgressSection({ githubUsername, leetcodeUsername }: Pr
               
               <div className="bg-white/5 rounded-lg p-4 hover:bg-white/10 transition-colors">
                 <div className="flex items-center justify-center gap-2 mb-2">
-                  <GitFork className="w-5 h-5 text-blue-400" />
-                  <span className="text-sm text-gray-400">Forks</span>
+                  <BookOpen className="w-5 h-5 text-blue-400" />
+                  <span className="text-sm text-gray-400">Repos</span>
                 </div>
-                <p className="text-2xl font-bold text-center">{stats.github.forks}</p>
+                <p className="text-2xl font-bold text-center">{stats.github.publicRepos}</p>
               </div>
               
               <div className="bg-white/5 rounded-lg p-4 hover:bg-white/10 transition-colors">
@@ -353,7 +353,11 @@ export default function ProgressSection({ githubUsername, leetcodeUsername }: Pr
                   <TrendingUp className="w-5 h-5 text-pink-400" />
                   <span className="text-sm text-gray-400">Top %</span>
                 </div>
-                <p className="text-2xl font-bold text-center">{Math.ceil(stats.github.topPercentage)}%</p>
+                <p className="text-2xl font-bold text-center">
+                  {Number.isFinite(stats.github.topPercentage)
+                    ? stats.github.topPercentage.toFixed(1)
+                    : "0.0"}%
+                </p>
               </div>
             </div>
           </motion.div>

@@ -1,3 +1,6 @@
+export const revalidate = 0
+export const dynamic = 'force-dynamic'
+
 import { NextResponse } from 'next/server'
 import { Octokit } from '@octokit/rest'
 
@@ -51,6 +54,7 @@ export async function GET(request: Request) {
         'Authorization': `Bearer ${process.env.GITHUB_TOKEN || process.env.NEXT_PUBLIC_GITHUB_TOKEN}`,
         'Content-Type': 'application/json',
       },
+      cache: 'no-store',
       body: JSON.stringify({
         query: `
           query($username: String!) {
@@ -101,7 +105,7 @@ export async function GET(request: Request) {
       percentile
     })
 
-    return NextResponse.json({
+    const jsonResponse = NextResponse.json({
       stars,
       forks,
       contributions,
@@ -110,12 +114,22 @@ export async function GET(request: Request) {
       followers: userData.followers,
       following: userData.following,
     })
+
+    jsonResponse.headers.set('Cache-Control', 'no-store, no-cache, must-revalidate, proxy-revalidate')
+    jsonResponse.headers.set('Pragma', 'no-cache')
+    jsonResponse.headers.set('Expires', '0')
+
+    return jsonResponse
   } catch (error) {
     console.error('Error in GitHub API route:', error)
     if (error instanceof Error) {
       console.error('Error message:', error.message)
       console.error('Error stack:', error.stack)
     }
-    return NextResponse.json({ error: 'Failed to fetch GitHub stats' }, { status: 500 })
+    const errorResponse = NextResponse.json({ error: 'Failed to fetch GitHub stats' }, { status: 500 })
+    errorResponse.headers.set('Cache-Control', 'no-store, no-cache, must-revalidate, proxy-revalidate')
+    errorResponse.headers.set('Pragma', 'no-cache')
+    errorResponse.headers.set('Expires', '0')
+    return errorResponse
   }
 } 
