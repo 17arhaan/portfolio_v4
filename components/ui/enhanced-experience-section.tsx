@@ -28,7 +28,7 @@ export default function EnhancedExperienceSection() {
       id: 3,
       role: "Frontend Developer",
       company: "Invisible Mechanics",
-      location: "Hybrid | BLR, IN",
+      location: "Remote | BLR, IN",
       period: "Jan 2025 - Mar 2025",
       description: [
         "Programmed and deployed a responsive, component-based web interface using modern frameworks, increasing user engagement by 45% through improved UI performance and accessibility.",
@@ -41,42 +41,10 @@ export default function EnhancedExperienceSection() {
       logoUrl: "/IM_logo.jpg",
     },
     {
-      id: 1,
-      role: "Internship Trainee",
-      company: "Bharat Electronics Limited",
-      location: "On-Site | GZB, IN",
-      period: "Jun 2025 - Jul 2025",
-      description: [
-        "Optimized multiple JavaFX-based interfaces to enhance cybersecurity workflows, boosting operational efficiency by 25% and enhancing user experience across internal tools.",
-        "Administered the management and performance of 20+ virtual machines, ensuring 99.9% system uptime and automating critical processes to cut manual intervention time by 35%.",
-        "Developed automated monitoring scripts using Python and PowerShell that proactively detected system vulnerabilities and performance bottlenecks, reducing incident response time by 50%.",
-        "Implemented secure authentication protocols and access control mechanisms across multiple enterprise systems, strengthening cybersecurity posture and compliance with government standards.",
-        "Created comprehensive technical documentation and conducted training sessions for 15+ team members on new tools and security procedures, improving overall team productivity and knowledge retention.",
-      ],
-      skills: ["Cybersecurity", "System Administration", "JavaFX", "UI Development", "VM Management", "Process Automation", "Python", "Security Protocols"],
-      logoUrl: "/BEL_logo.jpg",
-    },
-    {
-      id: 2,
-      role: "Project Lead",
-      company: "Buildspace",
-      location: "Remote | LA, US",
-      period: "Jul 2024 - Sept 2024",
-      description: [
-        "Led development of an AI-powered mental health therapy chatbot serving 1000+ monthly users, implementing advanced conversational AI and therapeutic techniques.",
-        "Managed a 5-member cross-functional team across different time zones, implementing agile methodologies and delivering features across 12 successful sprints with zero delays.",
-        "Improved chatbot response accuracy from 65% to 95% through advanced NLP techniques, fine-tuning transformer models, and implementing context-aware conversation flows.",
-        "Reduced average response time from 2.5s to 1s through system optimization, database query optimization, and implementing efficient caching strategies.",
-        "Established comprehensive documentation, code review processes, and training protocols that improved team collaboration efficiency by 40% and reduced onboarding time for new members.",
-      ],
-      skills: ["Artificial Intelligence", "Team Leadership", "Project Management", "NLP", "System Optimization", "Agile Methodology"],
-      logoUrl: "/Buildspaceso_logo.jpg",
-    },
-    {
       id: 0,
       role: "Artificial Intelligence & Machine Learning Intern",
       company: "Concur IP (A Questel Company)",
-      location: "On-Site | Noida, IN",
+      location: "Hybrid | Noida, IN",
       period: "May 2025 - Jul 2025",
       description: [
         "Contributed to training and optimization of PyTorch-based logo-detection models for low-latency, real-time monitoring microservices under strict confidentiality.",
@@ -97,6 +65,31 @@ export default function EnhancedExperienceSection() {
         "Automation",
       ],
       logoUrl: "/questel.jpg",
+    },
+    {
+      id: 4,
+      role: "Software Development Engineer Intern",
+      company: "Amazon",
+      location: "On-Site | BLR, IN",
+      period: "Jan 2026 - Jul 2026",
+      description: [
+        "Built backend services supporting core e-commerce workflows within a high-traffic environment.",
+        "Collaborated with cross-functional partners to plan, implement, and launch customer-facing features on schedule.",
+        "Leveraged AWS tooling to design and deploy resilient microservices with an emphasis on reliability and scalability.",
+        "Implemented observability best practices to monitor service health and drive continuous improvements.",
+        "Participated in security and compliance reviews to ensure adherence to organizational standards.",
+      ],
+      skills: [
+        "Backend Development",
+        "AWS",
+        "Java",
+        "Distributed Systems",
+        "Event-Driven Architecture",
+        "Performance Optimization",
+        "Observability",
+        "Security Compliance",
+      ],
+      logoUrl: "/amazon.png",
     },
   ]
 
@@ -141,24 +134,6 @@ export default function EnhancedExperienceSection() {
           }}
         />
       </motion.div>
-
-      {/* Year markers along the timeline */}
-      {["2024", "2025"].map((year, index) => (
-        <motion.div
-          key={year}
-          className="absolute left-1/2 md:left-1/2 transform -translate-x-1/2 z-10"
-          style={{
-            top: index === 0 ? "0%" : "65%",
-          }}
-          initial={{ opacity: 0, x: -30 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.5, delay: 0.8 + index * 0.2 }}
-        >
-          <div className="bg-black/80 backdrop-blur-sm text-center text-xs border-l-2 border-white/30 pl-2 pr-3 py-1 rounded-r-sm flex items-center">
-            <span className="text-white/80">{year}</span>
-          </div>
-        </motion.div>
-      ))}
 
       {/* Timeline entries */}
       {experiences.map((experience, index) => (

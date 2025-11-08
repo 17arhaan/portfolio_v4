@@ -735,6 +735,7 @@ export default function ProjectsGrid() {
         "Web Application"
       ],
       links: [
+        { url: "https://speedy-green.vercel.app/", icon: ExternalLink },
         { url: "https://github.com/17arhaan/Speedy", icon: Github },
       ],
     },

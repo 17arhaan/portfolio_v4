@@ -17,10 +17,107 @@ type FreelanceWork = {
   website?: string
 }
 
+type WorkStyleConfig = {
+  cardTexture: string
+  borderGradient: string
+  logoGlow: string
+  skillsGradient: string
+  skillsShadow: string
+  buttonBackground: string
+  buttonBorder: string
+  buttonGlow: string
+  logoWrapperClass: string
+  logoWidth: number
+  logoHeight: number
+  logoFitClass: string
+  outerGlow?: string
+  innerTint?: string
+}
+
+const getWorkStyles = (company: string): WorkStyleConfig => {
+  switch (company) {
+    case "Civitas":
+      return {
+        cardTexture:
+          "radial-gradient(circle at 30% 50%, rgba(239, 68, 68, 0.1), rgba(251, 146, 60, 0.05), transparent)",
+        borderGradient: "linear-gradient(135deg, rgba(239, 68, 68, 0.45), rgba(251, 146, 60, 0.35))",
+        logoGlow: "radial-gradient(circle, rgba(239, 68, 68, 0.5), rgba(251, 146, 60, 0.35), transparent)",
+        skillsGradient: "linear-gradient(135deg, rgba(239, 68, 68, 0.22), rgba(251, 146, 60, 0.18))",
+        skillsShadow: "0 0 0 1px rgba(239, 68, 68, 0.2)",
+        buttonBackground: "linear-gradient(135deg, rgba(239, 68, 68, 0.42), rgba(251, 146, 60, 0.28))",
+        buttonBorder: "1px solid rgba(239, 68, 68, 0.4)",
+        buttonGlow: "linear-gradient(135deg, rgba(239, 68, 68, 0.52), rgba(251, 146, 60, 0.36))",
+        logoWrapperClass: "w-20 h-20",
+        logoWidth: 80,
+        logoHeight: 80,
+        logoFitClass: "object-cover",
+        outerGlow: "linear-gradient(135deg, rgba(239, 68, 68, 0.28), rgba(251, 146, 60, 0.2))",
+        innerTint: "rgba(239, 68, 68, 0.22)",
+      }
+    case "The Barking Cat":
+      return {
+        cardTexture:
+          "radial-gradient(circle at 40% 30%, rgba(236, 72, 153, 0.12), rgba(139, 92, 246, 0.1), transparent), radial-gradient(circle at 70% 70%, rgba(34, 211, 238, 0.08), transparent)",
+        borderGradient: "linear-gradient(135deg, rgba(236, 72, 153, 0.48), rgba(139, 92, 246, 0.36), rgba(34, 211, 238, 0.3))",
+        logoGlow: "radial-gradient(circle, rgba(236, 72, 153, 0.55), rgba(139, 92, 246, 0.45), rgba(34, 211, 238, 0.38), transparent)",
+        skillsGradient: "linear-gradient(135deg, rgba(236, 72, 153, 0.24), rgba(139, 92, 246, 0.22), rgba(34, 211, 238, 0.18))",
+        skillsShadow: "0 0 0 1px rgba(236, 72, 153, 0.24)",
+        buttonBackground: "linear-gradient(135deg, rgba(236, 72, 153, 0.44), rgba(139, 92, 246, 0.36), rgba(34, 211, 238, 0.3))",
+        buttonBorder: "1px solid rgba(236, 72, 153, 0.42)",
+        buttonGlow: "linear-gradient(135deg, rgba(236, 72, 153, 0.54), rgba(139, 92, 246, 0.48), rgba(34, 211, 238, 0.4))",
+        logoWrapperClass: "w-20 h-20",
+        logoWidth: 80,
+        logoHeight: 80,
+        logoFitClass: "object-contain",
+        outerGlow: "linear-gradient(135deg, rgba(236, 72, 153, 0.3), rgba(139, 92, 246, 0.24), rgba(34, 211, 238, 0.2))",
+        innerTint: "rgba(236, 72, 153, 0.24)",
+      }
+    case "TBC":
+      return {
+        cardTexture:
+          "radial-gradient(circle at 35% 35%, rgba(236, 72, 153, 0.14), rgba(168, 85, 247, 0.1), transparent), radial-gradient(circle at 70% 70%, rgba(14, 165, 233, 0.1), transparent)",
+        borderGradient: "linear-gradient(135deg, rgba(236, 72, 153, 0.48), rgba(168, 85, 247, 0.4), rgba(14, 165, 233, 0.32))",
+        logoGlow: "radial-gradient(circle, rgba(236, 72, 153, 0.6), rgba(168, 85, 247, 0.46), rgba(14, 165, 233, 0.34), transparent)",
+        skillsGradient: "linear-gradient(135deg, rgba(236, 72, 153, 0.28), rgba(168, 85, 247, 0.24), rgba(14, 165, 233, 0.2))",
+        skillsShadow: "0 0 0 1px rgba(236, 72, 153, 0.26)",
+        buttonBackground: "linear-gradient(135deg, rgba(236, 72, 153, 0.44), rgba(168, 85, 247, 0.36), rgba(14, 165, 233, 0.3))",
+        buttonBorder: "1px solid rgba(236, 72, 153, 0.42)",
+        buttonGlow: "linear-gradient(135deg, rgba(236, 72, 153, 0.54), rgba(168, 85, 247, 0.48), rgba(14, 165, 233, 0.38))",
+        logoWrapperClass: "w-20 h-20",
+        logoWidth: 80,
+        logoHeight: 80,
+        logoFitClass: "object-contain",
+        outerGlow: "linear-gradient(135deg, rgba(236, 72, 153, 0.34), rgba(168, 85, 247, 0.28), rgba(14, 165, 233, 0.22))",
+        innerTint: "rgba(236, 72, 153, 0.26)",
+      }
+    case "AILegal":
+    default:
+      return {
+        cardTexture:
+          "radial-gradient(circle at 70% 50%, rgba(34, 197, 94, 0.12), rgba(59, 130, 246, 0.08), transparent)",
+        borderGradient: "linear-gradient(135deg, rgba(34, 197, 94, 0.4), rgba(59, 130, 246, 0.32))",
+        logoGlow: "radial-gradient(circle, rgba(34, 197, 94, 0.5), rgba(59, 130, 246, 0.35), transparent)",
+        skillsGradient: "linear-gradient(135deg, rgba(34, 197, 94, 0.22), rgba(59, 130, 246, 0.18))",
+        skillsShadow: "0 0 0 1px rgba(34, 197, 94, 0.22)",
+        buttonBackground: "linear-gradient(135deg, rgba(34, 197, 94, 0.4), rgba(59, 130, 246, 0.28))",
+        buttonBorder: "1px solid rgba(34, 197, 94, 0.38)",
+        buttonGlow: "linear-gradient(135deg, rgba(34, 197, 94, 0.5), rgba(59, 130, 246, 0.34))",
+        logoWrapperClass: "w-24 h-16",
+        logoWidth: 96,
+        logoHeight: 64,
+        logoFitClass: "object-contain",
+        outerGlow: "linear-gradient(135deg, rgba(34, 197, 94, 0.3), rgba(59, 130, 246, 0.2))",
+        innerTint: "rgba(34, 197, 94, 0.22)",
+      }
+  }
+}
+
 export default function FreelanceSection() {
   const [selectedWork, setSelectedWork] = useState<FreelanceWork | null>(null)
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null)
   const modalRef = useRef<HTMLDivElement>(null)
+
+  const modalStyles = selectedWork ? getWorkStyles(selectedWork.company) : null
 
   const freelanceWorks: FreelanceWork[] = [
     {
@@ -43,7 +140,7 @@ export default function FreelanceSection() {
       id: 2,
       title: "Frontend Website Development",
       company: "AILegal",
-      period: "", 
+      period: "",
       description: [
         "Developed a professional frontend website for a legal firm, creating a comprehensive platform to showcase legal services, attorney profiles, and case studies.",
         "Built user-friendly consultation booking systems with integrated contact forms, appointment scheduling, and client inquiry management features.",
@@ -54,6 +151,22 @@ export default function FreelanceSection() {
       skills: ["ReactJs", "TypeScript", "Tailwind CSS", "UI/UX Design", "Responsive","SEO Optimized"],
       logoUrl: "/ai-legal-logo.jpeg",
       website: "https://ailegal.co.in/"
+    },
+    {
+      id: 3,
+      title: "Full-Stack Development",
+      company: "TBC",
+      period: "",
+      description: [
+        "Delivered an end-to-end clothing ecommerce experience for a boutique pet apparel brand, owning architecture, design, and deployment.",
+        "Implemented a robust product catalog with variant management, inventory tracking, and dynamic merchandising controls.",
+        "Built a secure checkout flow with integrated payments, order management dashboards, and automated notifications for customers and staff.",
+        "Crafted an immersive, responsive UI that blends storytelling with conversion-focused layouts optimized for mobile shoppers.",
+        "Set up automated deployments, performance monitoring, and SEO foundations to ensure reliability and discoverability post-launch."
+      ],
+      skills: ["Next.js", "TypeScript", "Tailwind CSS", "Node.js", "PostgreSQL", "Stripe", "Prisma", "Vercel", "Full-Stack Development"],
+      logoUrl: "/TBC.png",
+      website: "https://thebarkingcat.in/"
     }
   ]
 
@@ -75,28 +188,37 @@ export default function FreelanceSection() {
       <div className="container mx-auto px-6">
         <SectionHeader title="Freelance Work" icon={<Users className="w-6 h-6" />} />
 
-        <div className="mt-16 grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
-          {freelanceWorks.map((work, index) => (
-            <motion.div
-              key={work.id}
-              initial={{ opacity: 0, y: 30, rotateX: 10 }}
-              whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
-              viewport={{ once: true }}
-              transition={{ 
-                duration: 0.6, 
-                delay: index * 0.2,
-                type: "spring",
-                stiffness: 100,
-                damping: 15
-              }}
-              className="relative group cursor-pointer perspective-1000"
-              onMouseEnter={() => setHoveredIndex(index)}
-              onMouseLeave={() => setHoveredIndex(null)}
-              onClick={() => setSelectedWork(work)}
-            >
+        <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto auto-rows-fr">
+          {freelanceWorks.map((work, index) => {
+            const workStyles = getWorkStyles(work.company)
+
+            return (
+              <motion.div
+                key={work.id}
+                initial={{ opacity: 0, y: 30, rotateX: 10 }}
+                whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
+                viewport={{ once: true }}
+                transition={{ 
+                  duration: 0.6, 
+                  delay: index * 0.2,
+                  type: "spring",
+                  stiffness: 100,
+                  damping: 15
+                }}
+                className="relative group cursor-pointer perspective-1000 h-full"
+                style={{
+                  background: hoveredIndex === index ? workStyles.outerGlow : "transparent",
+                  borderRadius: "16px",
+                  padding: "2px",
+                  transition: "background 0.3s ease",
+                }}
+                onMouseEnter={() => setHoveredIndex(index)}
+                onMouseLeave={() => setHoveredIndex(null)}
+                onClick={() => setSelectedWork(work)}
+              >
               {/* Main Card */}
               <motion.div
-                className="relative bg-gradient-to-br from-zinc-900/80 to-black/60 backdrop-blur-md border border-white/10 rounded-xl p-6 overflow-hidden"
+                className="relative backdrop-blur-md border border-white/10 rounded-xl p-6 overflow-hidden h-full flex flex-col"
                 whileHover={{ 
                   scale: 1.05,
                   rotateY: index % 2 === 0 ? 5 : -5,
@@ -110,25 +232,31 @@ export default function FreelanceSection() {
                 }}
                 style={{
                   transformStyle: "preserve-3d",
+                  background: "rgba(6, 8, 12, 0.96)",
+                  boxShadow:
+                    hoveredIndex === index
+                      ? `0 18px 45px ${workStyles.innerTint ?? "rgba(0,0,0,0.45)"}`
+                      : "0 10px 28px rgba(0,0,0,0.35)",
+                  transition: "box-shadow 0.3s ease",
                 }}
               >
-                {/* Animated background with textured effect */}
+                {/* Subtle tint overlay */}
                 <motion.div
-                  className="absolute inset-0 opacity-0 group-hover:opacity-25 transition-opacity duration-500"
+                  className="absolute inset-0 pointer-events-none"
+                  animate={{ opacity: hoveredIndex === index ? 0.12 : 0 }}
+                  transition={{ duration: 0.3 }}
                   style={{
-                    background: work.company === 'Civitas' 
-                      ? 'radial-gradient(circle at 30% 50%, rgba(239, 68, 68, 0.15), rgba(251, 146, 60, 0.1)), repeating-linear-gradient(45deg, transparent, transparent 2px, rgba(239, 68, 68, 0.05) 2px, rgba(239, 68, 68, 0.05) 4px)'
-                      : 'radial-gradient(circle at 70% 50%, rgba(37, 99, 235, 0.15), rgba(59, 130, 246, 0.1)), repeating-linear-gradient(-45deg, transparent, transparent 2px, rgba(37, 99, 235, 0.05) 2px, rgba(37, 99, 235, 0.05) 4px)'
+                    background: workStyles.cardTexture,
                   }}
                 />
                 
                 {/* Glowing border effect */}
                 <motion.div
-                  className="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                  className="absolute inset-0 rounded-xl"
+                  animate={{ opacity: hoveredIndex === index ? 1 : 0 }}
+                  transition={{ duration: 0.3 }}
                   style={{
-                    background: work.company === 'Civitas'
-                      ? 'linear-gradient(135deg, rgba(239, 68, 68, 0.3), rgba(251, 146, 60, 0.2))'
-                      : 'linear-gradient(135deg, rgba(37, 99, 235, 0.3), rgba(59, 130, 246, 0.2))',
+                    background: workStyles.borderGradient,
                     padding: '2px',
                     borderRadius: '12px',
                     mask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
@@ -163,9 +291,7 @@ export default function FreelanceSection() {
                 {/* Content */}
                 <div className="relative z-10 flex items-start mb-6">
                   <motion.div
-                    className={`relative rounded-xl overflow-hidden mr-6 flex items-center justify-center flex-shrink-0 group ${
-                      work.company === 'Civitas' ? 'w-20 h-20' : 'w-24 h-16'
-                    }`}
+                    className={`relative rounded-xl overflow-hidden mr-6 flex items-center justify-center flex-shrink-0 group ${workStyles.logoWrapperClass}`}
                     whileHover={{ 
                       scale: 1.1,
                       rotateZ: 5
@@ -174,11 +300,11 @@ export default function FreelanceSection() {
                   >
                     {/* Logo glow effect */}
                     <motion.div
-                      className="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                      className="absolute inset-0 rounded-xl"
+                      animate={{ opacity: hoveredIndex === index ? 1 : 0 }}
+                      transition={{ duration: 0.3 }}
                       style={{
-                        background: work.company === 'Civitas'
-                          ? "radial-gradient(circle, rgba(239, 68, 68, 0.4), transparent)"
-                          : "radial-gradient(circle, rgba(37, 99, 235, 0.4), transparent)",
+                        background: workStyles.logoGlow,
                         filter: "blur(8px)",
                       }}
                     />
@@ -186,11 +312,9 @@ export default function FreelanceSection() {
                       <Image
                         src={work.logoUrl}
                         alt={`${work.company} logo`}
-                        width={work.company === 'Civitas' ? 80 : 96}
-                        height={work.company === 'Civitas' ? 80 : 64}
-                        className={`w-full h-full ${
-                          work.company === 'Civitas' ? 'object-cover' : 'object-contain'
-                        }`}
+                        width={workStyles.logoWidth}
+                        height={workStyles.logoHeight}
+                        className={`w-full h-full ${workStyles.logoFitClass}`}
                         quality={90}
                       />
                     </div>
@@ -243,12 +367,8 @@ export default function FreelanceSection() {
                       }}
                       className="px-3 py-1.5 backdrop-blur-sm border border-white/20 rounded-full text-xs text-gray-200 font-medium"
                       style={{
-                        background: work.company === 'Civitas'
-                          ? "linear-gradient(135deg, rgba(239, 68, 68, 0.15), rgba(251, 146, 60, 0.1))"
-                          : "linear-gradient(135deg, rgba(37, 99, 235, 0.15), rgba(59, 130, 246, 0.1))",
-                        boxShadow: work.company === 'Civitas'
-                          ? "0 0 0 1px rgba(239, 68, 68, 0.1)"
-                          : "0 0 0 1px rgba(37, 99, 235, 0.1)"
+                        background: workStyles.skillsGradient,
+                        boxShadow: workStyles.skillsShadow,
                       }}
                     >
                       {skill}
@@ -265,7 +385,7 @@ export default function FreelanceSection() {
                 </div>
 
                 {/* Action buttons */}
-                <div className="relative z-10 flex items-center justify-between">
+                <div className="relative z-10 flex items-center justify-between mt-auto pt-4">
                   <motion.div
                     className="text-xs text-gray-500 flex items-center gap-2"
                     animate={{ 
@@ -288,7 +408,7 @@ export default function FreelanceSection() {
                       href={work.website}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="relative flex items-center gap-2 px-4 py-2 rounded-lg text-xs text-white font-medium overflow-hidden group"
+                      className="relative flex items-center gap-2 px-4 py-2 rounded-lg text-xs text-white font-medium overflow-hidden"
                       whileHover={{ 
                         scale: 1.05,
                         y: -2
@@ -296,21 +416,17 @@ export default function FreelanceSection() {
                       whileTap={{ scale: 0.95 }}
                       onClick={(e) => e.stopPropagation()}
                       style={{
-                        background: work.company === 'Civitas'
-                          ? "linear-gradient(135deg, rgba(239, 68, 68, 0.25), rgba(251, 146, 60, 0.15))"
-                          : "linear-gradient(135deg, rgba(37, 99, 235, 0.25), rgba(59, 130, 246, 0.15))",
-                        border: work.company === 'Civitas'
-                          ? "1px solid rgba(239, 68, 68, 0.3)"
-                          : "1px solid rgba(37, 99, 235, 0.3)"
+                        background: workStyles.buttonBackground,
+                        border: workStyles.buttonBorder,
                       }}
                     >
                       {/* Button background glow */}
                       <motion.div
-                        className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                        className="absolute inset-0"
+                        animate={{ opacity: hoveredIndex === index ? 1 : 0 }}
+                        transition={{ duration: 0.3 }}
                         style={{
-                          background: work.company === 'Civitas'
-                            ? "linear-gradient(135deg, rgba(239, 68, 68, 0.4), rgba(251, 146, 60, 0.2))"
-                            : "linear-gradient(135deg, rgba(37, 99, 235, 0.4), rgba(59, 130, 246, 0.2))",
+                          background: workStyles.buttonGlow,
                           filter: "blur(8px)",
                         }}
                       />
@@ -328,7 +444,8 @@ export default function FreelanceSection() {
                 </div>
               </motion.div>
             </motion.div>
-          ))}
+            )
+          })}
         </div>
 
         {/* Modal for detailed view */}
@@ -346,23 +463,52 @@ export default function FreelanceSection() {
                 animate={{ scale: 1, opacity: 1, y: 0 }}
                 exit={{ scale: 0.9, opacity: 0, y: 20 }}
                 transition={{ type: "spring", damping: 25, stiffness: 300 }}
-                className="bg-zinc-900 border border-white/10 rounded-lg w-full max-w-4xl max-h-[90vh] overflow-y-auto m-2 sm:m-4"
+                className="relative bg-zinc-900 border border-white/10 rounded-lg w-full max-w-4xl max-h-[90vh] overflow-y-auto m-2 sm:m-4"
+                style={{
+                  boxShadow: modalStyles?.innerTint
+                    ? `0 12px 32px ${modalStyles.innerTint}`
+                    : undefined,
+                }}
               >
-                <div className="p-4 sm:p-6">
+                {/* Modal accent overlays */}
+                <div
+                  className="pointer-events-none absolute inset-0 rounded-lg"
+                  style={{
+                    background: modalStyles?.cardTexture,
+                    opacity: 0.45,
+                    maskImage:
+                      "radial-gradient(circle at 20% 20%, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 65%)",
+                    WebkitMaskImage:
+                      "radial-gradient(circle at 20% 20%, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 65%)",
+                  }}
+                />
+                <div
+                  className="pointer-events-none absolute inset-0 rounded-lg"
+                  style={{
+                    background: modalStyles?.innerTint,
+                    opacity: 0.25,
+                    maskImage:
+                      "linear-gradient(135deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.65) 25%, rgba(0,0,0,0) 55%)",
+                    WebkitMaskImage:
+                      "linear-gradient(135deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.65) 25%, rgba(0,0,0,0) 55%)",
+                  }}
+                />
+
+                <div className="p-4 sm:p-6 relative z-10">
                   {/* Header */}
                   <div className="flex items-start justify-between mb-6">
                     <div className="flex items-center">
-                      <div className={`rounded-lg overflow-hidden mr-4 bg-white/5 flex items-center justify-center border border-white/10 ${
-                        selectedWork.company === 'Civitas' ? 'w-20 h-20' : 'w-24 h-16'
-                      }`}>
+                      <div
+                        className={`rounded-lg overflow-hidden mr-4 bg-white/5 flex items-center justify-center border border-white/10 ${
+                          modalStyles?.logoWrapperClass ?? ""
+                        }`}
+                      >
                         <Image
                           src={selectedWork.logoUrl}
                           alt={`${selectedWork.company} logo`}
-                          width={selectedWork.company === 'Civitas' ? 80 : 96}
-                          height={selectedWork.company === 'Civitas' ? 80 : 64}
-                          className={`w-full h-full ${
-                            selectedWork.company === 'Civitas' ? 'object-cover' : 'object-contain'
-                          }`}
+                          width={modalStyles?.logoWidth ?? 96}
+                          height={modalStyles?.logoHeight ?? 64}
+                          className={`w-full h-full ${modalStyles?.logoFitClass ?? "object-contain"}`}
                           quality={95}
                         />
                       </div>
