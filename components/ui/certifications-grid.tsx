@@ -238,7 +238,7 @@ export default function CertificationsGrid() {
 
   return (
     <div className="mt-16">
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 gap-3 md:gap-6">
         {certifications.map((cert) => (
           <motion.div
             key={cert.id}
@@ -248,10 +248,10 @@ export default function CertificationsGrid() {
             transition={{ duration: 0.5 }}
             whileHover={{ y: -5 }}
             onClick={() => setSelectedCert(cert.id)}
-            className="border border-white/10 rounded-lg overflow-hidden bg-black/50 backdrop-blur-sm cursor-pointer h-auto sm:h-64 md:h-72 flex flex-col items-center justify-center p-4 sm:p-6 transition-all hover:border-white/30"
+          className="border border-white/20 rounded-lg overflow-hidden bg-black/50 backdrop-blur-sm cursor-pointer h-auto sm:h-56 md:h-60 flex flex-col items-center justify-center p-3 sm:p-4 transition-all hover:border-white/40 shadow-[0_0_10px_rgba(255,255,255,0.08)] hover:shadow-[0_0_18px_rgba(255,255,255,0.15)]"
           >
             <motion.div
-              className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 mb-3 sm:mb-4 md:mb-6 flex items-center justify-center relative"
+              className="w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 mb-3 sm:mb-4 md:mb-5 flex items-center justify-center relative"
               whileHover={{ scale: 1.05 }}
               transition={{ type: "spring", stiffness: 400, damping: 10 }}
             >
@@ -264,28 +264,15 @@ export default function CertificationsGrid() {
                 sizes="(max-width: 640px) 64px, (max-width: 768px) 80px, 96px"
               />
             </motion.div>
-            <div className="flex-grow flex flex-col justify-between">
+            <div className="flex-grow flex flex-col justify-between w-full">
               <div>
-                <h3 className="text-base sm:text-lg md:text-xl font-bold text-center line-clamp-3 mb-2">
+                <h3 className="text-xs sm:text-sm md:text-base font-bold text-center line-clamp-3 mb-2">
                   {cert.title}
                 </h3>
-                <p className="text-gray-400 text-xs sm:text-sm mt-1 sm:mt-2 text-center">
-                  {cert.issuer} • {cert.date}
-                </p>
-                {cert.credentialId && (
-                  <p className="text-gray-500 text-xs mt-1 text-center">
-                    {cert.credentialId === "Currently Ongoing" ? "Status: Currently Ongoing" : `ID: ${cert.credentialId}`}
-                  </p>
-                )}
               </div>
-              <motion.div
-                className="mt-4 flex items-center text-gray-400 text-sm justify-center"
-                initial={{ opacity: 0.6 }}
-                whileHover={{ opacity: 1, scale: 1.05 }}
-              >
-                <span>View details</span>
-                <ChevronRight className="w-4 h-4 ml-1" />
-              </motion.div>
+              <p className="text-gray-500 text-xs text-center mt-4">
+                {cert.credentialId === "Currently Ongoing" ? "Status: Currently Ongoing" : "Status: Completed"}
+              </p>
             </div>
           </motion.div>
         ))}

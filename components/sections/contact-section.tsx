@@ -1,7 +1,7 @@
 "use client"
 
 import React, { useState, useRef } from "react"
-import { motion } from "framer-motion"
+import { motion, AnimatePresence } from "framer-motion"
 import { 
   Mail, 
   Phone, 
@@ -9,7 +9,6 @@ import {
   Linkedin, 
   User, 
   Building2, 
-  Globe, 
   Send, 
   MessageSquare, 
   Quote, 
@@ -18,6 +17,7 @@ import {
   Check,
   X
 } from "lucide-react"
+import Image from "next/image"
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover"
 import { format } from "date-fns"
 import { Calendar } from "@/components/ui/calendar"
@@ -26,7 +26,19 @@ import SocialLink from "@/components/ui/social-link"
 import LeetCodeLink from "@/components/leetcode-link"
 import HackerRankLink from "@/components/hackerrank-link"
 
-export default function ContactSection() {
+interface ContactSectionProps {
+  isVideoPlaying: boolean
+  setIsVideoPlaying: (playing: boolean) => void
+  setShowConfetti: (show: boolean) => void
+  VideoPlayer: React.ComponentType<{ isPlaying: boolean; onEnded: () => void }>
+}
+
+export default function ContactSection({ 
+  isVideoPlaying,
+  setIsVideoPlaying,
+  setShowConfetti,
+  VideoPlayer
+}: ContactSectionProps) {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitStatus, setSubmitStatus] = useState<{ type: 'success' | 'error' | null; message: string }>({ type: null, message: '' })
   const formRef = useRef<HTMLFormElement>(null)
@@ -55,8 +67,6 @@ export default function ContactSection() {
         email: formData.get('email'),
         phone: formData.get('phone'),
         company: formData.get('company'),
-        inquiry: formData.get('inquiry'),
-        website: formData.get('website'),
         availability: formData.get('availability'),
         subject: formData.get('subject'),
         message: formData.get('message'),
@@ -98,7 +108,7 @@ export default function ContactSection() {
   }
 
   return (
-    <section id="contact" className="py-20 md:py-32 bg-zinc-950">
+    <section id="contact" className="py-20 md:py-32 bg-transparent">
       <div className="container mx-auto px-6">
         <SectionHeader title="Get in Touch" icon={<Mail className="w-6 h-6" />} />
 
@@ -197,6 +207,35 @@ export default function ContactSection() {
                 </div>
               </div>
             </motion.div>
+
+            {/* Signature & video trigger */}
+            <div className="mt-8 flex flex-col items-center md:translate-x-4">
+              <motion.div
+                initial={{ opacity: 0, y: 8 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+                className="cursor-pointer"
+                onClick={() => setIsVideoPlaying(true)}
+                role="button"
+                tabIndex={0}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter' || e.key === ' ') {
+                    setIsVideoPlaying(true);
+                  }
+                }}
+              >
+                <Image 
+                  src="/sign.png" 
+                  alt="Arhaan Girdhar Signature" 
+                  width={140} 
+                  height={140} 
+                  className="h-28 w-auto object-contain hover:opacity-90 transition-opacity"
+                  loading="lazy"
+                  unoptimized={true}
+                />
+              </motion.div>
+            </div>
           </motion.div>
 
           {/* Right Column - Form */}
@@ -222,7 +261,6 @@ export default function ContactSection() {
                       id="name"
                       name="name"
                       className="w-full pl-10 pr-4 py-2.5 bg-white/5 border border-white/10 rounded-md focus:outline-none focus:ring-1 focus:ring-white/30 transition-all"
-                      placeholder="Your name"
                       required
                     />
                   </div>
@@ -239,7 +277,6 @@ export default function ContactSection() {
                       id="email"
                       name="email"
                       className="w-full pl-10 pr-4 py-2.5 bg-white/5 border border-white/10 rounded-md focus:outline-none focus:ring-1 focus:ring-white/30 transition-all"
-                      placeholder="your@email.com"
                       required
                     />
                   </div>
@@ -258,7 +295,6 @@ export default function ContactSection() {
                       id="phone"
                       name="phone"
                       className="w-full pl-10 pr-4 py-2.5 bg-white/5 border border-white/10 rounded-md focus:outline-none focus:ring-1 focus:ring-white/30 transition-all"
-                      placeholder="Your phone number"
                     />
                   </div>
                 </div>
@@ -274,50 +310,12 @@ export default function ContactSection() {
                       id="company"
                       name="company"
                       className="w-full pl-10 pr-4 py-2.5 bg-white/5 border border-white/10 rounded-md focus:outline-none focus:ring-1 focus:ring-white/30 transition-all"
-                      placeholder="Your company"
                     />
                   </div>
                 </div>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div>
-                  <label htmlFor="inquiry" className="block text-sm font-medium text-gray-400 mb-1.5">
-                    Inquiry Type <span className="text-white/60">*</span>
-                  </label>
-                  <div className="relative">
-                    <MessageSquare className="w-4 h-4 text-gray-500 absolute left-3 top-1/2 transform -translate-y-1/2" />
-                    <select
-                      id="inquiry"
-                      name="inquiry"
-                      className="w-full pl-10 pr-4 py-2.5 bg-white/5 border border-white/10 rounded-md focus:outline-none focus:ring-1 focus:ring-white/30 transition-all appearance-none"
-                      required
-                    >
-                      <option value="">Select an option</option>
-                      <option value="Project">Project</option>
-                      <option value="Job">Job</option>
-                      <option value="Collaboration">Collaboration</option>
-                      <option value="Other">Other</option>
-                    </select>
-                  </div>
-                </div>
-
-                <div>
-                  <label htmlFor="website" className="block text-sm font-medium text-gray-400 mb-1.5">
-                    Website
-                  </label>
-                  <div className="relative">
-                    <Globe className="w-4 h-4 text-gray-500 absolute left-3 top-1/2 transform -translate-y-1/2" />
-                    <input
-                      type="url"
-                      id="website"
-                      name="website"
-                      className="w-full pl-10 pr-4 py-2.5 bg-white/5 border border-white/10 rounded-md focus:outline-none focus:ring-1 focus:ring-white/30 transition-all"
-                      placeholder="https://your-website.com"
-                    />
-                  </div>
-                </div>
-              </div>
+              {/* Removed Inquiry Type and Website fields */}
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
@@ -333,7 +331,6 @@ export default function ContactSection() {
                           id="availability"
                           name="availability"
                           className="w-full pl-10 pr-4 py-2.5 bg-white/5 border border-white/10 rounded-md focus:outline-none focus:ring-1 focus:ring-white/30 transition-all cursor-text"
-                          placeholder="When are you available?"
                           value={date ? format(date, "PPP") : ""}
                           readOnly
                         />
@@ -362,7 +359,6 @@ export default function ContactSection() {
                       id="subject"
                       name="subject"
                       className="w-full pl-10 pr-4 py-2.5 bg-white/5 border border-white/10 rounded-md focus:outline-none focus:ring-1 focus:ring-white/30 transition-all"
-                      placeholder="What's this about?"
                       required
                     />
                   </div>
@@ -384,7 +380,6 @@ export default function ContactSection() {
                     onChange={handleMessageChange}
                     style={{ height: messageHeight, overflow: 'hidden', resize: 'none' }}
                     className="w-full pl-10 pr-4 py-2.5 bg-white/5 border border-white/10 rounded-md focus:outline-none focus:ring-1 focus:ring-white/30 transition-all resize-none"
-                    placeholder="Your message..."
                     required
                   />
                 </div>
@@ -454,6 +449,9 @@ export default function ContactSection() {
                 )}
               </motion.button>
             </form>
+            <p className="text-gray-400 text-sm mt-6 text-center">
+              &copy; {new Date().getFullYear()} Arhaan Girdhar. All rights reserved.
+            </p>
           </motion.div>
         </div>
       </div>

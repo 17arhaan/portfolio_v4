@@ -13,7 +13,7 @@ import FreelanceSection from "@/components/sections/freelance-section"
 import ProjectsSection from "@/components/sections/projects-section"
 import CertificationsSection from "@/components/sections/certifications-section"
 import ContactSection from "@/components/sections/contact-section"
-import FooterSection from "@/components/sections/footer-section"
+// Footer removed
 
 // UI Components
 import HamburgerMenu from "@/components/ui/hamburger-menu"
@@ -76,9 +76,7 @@ export default function Portfolio() {
 
   const textArray = [
     "Software Developer",
-    "Problem Solver",
-    "Algorithm Enthusiast",
-    "AI / ML Junior",
+    "AI / ML Engineer",
     "CS Undergraduate",
   ]
 
@@ -172,7 +170,7 @@ export default function Portfolio() {
 
 
   return (
-    <div className="bg-black text-white min-h-screen font-mono relative overflow-hidden">
+    <div className="min-h-screen font-mono relative overflow-hidden text-foreground">
       {/* Confetti container */}
       {showConfetti && (
         <motion.div 
@@ -202,9 +200,21 @@ export default function Portfolio() {
       )}
 
       {/* Simple static background */}
-      <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
-        <div className="absolute inset-0 opacity-[0.05] bg-[radial-gradient(ellipse_at_top,rgba(255,255,255,0.3),transparent_70%)]"></div>
-      </div>
+      <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none" />
+
+      {/* Global video overlay */}
+      <AnimatePresence>
+        {isVideoPlaying && (
+          <VideoPlayer 
+            isPlaying={isVideoPlaying} 
+            onEnded={() => {
+              setIsVideoPlaying(false);
+              setShowConfetti(true);
+              setTimeout(() => setShowConfetti(false), 5000);
+            }} 
+          />
+        )}
+      </AnimatePresence>
 
 
 
@@ -247,13 +257,21 @@ export default function Portfolio() {
           scrollToSection={scrollToSection} 
         />
 
+        <div aria-hidden className="section-divider my-12 md:my-16" />
+
         <AboutSection />
+
+        <div aria-hidden className="section-divider my-12 md:my-16" />
 
         <ExperienceSection />
 
         <FreelanceSection />
 
+        <div aria-hidden className="section-divider my-12 md:my-16" />
+
         <ProjectsSection />
+
+        <div aria-hidden className="section-divider my-12 md:my-16" />
 
         <CertificationsSection />
 
@@ -261,6 +279,8 @@ export default function Portfolio() {
         <section id="skills" className="py-20 px-4 md:px-8">
           <SkillCategoryDisplayComponent />
         </section>
+
+        <div aria-hidden className="section-divider my-12 md:my-16" />
 
         {/* Progress Section */}
         <section id="achievements">
@@ -270,15 +290,17 @@ export default function Portfolio() {
           />
         </section>
 
-        <ContactSection />
+        <div aria-hidden className="section-divider my-12 md:my-16" />
+
+        <ContactSection 
+          isVideoPlaying={isVideoPlaying}
+          setIsVideoPlaying={setIsVideoPlaying}
+          setShowConfetti={setShowConfetti}
+          VideoPlayer={VideoPlayer}
+        />
       </main>
 
-      <FooterSection 
-        isVideoPlaying={isVideoPlaying}
-        setIsVideoPlaying={setIsVideoPlaying}
-        setShowConfetti={setShowConfetti}
-        VideoPlayer={VideoPlayer}
-      />
+      {/* Footer removed */}
     </div>
   )
 }

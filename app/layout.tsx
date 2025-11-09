@@ -204,7 +204,7 @@ export default function RootLayout({
   };
 
   return (
-    <html lang="en" className={`${inter.variable} ${jetbrainsMono.variable}`}>
+    <html lang="en" className={`${inter.variable} ${jetbrainsMono.variable} dark`}>
       <head>
         <script
           type="application/ld+json"
@@ -224,7 +224,7 @@ export default function RootLayout({
         <link rel="dns-prefetch" href="https://linkedin.com" />
         <link rel="preload" href="/AG1.png" as="image" type="image/png" />
         <link rel="preload" href="/pfp.png" as="image" type="image/png" />
-        <meta name="theme-color" content="#000000" />
+        <meta name="theme-color" content="#0b1220" />
         <meta name="color-scheme" content="dark" />
       </head>
       <body className="font-mono">

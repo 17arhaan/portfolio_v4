@@ -157,7 +157,7 @@ export default function HeroSection({ typedText, scrollToSection }: HeroSectionP
             </h1>
 
             <div className="text-lg xs:text-xl sm:text-2xl md:text-4xl text-gray-300 mb-8 sm:mb-12 h-10 sm:h-12 flex items-center justify-center">
-              <span className="mr-2 sm:mr-3">I'm a</span>
+              <span className="mr-2 sm:mr-3"></span>
               <span className="text-white font-medium relative">
                 {typedText}
                 <span className="absolute right-[-6px] sm:right-[-8px] top-0 h-full w-[2px] bg-white opacity-75" />
@@ -165,7 +165,7 @@ export default function HeroSection({ typedText, scrollToSection }: HeroSectionP
             </div>
 
             <p className="text-gray-400 max-w-3xl mx-auto mb-10 sm:mb-16 leading-relaxed text-base sm:text-lg md:text-xl italic px-2 sm:px-0">
-              A Computer Science student passionate about AI/ML and software development. Turning visions into reality.
+              A Computer Science student passionate about AI/ML and software development. Turning vision into reality.
             </p>
 
             <div className="flex flex-wrap justify-center gap-4 sm:gap-6 mb-16 sm:mb-24">

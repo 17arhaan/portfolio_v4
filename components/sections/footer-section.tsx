@@ -22,7 +22,7 @@ export default function FooterSection({
   VideoPlayer 
 }: FooterSectionProps) {
   return (
-    <footer className="py-12 border-t border-white/10 bg-black relative overflow-hidden">
+    <footer className="py-12 border-t border-white/10 bg-transparent relative overflow-hidden">
       {/* Animated Background Effects */}
       <div className="absolute inset-0 z-0">
         {/* Radial Gradient Background */}
@@ -153,44 +153,7 @@ export default function FooterSection({
 
       <div className="container mx-auto px-6 relative z-10">
         <div className="flex flex-col items-center justify-center space-y-6">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="cursor-pointer"
-            onClick={() => setIsVideoPlaying(true)}
-            role="button"
-            tabIndex={0}
-            onKeyDown={(e) => {
-              if (e.key === 'Enter' || e.key === ' ') {
-                setIsVideoPlaying(true);
-              }
-            }}
-          >
-            <Image 
-              src="/sign.png" 
-              alt="Arhaan Girdhar" 
-              width={96}
-              height={96}
-              className="h-24 w-auto object-contain hover:opacity-80 transition-opacity" 
-              loading="lazy"
-              unoptimized={true}
-            />
-          </motion.div>
-          
-          <AnimatePresence>
-            {isVideoPlaying && (
-              <VideoPlayer 
-                isPlaying={isVideoPlaying} 
-                onEnded={() => {
-                  setIsVideoPlaying(false);
-                  setShowConfetti(true);
-                  setTimeout(() => setShowConfetti(false), 5000);
-                }} 
-              />
-            )}
-          </AnimatePresence>
+          {/* Signature and video removed; moved to Contact section */}
 
           <motion.div
             initial={{ opacity: 0 }}
@@ -206,15 +169,7 @@ export default function FooterSection({
             <SocialLink icon={<Mail className="w-5 h-5" />} href="mailto:17arhaan.connect@gmail.com" />
           </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-            className="text-center"
-          >
-            <p className="text-gray-400 text-sm">&copy; {new Date().getFullYear()} Arhaan Girdhar. All rights reserved.</p>
-          </motion.div>
+          {/* Copyright moved to Contact section */}
         </div>
       </div>
     </footer>

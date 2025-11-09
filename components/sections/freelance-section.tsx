@@ -184,7 +184,7 @@ export default function FreelanceSection() {
   }, [])
 
   return (
-    <section id="freelance" className="py-20 md:py-32 bg-black">
+    <section id="freelance" className="pt-10 md:pt-16 pb-20 md:pb-32 bg-transparent">
       <div className="container mx-auto px-6">
         <SectionHeader title="Freelance Work" icon={<Users className="w-6 h-6" />} />
 
@@ -289,37 +289,7 @@ export default function FreelanceSection() {
                   ))}
                 </div>
                 {/* Content */}
-                <div className="relative z-10 flex items-start mb-6">
-                  <motion.div
-                    className={`relative rounded-xl overflow-hidden mr-6 flex items-center justify-center flex-shrink-0 group ${workStyles.logoWrapperClass}`}
-                    whileHover={{ 
-                      scale: 1.1,
-                      rotateZ: 5
-                    }}
-                    transition={{ duration: 0.3 }}
-                  >
-                    {/* Logo glow effect */}
-                    <motion.div
-                      className="absolute inset-0 rounded-xl"
-                      animate={{ opacity: hoveredIndex === index ? 1 : 0 }}
-                      transition={{ duration: 0.3 }}
-                      style={{
-                        background: workStyles.logoGlow,
-                        filter: "blur(8px)",
-                      }}
-                    />
-                    <div className="relative bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm border border-white/20 rounded-xl w-full h-full flex items-center justify-center overflow-hidden">
-                      <Image
-                        src={work.logoUrl}
-                        alt={`${work.company} logo`}
-                        width={workStyles.logoWidth}
-                        height={workStyles.logoHeight}
-                        className={`w-full h-full ${workStyles.logoFitClass}`}
-                        quality={90}
-                      />
-                    </div>
-                  </motion.div>
-                  
+                <div className="relative z-10 mb-6">
                   <div className="flex-1">
                     <motion.h3 
                       className="text-2xl font-bold mb-3 bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent"
@@ -448,7 +418,7 @@ export default function FreelanceSection() {
           })}
         </div>
 
-        {/* Modal for detailed view */}
+                {/* Modal for detailed view */}
         <AnimatePresence>
           {selectedWork && (
             <motion.div
@@ -497,26 +467,10 @@ export default function FreelanceSection() {
                 <div className="p-4 sm:p-6 relative z-10">
                   {/* Header */}
                   <div className="flex items-start justify-between mb-6">
-                    <div className="flex items-center">
-                      <div
-                        className={`rounded-lg overflow-hidden mr-4 bg-white/5 flex items-center justify-center border border-white/10 ${
-                          modalStyles?.logoWrapperClass ?? ""
-                        }`}
-                      >
-                        <Image
-                          src={selectedWork.logoUrl}
-                          alt={`${selectedWork.company} logo`}
-                          width={modalStyles?.logoWidth ?? 96}
-                          height={modalStyles?.logoHeight ?? 64}
-                          className={`w-full h-full ${modalStyles?.logoFitClass ?? "object-contain"}`}
-                          quality={95}
-                        />
-                      </div>
-                      <div>
-                        <h3 className="text-2xl font-bold mb-1">{selectedWork.company}</h3>
-                        <p className="text-lg text-gray-300 mb-1">{selectedWork.title}</p>
-                        {selectedWork.period && <p className="text-sm text-gray-400">{selectedWork.period}</p>}
-                      </div>
+                    <div>
+                      <h3 className="text-2xl font-bold mb-1">{selectedWork.company}</h3>
+                      <p className="text-lg text-gray-300 mb-1">{selectedWork.title}</p>
+                      {selectedWork.period && <p className="text-sm text-gray-400">{selectedWork.period}</p>}
                     </div>
                     <button
                       onClick={() => setSelectedWork(null)}

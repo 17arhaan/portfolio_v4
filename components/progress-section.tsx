@@ -291,7 +291,7 @@ export default function ProgressSection({ githubUsername, leetcodeUsername }: Pr
             <span className="text-gray-400">
               <Trophy className="w-6 h-6" />
             </span>
-            <h2 className="text-3xl md:text-4xl font-bold">Progress & Achievements</h2>
+            <h2 className="text-3xl md:text-4xl font-bold">Progress</h2>
           </div>
           <div className="w-16 h-1 bg-white mt-4"></div>
           <p className="text-gray-400 mt-4 text-center max-w-2xl">
@@ -325,34 +325,22 @@ export default function ProgressSection({ githubUsername, leetcodeUsername }: Pr
             
             <div className="grid grid-cols-2 gap-4">
               <div className="bg-white/5 rounded-lg p-4 hover:bg-white/10 transition-colors">
-                <div className="flex items-center justify-center gap-2 mb-2">
-                  <Star className="w-5 h-5 text-yellow-400" />
-                  <span className="text-sm text-gray-400">Stars</span>
-                </div>
+                <div className="flex items-center justify-center gap-2 mb-2 text-sm text-gray-400">Stars</div>
                 <p className="text-2xl font-bold text-center">{stats.github.stars}</p>
               </div>
               
               <div className="bg-white/5 rounded-lg p-4 hover:bg-white/10 transition-colors">
-                <div className="flex items-center justify-center gap-2 mb-2">
-                  <BookOpen className="w-5 h-5 text-blue-400" />
-                  <span className="text-sm text-gray-400">Repos</span>
-                </div>
+                <div className="flex items-center justify-center gap-2 mb-2 text-sm text-gray-400">Repos</div>
                 <p className="text-2xl font-bold text-center">{stats.github.publicRepos}</p>
               </div>
               
               <div className="bg-white/5 rounded-lg p-4 hover:bg-white/10 transition-colors">
-                <div className="flex items-center justify-center gap-2 mb-2">
-                  <GitPullRequest className="w-5 h-5 text-green-400" />
-                  <span className="text-sm text-gray-400">Contributions</span>
-                </div>
+                <div className="flex items-center justify-center gap-2 mb-2 text-sm text-gray-400">Contributions</div>
                 <p className="text-2xl font-bold text-center">{stats.github.contributions}</p>
               </div>
 
               <div className="bg-white/5 rounded-lg p-4 hover:bg-white/10 transition-colors">
-                <div className="flex items-center justify-center gap-2 mb-2">
-                  <TrendingUp className="w-5 h-5 text-pink-400" />
-                  <span className="text-sm text-gray-400">Top %</span>
-                </div>
+                <div className="flex items-center justify-center gap-2 mb-2 text-sm text-gray-400">Top %</div>
                 <p className="text-2xl font-bold text-center">
                   {Number.isFinite(stats.github.topPercentage)
                     ? stats.github.topPercentage.toFixed(1)
@@ -386,18 +374,12 @@ export default function ProgressSection({ githubUsername, leetcodeUsername }: Pr
             
             <div className="grid grid-cols-2 gap-4">
               <div className="bg-white/5 rounded-lg p-4 hover:bg-white/10 transition-colors">
-                <div className="flex items-center justify-center gap-2 mb-2">
-                  <Trophy className="w-5 h-5 text-yellow-400" />
-                  <span className="text-sm text-gray-400">Total Solved</span>
-                </div>
+                <div className="flex items-center justify-center gap-2 mb-2 text-sm text-gray-400">Total Solved</div>
                 <p className="text-2xl font-bold text-center">{stats.leetcode.totalSolved}</p>
               </div>
               
               <div className="bg-white/5 rounded-lg p-4 hover:bg-white/10 transition-colors">
-                <div className="flex items-center justify-center gap-2 mb-2">
-                  <Award className="w-5 h-5 text-purple-400" />
-                  <span className="text-sm text-gray-400">Ranking</span>
-                </div>
+                <div className="flex items-center justify-center gap-2 mb-2 text-sm text-gray-400">Ranking</div>
                 <p className="text-2xl font-bold text-center"># {stats.leetcode.ranking.toLocaleString()}</p>
               </div>
               
@@ -430,7 +412,12 @@ export default function ProgressSection({ githubUsername, leetcodeUsername }: Pr
           className="w-full"
         >
           <div className="mb-12">
-            <h3 className="text-2xl font-bold text-center mb-4">Achievement Timeline</h3>
+            <div className="flex items-center justify-center space-x-3 mb-4">
+              <span className="text-gray-400">
+                <Trophy className="w-6 h-6" />
+              </span>
+              <h2 className="text-3xl md:text-4xl font-bold">Achievements</h2>
+            </div>
             <div className="w-16 h-1 bg-white mx-auto"></div>
           </div>
 
@@ -463,7 +450,6 @@ export default function ProgressSection({ githubUsername, leetcodeUsername }: Pr
             </motion.div>
 
             
-
             {/* Timeline entries */}
             {achievements.map((achievement, index) => {
               const colors = getAchievementColor(achievement.type)
@@ -536,16 +522,8 @@ export default function ProgressSection({ githubUsername, leetcodeUsername }: Pr
                     />
 
                                          {/* Achievement content */}
-                     <div className="flex items-start">
-                       <motion.div
-                         className={`w-10 h-10 md:w-12 md:h-12 rounded-lg overflow-hidden mr-3 md:mr-4 ${colors.bg} flex items-center justify-center flex-shrink-0 border ${colors.border}`}
-                         whileHover={{ scale: 1.05 }}
-                       >
-                        <div className={colors.text}>
-                          {getAchievementIcon(achievement.type)}
-                        </div>
-                      </motion.div>
-                                             <div className="flex-1">
+                    <div className="flex items-start">
+                        <div className="flex-1">
                          <div className="flex items-center justify-between mb-1">
                            <h3 className="text-base md:text-lg font-bold">{achievement.title}</h3>
                            <span className={`text-xs uppercase tracking-wider font-medium ${colors.text}`}>

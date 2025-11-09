@@ -17,58 +17,60 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 0 0% 3.9%;
+    /* Premium light palette (kept for completeness if light mode is used) */
+    --background: 220 20% 98%;
+    --foreground: 222 22% 10%;
     --card: 0 0% 100%;
-    --card-foreground: 0 0% 3.9%;
+    --card-foreground: 222 22% 10%;
     --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 3.9%;
-    --primary: 0 0% 9%;
-    --primary-foreground: 0 0% 98%;
-    --secondary: 0 0% 96.1%;
-    --secondary-foreground: 0 0% 9%;
-    --muted: 0 0% 96.1%;
-    --muted-foreground: 0 0% 45.1%;
-    --accent: 0 0% 96.1%;
-    --accent-foreground: 0 0% 9%;
+    --popover-foreground: 222 22% 10%;
+    --primary: 43 96% 45%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 222 16% 92%;
+    --secondary-foreground: 222 22% 12%;
+    --muted: 222 16% 92%;
+    --muted-foreground: 222 8% 40%;
+    --accent: 226 33% 92%;
+    --accent-foreground: 222 22% 12%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
-    --border: 0 0% 89.8%;
-    --input: 0 0% 89.8%;
-    --ring: 0 0% 3.9%;
-    --chart-1: 12 76% 61%;
-    --chart-2: 173 58% 39%;
-    --chart-3: 197 37% 24%;
-    --chart-4: 43 74% 66%;
-    --chart-5: 27 87% 67%;
+    --border: 222 16% 86%;
+    --input: 222 16% 86%;
+    --ring: 43 96% 45%;
+    --chart-1: 43 96% 45%;
+    --chart-2: 262 83% 57%;
+    --chart-3: 199 89% 48%;
+    --chart-4: 172 66% 44%;
+    --chart-5: 16 88% 55%;
     --radius: 0.5rem;
   }
 
   .dark {
-    --background: 0 0% 3.9%;
+    /* Premium dark palette */
+    --background: 222 45% 6%;
     --foreground: 0 0% 98%;
-    --card: 0 0% 3.9%;
+    --card: 223 42% 8%;
     --card-foreground: 0 0% 98%;
-    --popover: 0 0% 3.9%;
+    --popover: 223 42% 8%;
     --popover-foreground: 0 0% 98%;
-    --primary: 0 0% 98%;
-    --primary-foreground: 0 0% 9%;
-    --secondary: 0 0% 14.9%;
+    --primary: 43 96% 55%; /* Gold */
+    --primary-foreground: 234 16% 12%;
+    --secondary: 225 28% 14%;
     --secondary-foreground: 0 0% 98%;
-    --muted: 0 0% 14.9%;
-    --muted-foreground: 0 0% 63.9%;
-    --accent: 0 0% 14.9%;
+    --muted: 225 20% 18%;
+    --muted-foreground: 220 8% 70%;
+    --accent: 226 32% 18%;
     --accent-foreground: 0 0% 98%;
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 98%;
-    --border: 0 0% 14.9%;
-    --input: 0 0% 14.9%;
-    --ring: 0 0% 83.1%;
-    --chart-1: 220 70% 50%;
-    --chart-2: 160 60% 45%;
-    --chart-3: 30 80% 55%;
-    --chart-4: 280 65% 60%;
-    --chart-5: 340 75% 55%;
+    --border: 224 24% 22%;
+    --input: 224 24% 22%;
+    --ring: 43 96% 55%;
+    --chart-1: 43 96% 55%;
+    --chart-2: 262 83% 57%;
+    --chart-3: 199 89% 48%;
+    --chart-4: 172 66% 44%;
+    --chart-5: 16 88% 55%;
   }
 }
 
@@ -79,6 +81,13 @@
   
   html, body {
     @apply bg-background text-foreground;
+    /* Premium background glow layers */
+    background-image:
+      radial-gradient(1200px 800px at 10% -10%, rgba(56, 189, 248, 0.08) 0%, transparent 60%),
+      radial-gradient(1000px 600px at 90% 10%, rgba(168, 85, 247, 0.07) 0%, transparent 60%),
+      radial-gradient(900px 700px at 50% 120%, rgba(234, 179, 8, 0.06) 0%, transparent 60%);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
     /* Prevent overscroll behavior */
     overscroll-behavior: none;
     /* Disable text selection by default */
@@ -117,6 +126,34 @@
   
   .contain-strict {
     contain: strict;
+  }
+  
+  /* Subtle glowing animated divider */
+  @keyframes dividerShimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+  }
+  .section-divider {
+    position: relative;
+    height: 1px;
+    width: 100%;
+    opacity: 0.85;
+  }
+  .section-divider::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: linear-gradient(
+      90deg,
+      rgba(255,255,255,0) 0%,
+      rgba(255,255,255,0.2) 25%,
+      rgba(255,255,255,0.55) 50%,
+      rgba(255,255,255,0.2) 75%,
+      rgba(255,255,255,0) 100%
+    );
+    background-size: 200% 100%;
+    animation: dividerShimmer 6s ease-in-out infinite;
+    filter: drop-shadow(0 0 8px rgba(255,255,255,0.15));
   }
 }
 
