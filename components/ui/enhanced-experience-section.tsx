@@ -71,7 +71,7 @@ export default function EnhancedExperienceSection() {
       role: "Software Development Engineer Intern",
       company: "Amazon",
       location: "On-Site | BLR, IN",
-      period: "Jan 2026 - Jul 2026",
+      period: "Upcoming",
       description: [
         "Built backend services supporting core e-commerce workflows within a high-traffic environment.",
         "Collaborated with cross-functional partners to plan, implement, and launch customer-facing features on schedule.",
@@ -136,7 +136,9 @@ export default function EnhancedExperienceSection() {
       </motion.div>
 
       {/* Timeline entries */}
-      {experiences.map((experience, index) => (
+      {experiences.map((experience, index) => {
+        const isUpcoming = experience.company === "Amazon";
+        return (
         <motion.div
           key={experience.id}
           initial={{ opacity: 0, y: 20 }}
@@ -181,7 +183,7 @@ export default function EnhancedExperienceSection() {
 
           {/* Content box */}
           <motion.div
-            className={`w-full md:w-[calc(50%-4rem)] bg-black/40 backdrop-blur-sm border border-white/10 rounded-lg p-4 md:p-5 cursor-pointer hover:border-white/30 transition-all relative ${
+            className={`w-full md:w-[calc(50%-4rem)] bg-black/40 backdrop-blur-sm border border-white/10 rounded-lg p-4 md:p-5 ${isUpcoming ? "" : "cursor-pointer hover:border-white/30"} transition-all relative ${
               index % 2 === 0 ? "md:mr-8" : "md:ml-8"
             }`}
             whileHover={{ scale: 1.03 }}
@@ -193,7 +195,11 @@ export default function EnhancedExperienceSection() {
                   }
                 : {}
             }
-            onClick={() => setSelectedExperience(experience)}
+            onClick={() => {
+              if (!isUpcoming) {
+                setSelectedExperience(experience)
+              }
+            }}
           >
             {/* Animated connector line to timeline - morphing effect */}
             <motion.div
@@ -245,11 +251,16 @@ export default function EnhancedExperienceSection() {
                 <h3 className="text-lg md:text-xl font-bold">{experience.role}</h3>
                 <p className="text-gray-300 text-sm md:text-base">{experience.company}</p>
                 <p className="text-gray-400 text-xs md:text-sm mt-1">{experience.location}</p>
+                {isUpcoming && (
+                  <span className="mt-2 inline-block text-[10px] md:text-xs px-2 py-0.5 rounded bg-white/10 border border-white/20 text-white/80">
+                    Upcoming
+                  </span>
+                )}
               </div>
             </div>
           </motion.div>
         </motion.div>
-      ))}
+      )})}
 
 
 

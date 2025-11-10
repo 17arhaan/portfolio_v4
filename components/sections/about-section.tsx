@@ -259,10 +259,16 @@ export default function AboutSection() {
             >
               <h3 className="text-2xl font-bold mb-6">Person Behind The Code</h3>
               <p className="text-gray-300 leading-relaxed text-[0.95rem] md:text-[1rem]">
-                I'm a Computer Science student at MIT Manipal specializing in AI/ML. I love building scalable ideas that solve real-world problems—from intelligent applications to production-grade software deployments. 
+                I'm a Computer Science student at MIT Manipal specializing in AI/ML. 
+                <br/>
+                <br/>
+                I love building scalable ideas that solve real-world problems from intelligent applications to production grade software deployments. 
+                <br/>
+               
                 Beyond coursework, I focus on end-to-end product thinking: data pipelines, model training, evaluation, and reliable cloud infrastructure with CI/CD.
                 <br/>
                 I enjoy translating ambiguous ideas into shipped features with measurable impact and clean engineering practices.
+                <br/>
                 <br/>
                 Open to collaborations, research projects, and connecting with people passionate about building something meaningful.
               </p>

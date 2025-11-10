@@ -21,7 +21,7 @@ const jetbrainsMono = JetBrains_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "Arhaan Girdhar | Software Developer & AI Enthusiast",
+    default: "Arhaan Girdhar | Software Developer & AI / ML Engineer",
     template: "%s | Arhaan Girdhar"
   },
   description: "Passionate Computer Science student at MIT Manipal specializing in AI/ML, full-stack development, and computer vision. Experienced in Python, React, Next.js, TensorFlow, and cloud technologies. Building innovative solutions with 15+ projects and multiple certifications.",
@@ -69,7 +69,7 @@ export const metadata: Metadata = {
     canonical: "/",
   },
   openGraph: {
-    title: "Arhaan Girdhar | Software Developer & AI Enthusiast",
+    title: "Arhaan Girdhar | Software Developer & AI / ML Engineer",
     description: "Passionate Computer Science student at MIT Manipal specializing in AI/ML, full-stack development, and computer vision. Experienced in Python, React, Next.js, TensorFlow, and cloud technologies. Building innovative solutions with 15+ projects and multiple certifications.",
     url: "https://www.arhaanportfolio.in",
     siteName: "Arhaan Girdhar Portfolio",
@@ -78,7 +78,7 @@ export const metadata: Metadata = {
         url: "https://www.arhaanportfolio.in/AG1.png",
         width: 1200,
         height: 630,
-        alt: "Arhaan Girdhar - Software Developer & AI Enthusiast Portfolio",
+        alt: "Arhaan Girdhar - Software Developer & AI / ML Engineer Portfolio",
         type: "image/png",
       },
     ],
@@ -87,7 +87,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Arhaan Girdhar | Software Developer & AI Enthusiast",
+    title: "Arhaan Girdhar | Software Developer & AI / ML Engineer",
     description: "Passionate Computer Science student at MIT Manipal specializing in AI/ML, full-stack development, and computer vision. Experienced in Python, React, Next.js, TensorFlow, and cloud technologies.",
     creator: "@17arhaan",
     images: ["https://www.arhaanportfolio.in/AG1.png"],
@@ -129,7 +129,7 @@ export default function RootLayout({
     "@context": "https://schema.org",
     "@type": "Person",
     "name": "Arhaan Girdhar",
-    "jobTitle": "Software Developer & AI Enthusiast",
+    "jobTitle": "Software Developer & AI / ML Engineer",
     "description": "Passionate Computer Science student at MIT Manipal specializing in AI/ML, full-stack development, and computer vision.",
     "url": "https://www.arhaanportfolio.in",
     "image": "https://www.arhaanportfolio.in/AG1.png",
@@ -167,7 +167,7 @@ export default function RootLayout({
     "@type": "WebSite",
     "name": "Arhaan Girdhar Portfolio",
     "url": "https://www.arhaanportfolio.in",
-    "description": "Portfolio of Arhaan Girdhar - Software Developer & AI Enthusiast",
+    "description": "Portfolio of Arhaan Girdhar - Software Developer & AI / ML Engineer",
     "author": {
       "@type": "Person",
       "name": "Arhaan Girdhar"
