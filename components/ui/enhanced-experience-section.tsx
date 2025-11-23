@@ -70,7 +70,7 @@ export default function EnhancedExperienceSection() {
       id: 4,
       role: "Software Development Engineer Intern",
       company: "Amazon",
-      location: "On-Site | BLR, IN",
+      location: "On-Site | HYD, IN",
       period: "Upcoming",
       description: [
         "Built backend services supporting core e-commerce workflows within a high-traffic environment.",
