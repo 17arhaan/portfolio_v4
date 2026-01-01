@@ -25,7 +25,7 @@ export default function CertificationsGrid() {
   const certifications: Certification[] = [
     {
       id: 15,
-      title: "Google Cloud Fundamentals: Core Infrastructure",
+      title: "Google Cloud Core Fundamentals",
       issuer: "Google",
       date: "Nov 2025",
       expiryDate: null,
@@ -37,15 +37,15 @@ export default function CertificationsGrid() {
     },
     {
       id: 14,
-      title: "Python for Data Science, AI & Development",
-      issuer: "IBM",
-      date: "Nov 2025",
+      title: "Programming with Java",
+      issuer: "Amazon",
+      date: "Feb 2026",
       expiryDate: null,
-      description: "A beginner-friendly, hands-on course designed to teach Python programming from scratch with a focus on data science and AI applications. Learners gain practical experience in writing Python code, working with data, and automating tasks using Jupyter Notebooks. Covers Python basics, data structures, control flow, OOP fundamentals, file handling, data analysis with NumPy and Pandas, and web scraping with BeautifulSoup & API access with requests.",
+      description: "This is the second course in the Amazon Junior Software Developer Professional Certificate. Explored advanced Object-Oriented Programming (OOP) concepts in Java, including Interfaces and Abstract Classes for achieving multiple inheritance and designing class hierarchies. Mastered Exception Handling with various types of exceptions and best practices using try-catch-finally blocks. Gained expertise in File I/O operations, reading from and writing to files, understanding different types of streams (byte streams and character streams), and performing file operations efficiently. Explored Serialization and Deserialization techniques to save and reconstruct object states, enabling effective use of configuration files. Developed advanced Java programming skills essential for creating robust, efficient, and scalable applications.",
       credentialId: "Currently Ongoing",
       credentialURL: null,
-      skills: ["Python Scripting", "Data Manipulation", "OOP", "Automation", "Web Scraping", "API Integration", "Data Analysis", "NumPy", "Pandas", "BeautifulSoup", "Jupyter Notebooks", "Machine Learning", "AI Applications"],
-      image: "/ibm.png",
+      skills: ["Java Programming", "Object-Oriented Programming", "Interfaces", "Abstract Classes", "Multiple Inheritance", "Exception Handling", "Try-Catch-Finally", "File I/O Operations", "Byte Streams", "Character Streams", "Serialization", "Deserialization", "Defensive Programming", "Error Handling", "Code Organization", "Modular Design", "Scalable Applications"],
+      image: "/aws.webp",
     },
     {
       id: 13,

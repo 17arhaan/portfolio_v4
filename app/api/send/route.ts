@@ -34,7 +34,7 @@ export async function POST(request: Request) {
     });
 
     // Validate required fields
-    if (!name || !email || !inquiry || !subject || !message) {
+    if (!name || !email || !subject || !message) {
       console.error('Missing required fields:', { name, email, inquiry, subject, message });
       return NextResponse.json(
         { success: false, error: 'Missing required fields' },
@@ -125,10 +125,12 @@ export async function POST(request: Request) {
                 <span class="value">${company}</span>
               </div>
               ` : ''}
+              ${inquiry ? `
               <div class="field">
                 <span class="label">Inquiry Type:</span>
                 <span class="value">${inquiry}</span>
               </div>
+              ` : ''}
               ${website ? `
               <div class="field">
                 <span class="label">Website:</span>
